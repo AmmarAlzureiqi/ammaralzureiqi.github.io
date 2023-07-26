@@ -8,7 +8,6 @@
 <div id="my_dataviz"></div>
 
 <script>
-
     // set the dimensions and margins of the graph
     var margin = {top: 10, right: 30, bottom: 30, left: 60},
         width = 1000 - margin.left - margin.right,
@@ -28,6 +27,7 @@
     //Read the data
     d3.csv('https://ammaralzureiqi.github.io/COVID%20Data/weekly_cases.csv', function(data) {    
       // Add X axis --> it is a date format
+
       var parseTime = d3.timeParse("%Y-%m-%d");
     data.forEach(function(d) {d['date'] = parseTime(d['date']);});
       var x = d3.scaleTime().domain(d3.extent(data, function(d) { return new Date(d['date']);})).range([0, width]);
