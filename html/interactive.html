@@ -9,7 +9,29 @@
 <div id="interactive-viz"></div>
 
 <!-- Initialize a select button -->
-<select id="selectButton2"></select>
+<style>
+ .select{
+  padding: 8px 12px;
+  color: #333333;
+  background-color: #eeeeee;
+  border: 2px solid #dddddd;
+  cursor: pointer;
+  border-radius: 5px;
+  position:absolute;
+  top: 20;
+  left: 700;
+ }
+
+
+</style>
+
+
+<select id="selectButton2" class="select">
+<option disabled selected>Country</option>
+
+</select>
+
+
 
 <!-- Color Scale -->
 <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
@@ -26,10 +48,11 @@ const svg = d3.select("#interactive-viz").append("svg")
   .attr("height", HEIGHT + MARGIN.TOP + MARGIN.BOTTOM)
 
 const g = svg.append("g")
-  .attr("transform", `translate(${MARGIN.LEFT}, ${MARGIN.TOP})`)
+  .attr('size', 500)
 
 d3.csv('https://ammaralzureiqi.github.io/COVID%20Data/weekly_cases.csv', function(data) {    
 
+d3.select("#selectButton2").attr("transform", "translate(100,350)")
 
 var parseTime = d3.timeParse("%Y-%m-%d");
 data.forEach(function(d) {d['date'] = parseTime(d['date']);});
@@ -39,14 +62,14 @@ var x = d3.scaleTime()
   .range([0, WIDTH]);
 
 svg.append("g")
-  .attr("transform", "translate(0," + HEIGHT + ")")
+  .attr("transform", "translate(100,350)")
   .call(d3.axisBottom(x));
 
 var y = d3.scaleLinear()
   .domain([0,44819041])
   .range([HEIGHT, 0]);
 
-var yAxis = svg.append("g").call(d3.axisLeft(y));
+var yAxis = svg.append("g").attr("transform", "translate(100,0)").call(d3.axisLeft(y));
 
 var allGroup = ['World', 'Afghanistan', 'Africa', 'Albania', 
     'Algeria', 'American Samoa', 'Andorra', 'Angola', 'Anguilla', 'Antigua and Barbuda', 
@@ -89,19 +112,19 @@ d3.select("#selectButton2")
   .append('option')
   .text(function (d) { return d; }) // text showed in the menu
   .attr("value", function (d) { return d; })
-
+  
 var myColor = d3.scaleOrdinal()
   .domain(allGroup)
   .range(d3.schemeSet2);
 
 var line = svg
   .append('g')
+  .attr("transform", "translate(100,0)")
   .append("path")
     .datum(data)
     .attr("d", d3.line()
       .x(function(d) { return x(+d.date) })
-      .y(function(d) { return y(+d.World) })
-    )
+      .y(function(d) { return y(+d.World) }))
     .attr("stroke", function(d){ return myColor("valueA") })
     .style("stroke-width", 3)
     .style("fill", "none")
@@ -135,12 +158,11 @@ line
 }
 
 d3.select("#selectButton2").on("change", function(d) {
-
+  
 var selectedOption = d3.select(this).property("value")
 max = findMax(data, selectedOption)
-update(selectedOption)
+update(selectedOption)})
 
-})
 })
 </script>
 </html>

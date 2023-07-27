@@ -11,8 +11,6 @@ const svg1 = d3.select("#scatter-plot").append("svg")
 const g1 = svg1.append("g")
   .attr("transform", `translate(${MARGIN1.LEFT}, ${MARGIN1.TOP})`)
 
-
-
 //Read the data
 d3.csv('https://ammaralzureiqi.github.io/COVID%20Data/country_wise_latest.csv', function(data) {
 
