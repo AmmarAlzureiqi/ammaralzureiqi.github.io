@@ -11,6 +11,9 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	<!-- jQueryUI styling -->
 	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://d3js.org/d3.v4.js"></script>
+
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
 </head>
 <body>
     <div id="fullpage">
@@ -49,7 +52,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12"> 
-                        <div id="my_dataviz"></div>                
+                        <div id="scatter-plot"></div>                
                     </div> 
                 </div>
                 <div id="content_div">
@@ -63,13 +66,13 @@
         </div>
 
         <div class="section s2">
-            <h1>1800 vs 2014 Total Population and Income</h1>
+            <h1>World View</h1>
             <div class="container">
                 <div class="row">
                     <h4>1800 Years</h4>
-                    <div class="col-md-10" id="chart-area1"></div>
+                    <div class="col-md-10" id="myworld"></div>
                     <h4>2014 Years</h4>
-                    <div class="col-md-2" id="chart-area2"></div>  
+                    <div class="col-md-2" id="my_data"></div>  
                 </div>
                 <div class="bar-text">
                     <h2>Scene 2</h2>
@@ -83,7 +86,7 @@
         <div class="section s3">
             <div class="container">
                 <div id="selections" class="row">
-                    <h1>China vs United States</h1>
+                    <h1>COVID-19</h1>
                     <div class="col-md-4 col-sm-12">
                         <div id="slider-div">
                             <label>Year: <span id="dateLabel1">1800</span> - <span id="dateLabel2">2014</span></label>
@@ -91,23 +94,13 @@
                         </div>
                     </div>
                     <div class="col-md-4 col-sm-12">
-                        <select id="Country-select" class="form-control">
-                            <option selected value="China">China</option>
-                            <option value="United States">United States</option>
-        
-                        </select>
-                    </div>
-                    <div class="col-md-4 col-sm-12">
-                        <select id="var-select" class="form-control">
-                            <option selected value="Population">Population</option>
-                            <option value="Income">Income</option>
-                            <option value="Life_Exp">Life Exp</option>
+                        <select id="selectButton2"></select>
                         </select>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <div id="line-chart-area"></div>                  
+                        <div id="interactive_viz"></div>                  
                     </div>
                 </div>
             </div>
@@ -119,6 +112,7 @@
                 </p>
             </div>
         </div>
+
 
         <div class="section s4">
             <div id="reference">
@@ -157,10 +151,9 @@
 
 	<!-- Custom JS -->
 	<script src="js/scatter.js"></script>
-    <script src="js/scatter.js"></script>
-	<script src="js/scatter.js"></script>
-	<script src="js/scatter.js"></script>
-    <script src="js/scatter.js"></script>
+    <script src="js/WorldPlot.js"></script>
+    <script src="js/interactive.js"></script>
+
 
 
 </body>

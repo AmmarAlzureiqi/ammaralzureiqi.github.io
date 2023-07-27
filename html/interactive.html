@@ -1,56 +1,50 @@
 <html>
-<body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
-</body>
+
 <meta charset="utf-8">
 
 <!-- Load d3.js -->
 <script src="https://d3js.org/d3.v4.js"></script>
 
-<!-- Create a div where the graph will take place -->
-<div id="my_dataviz"></div>
+
+<div id="interactive-viz"></div>
 
 <!-- Initialize a select button -->
-<select id="selectButton"></select>
+<select id="selectButton2"></select>
 
 <!-- Color Scale -->
 <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
-<script src='https://d3js.org/d3.v5.min.js'></script>
-<div id="my_dataviz"></div>
-<body onload='init()'>
-<div class="tooltip" style="display: none;"></div>
+
 <script>
-async function init() {
 
-const data = await d3.csv('https://ammaralzureiqi.github.io/COVID%20Data/weekly_cases.csv');
 
-var margin = {top: 10, right: 30, bottom: 30, left: 60},
-  width = 1000 - margin.left - margin.right,
-  height = 600 - margin.top - margin.bottom;
+const MARGIN = { LEFT: 100, RIGHT: 100, TOP: 50, BOTTOM: 100 }
+const WIDTH = 800 - MARGIN.LEFT - MARGIN.RIGHT
+const HEIGHT = 500 - MARGIN.TOP - MARGIN.BOTTOM
 
-var svg = d3.select("#my_dataviz")
-  .append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-  .append("g")
-    .attr("transform",
-          "translate(" + margin.left + "," + margin.top + ")");
-            
+const svg = d3.select("#interactive-viz").append("svg")
+  .attr("width", WIDTH + MARGIN.LEFT + MARGIN.RIGHT)
+  .attr("height", HEIGHT + MARGIN.TOP + MARGIN.BOTTOM)
+
+const g = svg.append("g")
+  .attr("transform", `translate(${MARGIN.LEFT}, ${MARGIN.TOP})`)
+
+d3.csv('https://ammaralzureiqi.github.io/COVID%20Data/weekly_cases.csv', function(data) {    
+
+
 var parseTime = d3.timeParse("%Y-%m-%d");
 data.forEach(function(d) {d['date'] = parseTime(d['date']);});
 
 var x = d3.scaleTime()
   .domain(d3.extent(data, function(d) { return new Date(d['date']);}))
-  .range([0, width]);
+  .range([0, WIDTH]);
 
 svg.append("g")
-  .attr("transform", "translate(0," + height + ")")
+  .attr("transform", "translate(0," + HEIGHT + ")")
   .call(d3.axisBottom(x));
 
 var y = d3.scaleLinear()
   .domain([0,44819041])
-  .range([height, 0]);
+  .range([HEIGHT, 0]);
 
 var yAxis = svg.append("g").call(d3.axisLeft(y));
 
@@ -84,11 +78,11 @@ var allGroup = ['World', 'Afghanistan', 'Africa', 'Albania',
     "Spain","Sri.Lanka","Sudan","Suriname","Sweden","Switzerland","Syria","Tajikistan","Tanzania","Thailand",
     "Timor","Togo","Tokelau","Tonga","Trinidad.and.Tobago","Tunisia","Turkey","Turkmenistan", "Turks.and.Caicos.Islands",
     "Tuvalu","Uganda","Ukraine", "United.Arab.Emirates","United.Kingdom","United.States", "United.States.Virgin.Islands",
-    "Upper.middle.income","Uruguay","Uzbekistan","Vanuatu", "Vatican","Venezuela","Vietnam","Wallis.and.Futuna",
-    "Yemen","Zambia","Zimbabwe"]
+    "Upper.middle.income","Uruguay","Uzbekistan","Vanuatu", "Vatican","Venezuela","Vietnam","Wallis.and.Futuna","Yemen",
+    "Zambia","Zimbabwe"]
 
 
-d3.select("#selectButton")
+d3.select("#selectButton2")
   .selectAll('myOptions')
   .data(allGroup)
   .enter()
@@ -127,7 +121,7 @@ function update(selectedGroup) {
 
 var dataFilter = data.map(function(d){return {date: d.date, value:d[selectedGroup]} });
 
-y.domain([0,max]).range([height, 0]);
+y.domain([0,max]).range([HEIGHT, 0]);
 yAxis.transition().duration(200).call(d3.axisLeft(y))
 
 line
@@ -140,14 +134,13 @@ line
   .attr("stroke", function(d){ return myColor(selectedGroup) })
 }
 
-d3.select("#selectButton").on("change", function(d) {
+d3.select("#selectButton2").on("change", function(d) {
 
 var selectedOption = d3.select(this).property("value")
 max = findMax(data, selectedOption)
 update(selectedOption)
 
 })
-}
+})
 </script>
-</body>
 </html>

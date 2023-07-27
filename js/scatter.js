@@ -1,16 +1,17 @@
 
-var margin = {top: 10, right: 30, bottom: 30, left: 60},
-  width = 600 - margin.left - margin.right,
-  height = 600 - margin.top - margin.bottom;
+
+const MARGIN1 = { LEFT: 100, RIGHT: 10, TOP: 10, BOTTOM: 100 }
+const WIDTH1 = 800 - MARGIN1.LEFT - MARGIN1.RIGHT
+const HEIGHT1 = 500 - MARGIN1.TOP - MARGIN1.BOTTOM
+
+const svg1 = d3.select("#scatter-plot").append("svg")
+  .attr("width", WIDTH1 + MARGIN1.LEFT + MARGIN1.RIGHT)
+  .attr("height", HEIGHT1 + MARGIN1.TOP + MARGIN1.BOTTOM)
+
+const g1 = svg1.append("g")
+  .attr("transform", `translate(${MARGIN1.LEFT}, ${MARGIN1.TOP})`)
 
 
-var svg = d3.select("#my_dataviz")
-.append("svg")
-.attr("width", width + margin.left + margin.right)
-.attr("height", height + margin.top + margin.bottom)
-.append("g")
-.attr("transform",
-      "translate(" + margin.left + "," + margin.top + ")");
 
 //Read the data
 d3.csv('https://ammaralzureiqi.github.io/COVID%20Data/country_wise_latest.csv', function(data) {
@@ -19,22 +20,22 @@ d3.csv('https://ammaralzureiqi.github.io/COVID%20Data/country_wise_latest.csv', 
 var x = d3.scalePow()
 .exponent(0.5)
 .domain([10, 452529])
-.range([ 0, width ]);
-svg.append("g")
-.attr("transform", "translate(0," + height + ")")
+.range([ 0, WIDTH1 ]);
+svg1.append("g")
+.attr("transform", "translate(0," + HEIGHT1 + ")")
 .call(d3.axisBottom(x));
 
 // Add Y axis
 var y = d3.scalePow()
 .exponent(0.5)
 .domain([0, 45844])
-.range([ height, 0]);
-svg.append("g")
+.range([ HEIGHT1, 0]);
+svg1.append("g")
 .call(d3.axisLeft(y));
 
 // Add a tooltip div. Here I define the general feature of the tooltip: stuff that do not depend on the data point.
 // Its opacity is set to 0: we don't see it by default.
-var tooltip = d3.select("#my_dataviz")
+var tooltip = d3.select("#scatter-plot")
 .append("div")
 .style("opacity", 0)
 .attr("class", "tooltip")
@@ -70,7 +71,7 @@ tooltip
 }
 
 // Add dots
-svg.append('g')
+svg1.append('g')
 .selectAll("dot")
 .data(data) // the .filter part is just to keep a few dots on the chart, not all of them
 .enter()
