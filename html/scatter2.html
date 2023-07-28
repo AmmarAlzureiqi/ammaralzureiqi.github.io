@@ -92,7 +92,7 @@ svg.append('g')
   .enter()
   .append("circle")
   .attr("cx", function (d) { return xScale(d.Confirmed); } )
-  .attr("cy", function (d) {return yScale(d['Deaths']); } )
+  .attr("cy", function (d) { return yScale(d['Deaths']); } )
   .attr("transform", "translate(100 , 50)")
   .attr("r", 3)
   .style("fill", "#3498DB");

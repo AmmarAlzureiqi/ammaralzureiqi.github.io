@@ -1,0 +1,284 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.css" integrity="sha512-4rPgyv5iG0PZw8E+oRdfN/Gq+yilzt9rQ8Yci2jJ15rAyBmF0HBE4wFjBkoB72cxBeg63uobaj1UcNt/scV93w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/main.css">
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<!-- jQueryUI styling -->
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="js/d3-tip.js"></script>
+	
+<script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="https://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="crossorigin="anonymous"></script>
+	
+
+
+</head>
+<body onload='init()'>
+<div class="section s1">
+    <div class="container">
+        <div class="row">
+            <div class = "overvie-text">
+                <h1>Overview of the dataset</h1>
+            </div>
+            <div class="col-md-6">
+                <button id="play-button" class="btn btn-primary">Play</button>
+                <button id="reset-button" class="btn btn-primary">Reset</button>
+                <div id="slider">
+                    <label>Date: <span id="date">01/22/2020</span></label>
+                    <div id="date-slider"></div>
+                </div>
+            </div>
+            <div class="col-md-6">
+					<select id="continent-select" class="form-control">
+					<option selected value="all">All</option>
+					</select>
+					<select id="date-select" class="form-control">
+						<option disabled selected>Date</option>
+					</select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div id="overview-chart-area"></div>                 
+            </div> 
+        </div>
+        <div id="content_div">
+            <h2>Scene 1</h2>
+            <p>At this scene, you could find changes through 1800 to 2014 years in different fields in different countries.<br>
+                Customer can also choose different continents that they would like to have a look. The user can also slide 
+                the date slide and choose the specific date that they want to have a look.
+            </p>
+        </div>
+    </div>
+</div>
+<script>
+async function init() {
+const data = await d3.csv('https://ammaralzureiqi.github.io/COVID%20Data/full_grouped.csv');
+
+unique = d3.map(data, function(d){return d.Date;}).keys();
+
+const MARGIN1 = { LEFT: 100, RIGHT: 10, TOP: 10, BOTTOM: 100 }
+const WIDTH1 = 800 - MARGIN1.LEFT - MARGIN1.RIGHT
+const HEIGHT1 = 500 - MARGIN1.TOP - MARGIN1.BOTTOM
+
+const svg1 = d3.select("#overview-chart-area").append("svg")
+  .attr("width", WIDTH1 + MARGIN1.LEFT + MARGIN1.RIGHT)
+  .attr("height", HEIGHT1 + MARGIN1.TOP + MARGIN1.BOTTOM)
+
+const g1 = svg1.append("g")
+  .attr("transform", `translate(${MARGIN1.LEFT}, ${MARGIN1.TOP})`)
+
+let time = 0
+let interval
+let formattedData
+const regions = ['Africa', 'Americas', 'Eastern Mediterranean', 'Europe', 'South-East Asia', 'Western Pacific']
+
+d3.select("#continent-select")
+  .selectAll('myOptions')
+  .data(regions)
+  .enter()
+  .append('option')
+  .text(function (d) { return d; }) // text showed in the menu
+  .attr("value", function (d) { return d; })
+
+d3.select("#date-select")
+	.selectAll('myOptions')
+	.data(unique)
+	.enter()
+	.append('option')
+	.text(function (d) {return d; }) // text showed in the menu
+	.attr("value", function (d) { return d; })
+
+
+// Tooltip
+const tip = d3.tip()
+  .attr('class', 'd3-tip')
+	.html(d => {
+		let text = `<strong>Country:</strong> <span style='color:red;text-transform:capitalize'>${d.country}</span><br>`
+		text += `<strong>Continent:</strong> <span style='color:red;text-transform:capitalize'>${d.continent}</span><br>`
+		text += `<strong>Life Expectancy:</strong> <span style='color:red'>${d3.format(".2f")(d.life_exp)}</span><br>`
+		text += `<strong>GDP Per Capita:</strong> <span style='color:red'>${d3.format("$,.0f")(d.income)}</span><br>`
+		text += `<strong>Population:</strong> <span style='color:red'>${d3.format(",.0f")(d.population)}</span><br>`
+		return text
+	})
+g1.call(tip)
+
+// Scales
+const x1 = d3.scaleLog()
+	.base(10)
+	.range([0, WIDTH1])
+	.domain([142, 150000])
+const y1 = d3.scaleLinear()
+	.range([HEIGHT1, 0])
+	.domain([0, 90])
+const area = d3.scaleLinear()
+	.range([25*Math.PI, 1500*Math.PI])
+	.domain([2000, 1400000000])
+const continentColor = d3.scaleOrdinal(d3.schemePastel1)
+
+// Labels
+const xLabel1 = g1.append("text")
+	.attr("y", HEIGHT1 + 50)
+	.attr("x", WIDTH1 / 2)
+	.attr("font-size", "20px")
+	.attr("text-anchor", "middle")
+	.text("GDP Per Capita ($)")
+const yLabel1 = g1.append("text")
+	.attr("transform", "rotate(-90)")
+	.attr("y", -40)
+	.attr("x", -170)
+	.attr("font-size", "20px")
+	.attr("text-anchor", "middle")
+	.text("Life Expectancy (Years)")
+const timeLabel = g1.append("text")
+	.attr("y", HEIGHT1 - 10)
+	.attr("x", WIDTH1 - 60)
+	.attr("font-size", "20px")
+	.attr("opacity", "0.4")
+	.attr("text-anchor", "middle")
+	.text("Jan 22, 2020")
+
+// X Axis
+const xAxisCall1 = d3.axisBottom(x1)
+	.tickValues([400, 4000, 40000])
+	.tickFormat(d3.format("$"));
+g1.append("g")
+	.attr("class", "x axis")
+	.attr("transform", `translate(0, ${HEIGHT1})`)
+	.call(xAxisCall1)
+
+// Y Axis
+const yAxisCall1 = d3.axisLeft(y1)
+g1.append("g")
+	.attr("class", "y axis")
+	.call(yAxisCall1)
+
+
+const legend = g1.append("g")
+	.attr("transform", `translate(${WIDTH1 - 10}, ${HEIGHT1 - 125})`)
+
+regions.forEach((continent, i) => {
+	const legendRow = legend.append("g")
+		.attr("transform", `translate(0, ${i * 15})`)
+
+	legendRow.append("rect")
+    .attr("width", 10)
+    .attr("height", 10)
+		.attr("fill", continentColor(continent))
+
+	legendRow.append("text")
+    .attr("x", -10)
+    .attr("y", 10)
+    .attr("text-anchor", "end")
+    .style("text-transform", "capitalize")
+    .text(continent)
+})
+
+drawAnnotation();
+
+
+function step() {
+	// at the end of our data, loop back
+	time = (time < 214) ? time + 1 : 0
+	update1(data[time])
+}
+
+$("#play-button")
+	.on("click", function() {
+		const button = $(this)
+		if (button.text() === "Play") {
+			button.text("Pause")
+			interval = setInterval(step, 100)
+		}
+		else {
+			button.text("Play")
+			clearInterval(interval)
+		}
+	})
+
+$("#reset-button")
+	.on("click", () => {
+		time = 0
+		update1(data[0])
+	})
+
+$("#continent-select")
+	.on("change", () => {
+		console.log(data[time])
+		update1(data[time])
+	})
+
+$("#date-slider").slider({
+	min: 1800,
+	max: 2014,
+	step: 1,
+	slide: (event, ui) => {
+		time = ui.value - 1800
+		update1(data[time])
+	}
+})
+function drawAnnotation() {
+	var annotation1 = svg1.append('g');
+	annotation1.append('text')
+	  .attr('x', 110)
+	  .attr('y', 360)
+	  .classed('annotation', true)
+	  .text('Asian countries circle have a larger size, it means that these countries have more population.');
+  }
+
+function update1(data) {
+	// standard transition time for the visualization
+	const t = d3.transition()
+		.duration(100)
+
+	const continent = $("#continent-select").val()
+	const filteredData = data.filter(d => {
+		if (continent === "all") return true
+		else {
+			return d['WHO Region'] == continent
+		}
+	})
+
+	// JOIN new data with old elements.
+	const circles = g1.selectAll("circle")
+		.data(filteredData, d => d.country)
+
+	// EXIT old elements not present in new data.
+	circles.exit().remove()
+
+	// ENTER new elements present in new data.
+	circles.enter().append("circle")
+		.attr("fill", d => continentColor(d['WHO Region']))
+		.on("mouseover", tip.show)
+		.on("mouseout", tip.hide)
+		.merge(circles)
+		.transition(t)
+			//.attr("cy", d => y1(d.Confirmed))
+			.attr("cy", function(d){return y1(d.Confirmed);})
+			//.attr("cx", d => x1(d.Date))
+			.attr("cx", function(d){return y1(d.Deaths);})
+			// .attr("r", d => Math.sqrt(area(d.population) / Math.PI))
+			.attr("r", 2)
+
+	// update the time label
+	timeLabel.text(String(time + 1800))
+
+	$("#year")[0].innerHTML = String(time + 1800)
+	$("#date-slider").slider("value", Number(time + 1800))
+
+}
+
+}
+</script>
+</body>
+</html>
