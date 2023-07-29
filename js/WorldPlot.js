@@ -15,11 +15,13 @@ var svg = d3.select("#myworld")
 
 
 //Read the data
-d3.csv('https://ammaralzureiqi.github.io/COVID%20Data/weekly_cases.csv', function(data) {    
+const runfunc1 = async () => {
+  const data1 =  await d3.csv('https://ammaralzureiqi.github.io/COVID%20Data/weekly_cases.csv');
+
 // Add X axis --> it is a date format
 var parseTime = d3.timeParse("%Y-%m-%d");
-data.forEach(function(d) {d['date'] = parseTime(d['date']);});
-var x = d3.scaleTime().domain(d3.extent(data, function(d) { return new Date(d['date']);})).range([0, width]);
+data1.forEach(function(d) {d['date'] = parseTime(d['date']);});
+var x = d3.scaleTime().domain(d3.extent(data1, function(d) { return new Date(d['date']);})).range([0, width]);
 svg.append("g")
 .attr("transform", "translate(0," + height + ")")
 .call(d3.axisBottom(x));
@@ -67,7 +69,7 @@ var tooltip = d3.select("#my_dataviz")
 // Add the line
 svg
 .append("path")
-.datum(data)
+.datum(data1)
 .attr("fill", "none")
 .attr("stroke", "steelblue")
 .attr("stroke-width", 1.5)
@@ -101,8 +103,8 @@ tooltip.style("opacity",1)
 function mousemove() {
 // recover coordinate we need
 var x0 = x.invert(d3.mouse(this)[0]);
-var i = bisect(data, x0, 1);
-selectedData = data[i]
+var i = bisect(data1, x0, 1);
+selectedData = data1[i]
 focus
   .attr("cx", x(selectedData.date))
   .attr("cy", y(selectedData.World))
@@ -121,4 +123,5 @@ focusText.style("opacity", 0)
 tooltip.style("opacity",0)
 }
 
-})
+}
+runfunc1();

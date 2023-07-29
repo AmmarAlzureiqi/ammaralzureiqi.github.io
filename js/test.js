@@ -1,8 +1,8 @@
-async function init() {
+async function init2() {
 
   const data = await d3.csv('https://ammaralzureiqi.github.io/COVID%20Data/country_wise_latest.csv');
   
-  var svg = d3.select("svg"),
+  var svg = d3.select("#interactive_viz2").append("svg"),
     margin = 200,
     width = svg.attr("width") - margin,
     height = svg.attr("height") - margin;

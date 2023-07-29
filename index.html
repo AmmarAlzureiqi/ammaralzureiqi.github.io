@@ -10,6 +10,19 @@
 	<script src="https://d3js.org/d3.v4.js"></script>
 
     <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.css" integrity="sha512-4rPgyv5iG0PZw8E+oRdfN/Gq+yilzt9rQ8Yci2jJ15rAyBmF0HBE4wFjBkoB72cxBeg63uobaj1UcNt/scV93w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/main.css">
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<!-- jQueryUI styling -->
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="js/d3-tip.js"></script>
+    <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
 </head>
 <body>
     <div id="fullpage">
@@ -32,23 +45,22 @@
                         <button id="play-button" class="btn btn-primary">Play</button>
                         <button id="reset-button" class="btn btn-primary">Reset</button>
                         <div id="slider">
-                            <label>Year: <span id="year">1800</span></label>
+                            <label>Date: <span id="date">2020-01-22</span></label>
                             <div id="date-slider"></div>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <select id="continent-select" class="form-control">
+                            <select id="continent-select" class="form-control">
                             <option selected value="all">All</option>
-                            <option value="europe">Europe</option>
-                            <option value="asia">Asia</option>
-                            <option value="americas">Americas</option>
-                            <option value="africa">Africa</option>
-                        </select>
+                            </select>
+                            <!-- <select id="date-select" class="form-control">
+                                <option disabled selected>Date</option>
+                            </select> -->
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-12"> 
-                        <div id="scatter-plot"></div>                
+                    <div class="col-md-12">
+                        <div id="overview-chart-area"></div>                 
                     </div> 
                 </div>
                 <div id="content_div">
@@ -148,6 +160,7 @@
     </script>
 
 	<!-- Custom JS -->
+    <script src="js/firstplot.js"></script>
 	<script src="js/scatter.js"></script>
     <script src="js/WorldPlot.js"></script>
     <script src="js/interactive.js"></script>

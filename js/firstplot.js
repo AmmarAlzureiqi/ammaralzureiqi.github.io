@@ -1,0 +1,319 @@
+const runfunc = async () => {
+    const data =  await d3.csv('https://ammaralzureiqi.github.io/COVID%20Data/full_grouped.csv');
+    
+    
+    alldates = ["2020-01-22", "2020-01-23", "2020-01-24", "2020-01-25", "2020-01-26", "2020-01-27" ,"2020-01-28", "2020-01-29", "2020-01-30",
+    "2020-01-31", "2020-02-01", "2020-02-02", "2020-02-03", "2020-02-04", "2020-02-05", "2020-02-06", "2020-02-07", "2020-02-08",
+    "2020-02-09", "2020-02-10", "2020-02-11", "2020-02-12", "2020-02-13", "2020-02-14", "2020-02-15", "2020-02-16", "2020-02-17",
+    "2020-02-18", "2020-02-19", "2020-02-20", "2020-02-21", "2020-02-22", "2020-02-23", "2020-02-24", "2020-02-25", "2020-02-26",
+    "2020-02-27", "2020-02-28", "2020-02-29", "2020-03-01", "2020-03-02", "2020-03-03", "2020-03-04", "2020-03-05", "2020-03-06",
+    "2020-03-07", "2020-03-08", "2020-03-09", "2020-03-10", "2020-03-11", "2020-03-12", "2020-03-13", "2020-03-14", "2020-03-15",
+    "2020-03-16", "2020-03-17", "2020-03-18", "2020-03-19", "2020-03-20", "2020-03-21", "2020-03-22", "2020-03-23", "2020-03-24",
+    "2020-03-25", "2020-03-26", "2020-03-27", "2020-03-28", "2020-03-29", "2020-03-30", "2020-03-31", "2020-04-01", "2020-04-02",
+    "2020-04-03", "2020-04-04", "2020-04-05", "2020-04-06", "2020-04-07", "2020-04-08", "2020-04-09", "2020-04-10", "2020-04-11",
+    "2020-04-12", "2020-04-13", "2020-04-14", "2020-04-15", "2020-04-16", "2020-04-17", "2020-04-18", "2020-04-19", "2020-04-20",
+    "2020-04-21", "2020-04-22", "2020-04-23", "2020-04-24", "2020-04-25", "2020-04-26", "2020-04-27", "2020-04-28", "2020-04-29",
+    "2020-04-30", "2020-05-01", "2020-05-02", "2020-05-03", "2020-05-04", "2020-05-05", "2020-05-06", "2020-05-07", "2020-05-08",
+    "2020-05-09", "2020-05-10", "2020-05-11", "2020-05-12", "2020-05-13", "2020-05-14", "2020-05-15", "2020-05-16", "2020-05-17",
+    "2020-05-18", "2020-05-19", "2020-05-20", "2020-05-21", "2020-05-22", "2020-05-23", "2020-05-24", "2020-05-25", "2020-05-26",
+    "2020-05-27", "2020-05-28", "2020-05-29", "2020-05-30", "2020-05-31", "2020-06-01", "2020-06-02", "2020-06-03", "2020-06-04",
+    "2020-06-05", "2020-06-06", "2020-06-07", "2020-06-08", "2020-06-09", "2020-06-10", "2020-06-11", "2020-06-12", "2020-06-13",
+    "2020-06-14", "2020-06-15", "2020-06-16", "2020-06-17", "2020-06-18", "2020-06-19", "2020-06-20", "2020-06-21", "2020-06-22",
+    "2020-06-23", "2020-06-24", "2020-06-25", "2020-06-26", "2020-06-27", "2020-06-28", "2020-06-29", "2020-06-30", "2020-07-01",
+    "2020-07-02", "2020-07-03", "2020-07-04", "2020-07-05", "2020-07-06", "2020-07-07", "2020-07-08", "2020-07-09", "2020-07-10",
+    "2020-07-11", "2020-07-12", "2020-07-13", "2020-07-14", "2020-07-15", "2020-07-16", "2020-07-17", "2020-07-18", "2020-07-19",
+    "2020-07-20", "2020-07-21", "2020-07-22", "2020-07-23", "2020-07-24", "2020-07-25", "2020-07-26", "2020-07-27"]
+    
+    
+    arr1 = []
+    
+    count = 0
+    for (let dat = 0; dat < 188; dat++) {
+        tempCountry = []
+        tempNewCases = []
+        tempNewRecovered = []
+        tempConfirmed = []
+        tempRegion = []
+    
+        for (let i = count; i < (count + 187); i++) {
+            tempCountry[i-count] = data[i]['Country/Region']
+            tempNewCases[i-count] = data[i]['New cases']
+            tempNewRecovered[i-count] = data[i]['New recovered']
+            tempConfirmed[i-count] = data[i]['Confirmed']
+            tempRegion[i-count] = data[i]['WHO Region']
+        }
+        newdata = {country:tempCountry, newcases:tempNewCases, newrecovered:tempNewRecovered, newconfirmed:tempConfirmed, region:tempRegion}
+        count = count + 187
+        arr1[dat] = newdata
+    
+    }
+    
+    unique = d3.map(data, function(d){return d.Date;}).keys();
+    
+    const MARGIN1 = { LEFT: 100, RIGHT: 10, TOP: 10, BOTTOM: 100 }
+    const WIDTH1 = 800 - MARGIN1.LEFT - MARGIN1.RIGHT
+    const HEIGHT1 = 500 - MARGIN1.TOP - MARGIN1.BOTTOM
+    
+    const svg1 = d3.select("#overview-chart-area").append("svg")
+      .attr("width", WIDTH1 + MARGIN1.LEFT + MARGIN1.RIGHT)
+      .attr("height", HEIGHT1 + MARGIN1.TOP + MARGIN1.BOTTOM)
+    
+    const g1 = svg1.append("g")
+      .attr("transform", `translate(${MARGIN1.LEFT}, ${MARGIN1.TOP})`)
+    
+    let time = 0
+    let interval
+    const regions = ['Africa', 'Americas', 'Eastern Mediterranean', 'Europe', 'South-East Asia', 'Western Pacific']
+    
+    d3.select("#continent-select")
+      .selectAll('myOptions')
+      .data(regions)
+      .enter()
+      .append('option')
+      .text(function (d) { return d; }) // text showed in the menu
+      .attr("value", function (d) { return d; })
+    
+    // d3.select("#date-select")
+    // 	.selectAll('myOptions')
+    // 	.data(unique)
+    // 	.enter()
+    // 	.append('option')
+    // 	.text(function (d) {return d; }) // text showed in the menu
+    // 	.attr("value", function (d) { return d; })
+    
+    
+    // Tooltip
+    const tip = d3.tip()
+      .attr('class', 'd3-tip')
+        .html(d => {
+            let text = `<strong>New Cases:</strong> <span style='color:red;text-transform:capitalize'>${d['newcases']}</span><br>`
+            text += `<strong>New Recovered:</strong> <span style='color:red;text-transform:capitalize'>${d['newrecovered']}</span><br>`
+            return text
+        })
+    g1.call(tip)
+    
+    
+    // Scales
+    // const x1 = d3.scalePow()
+    // 	.exponent(0.5)
+    // 	.domain([0, 100000])
+    // 	.range([0, WIDTH1])
+    // const y1 = d3.scalePow()
+    // 	.exponent(0.5)
+    // 	.domain([0, 60000])
+    // 	.range([HEIGHT1, 0])
+    
+    var xScale = d3.scaleLinear()
+        .domain([0, 1000])
+        .range([0, WIDTH1])
+    var yScale = d3.scaleLinear()
+        .domain([0, 1000])
+        .range([HEIGHT1, 0])
+    
+    
+    // const area = d3.scaleLinear()
+    // 	.range([25*Math.PI, 1500*Math.PI])
+    // 	.domain([100, 4290259])
+    
+    const continentColor = d3.scaleOrdinal(d3.schemePastel1)
+    
+    // Labels
+    const xLabel1 = g1.append("text")
+        .attr("y", HEIGHT1 + 50)
+        .attr("x", WIDTH1 / 2)
+        .attr("font-size", "20px")
+        .attr("text-anchor", "middle")
+        .text("New Recovered")
+    const yLabel1 = g1.append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("y", -60)
+        .attr("x", -170)
+        .attr("font-size", "20px")
+        .attr("text-anchor", "middle")
+        .text("New Cases")
+    const timeLabel = g1.append("text")
+        .attr("y", HEIGHT1 - 10)
+        .attr("x", WIDTH1 - 60)
+        .attr("font-size", "20px")
+        .attr("opacity", "0.4")
+        .attr("text-anchor", "middle")
+        .text("2020-01-22")
+    
+    // X Axis
+    const xAxisCall1 = d3.axisBottom(xScale)
+    g1.append("g")
+        .attr("class", "x axis")
+        .attr("transform", `translate(0, ${HEIGHT1})`)
+        .call(xAxisCall1)
+    
+    // Y Axis
+    const yAxisCall1 = d3.axisLeft(yScale)
+    g1.append("g")
+        .attr("class", "y axis")
+        .call(yAxisCall1)
+    
+    
+    const legend = g1.append("g")
+        .attr("transform", `translate(${WIDTH1 - 10}, ${HEIGHT1 - 160})`)
+    
+    regions.forEach((continent, i) => {
+        const legendRow = legend.append("g")
+            .attr("transform", `translate(0, ${i * 15})`)
+    
+        legendRow.append("rect")
+        .attr("width", 10)
+        .attr("height", 10)
+            .attr("fill", continentColor(continent))
+    
+        legendRow.append("text")
+        .attr("x", -10)
+        .attr("y", 10)
+        .attr("text-anchor", "end")
+        .style("text-transform", "capitalize")
+        .text(continent)
+    })
+    
+    update1(arr1[0])
+    
+    drawAnnotation();
+    
+    function step() {
+        // at the end of our data, loop back
+        time = (time < 187) ? time + 1 : 0
+        update1(arr1[time])
+    }
+    
+    $("#play-button")
+        .on("click", function() {
+            const button = $(this)
+            if (button.text() === "Play") {
+                button.text("Pause")
+                interval = setInterval(step, 100)
+            }
+            else {
+                button.text("Play")
+                clearInterval(interval)
+            }
+        })
+    
+    $("#reset-button")
+        .on("click", () => {
+            time = 0
+            update1(arr1[0])
+        })
+    
+    $("#continent-select")
+        .on("change", () => {
+            update1(arr1[time])
+        })
+    
+    $("#date-slider").slider({
+        min: 0,
+        max: 187,
+        step: 1,
+        slide: (event, ui) => {
+            time = ui.value
+            update1(arr1[time])
+        }
+    })
+    
+    function drawAnnotation() {
+        var annotation1 = svg1.append('g');
+        annotation1.append('text')
+          .attr('x', 110)
+          .attr('y', 360)
+          .classed('annotation', true)
+          .text('text here');
+      }
+    
+    function filterdata(reg, temp){
+        tempCountry2 = []
+        tempNewCases2 = []
+        tempNewRecovered2 = []
+        tempConfirmed2 = []
+        tempRegion2 = []
+    
+        for (let i = 0; i < 187; i++) {
+            if (temp['region'][i] == reg){
+            tempCountry2.push(temp['country'][i])
+            tempNewCases2.push(temp['newcases'][i])
+            tempConfirmed2.push(temp['newconfirmed'][i])
+            tempNewRecovered2.push(temp['newrecovered'][i])
+            tempRegion2.push(temp['region'][i])
+            }
+        arr2 = {country:tempCountry2, newcases:tempNewCases2, 
+            newrecovered:tempNewRecovered2, newconfirmed:tempConfirmed2, region:tempRegion2}
+        }
+        return arr2
+    }
+    
+    function filterregion(cont, data){
+        if (cont === "all"){
+            return data;
+        }
+        else{
+            newdata = filterdata(cont, data)
+            return newdata;
+        }
+    
+    }
+    
+    function ifpositive(val){
+        if (val < 0){
+            return 0;
+        }
+        else{
+            return val;
+        }
+    }
+    function update1(data) {
+        // standard transition time for the visualization
+        const t = d3.transition()
+            .duration(100)
+        
+        //df = {a:[100,200,300,400,500,600,7000,800,900,1000], b:[0,0,0,0,0,0,0,0,0,0]} 
+        //console.log(df)
+    
+        const tempregion = $("#continent-select").val()
+    
+        filteredData = filterregion(tempregion, data);
+        data3 = {'newcases':filteredData['newcases'], 'newrecovered':filteredData['newrecovered'], 
+        'newconfirmed':filteredData['newconfirmed'], 'region':filteredData['region']}
+    
+        // console.log(data3['newcases'])
+        // console.log(data3['newrecovered'])
+        // console.log(data3['newconfirmed'])
+        // console.log(data3['region'])
+        
+        // JOIN new data with old elements.
+        const circles = g1.selectAll("circle")
+            .data(data3)
+        // EXIT old elements not present in new data.
+        circles.exit().remove()
+        // ENTER new elements present in new data.
+        circles.enter().append("circle")
+            // .attr("fill", d => continentColor(d['region']))
+            .attr("fill", "#FF0F00")
+            .on("mouseover", tip.show)
+            .on("mouseout", tip.hide)
+            .merge(circles)
+            .transition(t)
+                .attr("cx", function (d) { return xScale(d['newrecovered']); } )
+                .attr("cy", function (d) { return yScale(d['newcases']); } )
+                // .attr("cx", function (d) { return xScale(d.a); } )
+                // .attr("cy", function (d) { return yScale(d.b); } )
+                // .attr("cx", d => xScale(d.a))
+                // .attr("cy", d => yScale(d.b))
+                // .attr("cx", d => x1(d['newrecovered']))
+                // .attr("cy", d => y1(d['newcases']))
+                .attr("r", 3)
+                
+        // update the time label
+        timeLabel.text(String(alldates[time]))
+    
+        $("#date")[0].innerHTML = String(alldates[time])
+        //$("#date-slider").slider("value", Number(time))
+    }
+    
+    }
+    runfunc();

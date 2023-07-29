@@ -10,7 +10,8 @@ const svg2 = d3.select("#interactive_viz").append("svg")
 const g = svg2.append("g")
   .attr("transform", `translate(${MARGIN.LEFT}, ${MARGIN.TOP})`)
 
-d3.csv('https://ammaralzureiqi.github.io/COVID%20Data/weekly_cases.csv', function(data) {    
+const runfunc2 = async () => {
+  const data =  await d3.csv('https://ammaralzureiqi.github.io/COVID%20Data/weekly_cases.csv');
 
 
 var parseTime = d3.timeParse("%Y-%m-%d");
@@ -123,4 +124,5 @@ max = findMax(data, selectedOption)
 update(selectedOption)
 
 })
-})
+}
+runfunc2();
