@@ -76,12 +76,19 @@
         <div class="section s2">
             <h1>World View</h1>
             <div class="container">
+                <div class="col-md-6">
+					<select id="country-select" class="form-control">
+					<option selected value="World">World</option>
+					</select>
+					<!-- <select id="date-select" class="form-control">
+						<option disabled selected>Date</option>
+					</select> -->
+            </div>
                 <div class="row">
                     <h4>1800 Years</h4>
                     <div class="col-md-10" id="myworld"></div>
-                    <h4>2014 Years</h4>
-                    <div class="col-md-2" id="my_data"></div>  
                 </div>
+                
                 <div class="bar-text">
                     <h2>Scene 2</h2>
                     <p>
@@ -121,28 +128,6 @@
             </div>
         </div>
 
-
-        <div class="section s4">
-            <div id="reference">
-                <h1>References and Resources</h1>
-                <h2>Github Project</h2>
-                <ul>
-                    <li><a href='https://github.com/xngwu1995/cs416-final-project.git' target='_blank'>CS416 DDV Final Project</a></li>
-                </ul>
-                <h2>Images</h2>
-                <ul>
-                    <li><a href='https://images.unsplash.com/photo-1528035015334-80868324e60e?ixlib' target='_blank'>Background</a></li>
-                    <li><a href='https://images.unsplash.com/photo-1594450281353-5a7a067358cc?ixlib' target='_blank'
-                        >First</a></li>
-                    <li><a href='https://images.unsplash.com/photo-1483921020237-2ff51e8e4b22?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80' target='_blank'>Reference</a></li>
-                </ul>
-                <h2>Chart</h2>
-                <ul>
-                    <li><a href='https://github.com/adamjanes/udemy-d3' target='_blank'>Mastering data visualization in D3.js</a></li>
-                </ul>
-            </div>
-        </div>
-
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.js" 
     integrity="sha512-gSf3NCgs6wWEdztl1e6vUqtRP884ONnCNzCpomdoQ0xXsk06lrxJsR7jX5yM/qAGkPGsps+4bLV5IEjhOZX+gg==" 
@@ -151,8 +136,8 @@
         new fullpage('#fullpage', {
             autoScrolling: true,
             navigation: true,
-            anchors: ['section0','section1', 'section2', 'section3','section4'],
-            navigationTooltips:['Intro', 'Scene1', 'Scene2', 'Scene3', 'Ref'],
+            anchors: ['section0','section1', 'section2', 'section3'],
+            navigationTooltips:['Intro', 'Scene1', 'Scene2', 'Scene3'],
             showActiveTooltip: true,
             scrollingSpeed: 1000,
         

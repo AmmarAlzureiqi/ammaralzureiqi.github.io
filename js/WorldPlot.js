@@ -13,28 +13,60 @@ var svg = d3.select("#myworld")
       "translate(" + margin.left + "," + margin.top + ")");
       
 
-
+var allCountries = ['Afghanistan', 'Africa', 'Albania', 
+  'Algeria', 'American Samoa', 'Andorra', 'Angola', 'Anguilla', 'Antigua and Barbuda', 
+  'Argentina', 'Armenia', 'Aruba', 'Asia', 'Australia', 'Austria', 'Azerbaijan', 'Bahamas', 
+  'Bahrain', 'Bangladesh', 'Barbados', 'Belarus', 'Belgium', 'Belize', 'Benin', 'Bermuda', 
+  'Bhutan', 'Bolivia', 'Bonaire Sint Eustatius and Saba', 'Bosnia and Herzegovina', 'Botswana', 
+  'Brazil', 'British Virgin Islands', 'Brunei', 'Bulgaria', 'Burkina Faso', 'Burundi', 'Cambodia', 
+  'Cameroon', 'Canada', 'Cape Verde', 'Cayman Islands', 'Central African Republic', 'Chad', 'Chile', 
+  'China', 'Colombia', 'Comoros', 'Congo', 'Cook Islands', 'Costa Rica', "Cote d'Ivoire", 'Croatia', 
+  'Cuba', 'Curacao', 'Cyprus', 'Czechia', 'Democratic Republic of Congo', 'Denmark', 'Djibouti', 
+  'Dominica', 'Dominican Republic', 'Ecuador', 'Egypt', 'El Salvador', 'Equatorial Guinea', 'Eritrea', 
+  'Estonia', 'Eswatini', 'Ethiopia', 'Europe', 'European Union', 'Faeroe Islands', 'Falkland Islands', 
+  'Fiji', 'Finland', 'France', 'French Guiana', 'French Polynesia', 'Gabon', 'Gambia', 'Georgia', 
+  'Germany', 'Ghana', 'Gibraltar', 'Greece', 'Greenland', 'Grenada', 'Guadeloupe', 'Guam', 'Guatemala', 
+  'Guernsey', 'Guinea', 'Guinea-Bissau', 'Guyana', 'Haiti', 'High income', 'Honduras', 'Hungary',"Iceland", 
+  "India","Indonesia","Iran", "Iraq" ,"Ireland","Isle.of.Man","Israel","Italy","Jamaica", "Japan","Jersey" ,
+  "Jordan", "Kazakhstan","Kenya","Kiribati", "Kosovo","Kuwait","Kyrgyzstan", "Laos","Latvia","Lebanon", 
+  "Lesotho","Liberia","Libya","Liechtenstein","Lithuania","Low.income","Lower.middle.income","Luxembourg",
+  "Madagascar","Malawi","Malaysia","Maldives","Mali","Malta","Marshall.Islands","Martinique","Mauritania",
+  "Mauritius","Mayotte","Mexico","Micronesia..country.","Moldova","Monaco","Mongolia","Montenegro","Montserrat",
+  "Morocco","Mozambique","Myanmar","Namibia" ,"Nauru","Nepal","Netherlands","New.Caledonia","New.Zealand",
+  "Nicaragua","Niger","Nigeria","Niue","North.America","North.Korea","North.Macedonia","Northern.Mariana.Islands",
+  "Norway", "Oceania","Oman","Pakistan","Palau","Palestine","Panama" ,"Papua.New.Guinea", "Paraguay","Peru",
+  "Philippines","Pitcairn","Poland", "Portugal","Puerto.Rico", "Qatar","Reunion","Romania","Russia","Rwanda",
+  "Saint.Barthelemy","Saint.Helena","Saint.Kitts.and.Nevis","Saint.Lucia","Saint.Martin..French.part.",
+  "Saint.Pierre.and.Miquelon","Saint.Vincent.and.the.Grenadines","Samoa","San.Marino","Sao.Tome.and.Principe",
+  "Saudi.Arabia","Senegal","Serbia","Seychelles","Sierra.Leone","Singapore", "Sint.Maarten..Dutch.part.",
+  "Slovakia","Slovenia","Solomon.Islands", "Somalia","South.Africa", "South.America","South.Korea","South.Sudan",
+  "Spain","Sri.Lanka","Sudan","Suriname","Sweden","Switzerland","Syria","Tajikistan","Tanzania","Thailand",
+  "Timor","Togo","Tokelau","Tonga","Trinidad.and.Tobago","Tunisia","Turkey","Turkmenistan", "Turks.and.Caicos.Islands",
+  "Tuvalu","Uganda","Ukraine", "United.Arab.Emirates","United.Kingdom","United.States", "United.States.Virgin.Islands",
+  "Upper.middle.income","Uruguay","Uzbekistan","Vanuatu", "Vatican","Venezuela","Vietnam","Wallis.and.Futuna","Yemen",
+  "Zambia","Zimbabwe"]
+  
 //Read the data
 const runfunc1 = async () => {
   const data1 =  await d3.csv('https://ammaralzureiqi.github.io/COVID%20Data/weekly_cases.csv');
 
 // Add X axis --> it is a date format
 var parseTime = d3.timeParse("%Y-%m-%d");
-data1.forEach(function(d) {d['date'] = parseTime(d['date']);});
-var x = d3.scaleTime().domain(d3.extent(data1, function(d) { return new Date(d['date']);})).range([0, width]);
+data1.forEach(function(d) {d['Date'] = parseTime(d['date']);});
+var x = d3.scaleTime().domain(d3.extent(data1, function(d) { return new Date(d['Date']);})).range([0, width]);
 svg.append("g")
 .attr("transform", "translate(0," + height + ")")
 .call(d3.axisBottom(x));
 
 // Add Y axis
 var y = d3.scaleLinear()
-.domain([0,44819041])
+.domain([0,45000000])
 .range([height, 0]);
 svg.append("g")
 .call(d3.axisLeft(y));
 
 // This allows to find the closest X index of the mouse:
-var bisect = d3.bisector(function(d) { return d.date; }).left;
+var bisect = d3.bisector(function(d) { return d.Date; }).left;
 
 // Create the circle that travels along the curve of chart
 var focus = svg
@@ -53,7 +85,7 @@ var focusText = svg
   .attr("text-anchor", "left")
   .attr("alignment-baseline", "middle")
 
-var tooltip = d3.select("#my_dataviz")
+var tooltip = d3.select("#myworld")
 .append("div")
 .append("tooltip")
 .style("opacity", 0)
@@ -74,7 +106,7 @@ svg
 .attr("stroke", "steelblue")
 .attr("stroke-width", 1.5)
 .attr("d", d3.line()
-  .x(function(d) { return x(d.date) })
+  .x(function(d) { return x(d.Date) })
   .y(function(d) { return y(d.World) }))
 .on("mouseover", mouseover )
 .on("mousemove", mousemove )
@@ -92,6 +124,20 @@ svg
 .on('mousemove', mousemove)
 .on('mouseout', mouseout);
 
+d3.select("#country-select")
+.selectAll('myOptions')
+.data(allCountries)
+.enter()
+.append('option')
+.text(function (d) { return d; }) // text showed in the menu
+.attr("value", function (d) { return d; })
+
+country = $("#country-select").val()
+
+$("#country-select")
+        .on("change", () => {
+          country = $("#country-select").val()
+        })
 
 // What happens when the mouse move -> show the annotations at the right positions.
 function mouseover() {
@@ -106,22 +152,27 @@ var x0 = x.invert(d3.mouse(this)[0]);
 var i = bisect(data1, x0, 1);
 selectedData = data1[i]
 focus
-  .attr("cx", x(selectedData.date))
+  .attr("cx", x(selectedData.Date))
   .attr("cy", y(selectedData.World))
-focusText
-  .html("x:" + selectedData.date + "  -  " + "y:" + selectedData.y)
-  .attr("x", x(selectedData.date)+15)
-  .attr("y", y(selectedData.World))
+if (country != "World"){
 tooltip
-  .html("Confirmed Cases: " + selectedData.World + "<br> Country: ")
-  .style("left", (d3.mouse(this)[0]+90) + "px") // It is important to put the +90: other wise the tooltip is exactly where the point is an it creates a weird effect
+  .html("Confirmed Cases: " + Math.trunc(selectedData.World) + "<br> Date: " + selectedData.date + "<br>" + country + ": " +
+          Math.trunc(selectedData[country]))
+  .style("left", (d3.mouse(this)[0]+90) + "px") 
   .style("top", (d3.mouse(this)[1]) + "px")
 }
+else{
+  tooltip
+    .html("Confirmed Cases: " + Math.trunc(selectedData.World) + "<br> Date: " + selectedData.date)
+    .style("left", (d3.mouse(this)[0]+90) + "px") 
+    .style("top", (d3.mouse(this)[1]) + "px")
+  }
+}
+
 function mouseout() {
 focus.style("opacity", 0)
 focusText.style("opacity", 0)
 tooltip.style("opacity",0)
 }
-
 }
 runfunc1();

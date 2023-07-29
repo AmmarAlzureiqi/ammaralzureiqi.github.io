@@ -31,7 +31,7 @@ var y = d3.scaleLinear()
 
 var yAxis = svg2.append("g").call(d3.axisLeft(y));
 
-var allGroup = ['World', 'Afghanistan', 'Africa', 'Albania', 
+var allCountries = ['World', 'Afghanistan', 'Africa', 'Albania', 
     'Algeria', 'American Samoa', 'Andorra', 'Angola', 'Anguilla', 'Antigua and Barbuda', 
     'Argentina', 'Armenia', 'Aruba', 'Asia', 'Australia', 'Austria', 'Azerbaijan', 'Bahamas', 
     'Bahrain', 'Bangladesh', 'Barbados', 'Belarus', 'Belgium', 'Belize', 'Benin', 'Bermuda', 
@@ -67,14 +67,14 @@ var allGroup = ['World', 'Afghanistan', 'Africa', 'Albania',
 
 d3.select("#selectButton2")
   .selectAll('myOptions')
-  .data(allGroup)
+  .data(allCountries)
   .enter()
   .append('option')
   .text(function (d) { return d; }) // text showed in the menu
   .attr("value", function (d) { return d; })
 
 var myColor = d3.scaleOrdinal()
-  .domain(allGroup)
+  .domain(allCountries)
   .range(d3.schemeSet2);
 
 var line = svg2
