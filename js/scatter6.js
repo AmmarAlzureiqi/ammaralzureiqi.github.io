@@ -166,12 +166,16 @@ alldates = ['2020-01-03','2020-01-04','2020-01-05','2020-01-06','2020-01-07',
 '2023-07-19','2023-07-20','2023-07-21','2023-07-22','2023-07-23','2023-07-24','2023-07-25','2023-07-26']
 
 const MARGIN1 = { LEFT: 100, RIGHT: 10, TOP: 10, BOTTOM: 100 }
-const WIDTH1 = 800 - MARGIN1.LEFT - MARGIN1.RIGHT
-const HEIGHT1 = 500 - MARGIN1.TOP - MARGIN1.BOTTOM
+const WIDTH1 = 900 - MARGIN1.LEFT - MARGIN1.RIGHT
+const HEIGHT1 = 450 - MARGIN1.TOP - MARGIN1.BOTTOM
 
 var svg1 = d3.select("#overview-chart-area").append("svg")
   .attr("width", WIDTH1 + MARGIN1.LEFT + MARGIN1.RIGHT)
   .attr("height", HEIGHT1 + MARGIN1.TOP + MARGIN1.BOTTOM)
+  svg1.append("rect")
+.attr("width", "100%")
+.attr("height", "93%")
+.attr("fill", "white");
 
 var g1 = svg1.append("g")
   .attr("transform", `translate(${MARGIN1.LEFT}, ${MARGIN1.TOP})`)
@@ -393,5 +397,6 @@ function update1(data) {
 	$("#date")[0].innerHTML = String(alldates[time])
 	$("#date-slider").slider("value", Number(time))
 }
+
 }
 runfunc();
