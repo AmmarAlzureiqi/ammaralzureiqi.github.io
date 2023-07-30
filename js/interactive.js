@@ -6,14 +6,13 @@ const HEIGHT = 500 - MARGIN.TOP - MARGIN.BOTTOM
 const svg2 = d3.select("#interactive_viz").append("svg")
   .attr("width", WIDTH + MARGIN.LEFT + MARGIN.RIGHT)
   .attr("height", HEIGHT + MARGIN.TOP + MARGIN.BOTTOM)
-  .attr('fill', 'white')
 
 const g = svg2.append("g")
   .attr("transform", `translate(${MARGIN.LEFT}, ${MARGIN.TOP})`);
 
   svg2.append("rect")
     .attr("width", "100%")
-    .attr("height", "100%")
+    .attr("height", "85%")
     .attr("fill", "white");
 
 const runfunc2 = async () => {
