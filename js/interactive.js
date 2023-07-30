@@ -95,6 +95,39 @@ var allCountries = ['World', 'Afghanistan', 'Africa', 'Albania',
     "Tuvalu","Uganda","Ukraine", "United.Arab.Emirates","United.Kingdom","United.States", "United.States.Virgin.Islands",
     "Upper.middle.income","Uruguay","Uzbekistan","Vanuatu", "Vatican","Venezuela","Vietnam","Wallis.and.Futuna","Yemen",
     "Zambia","Zimbabwe"]
+  
+var allCountries2 = ['China', 'World', 'Afghanistan', 'Africa', 'Albania', 
+'Algeria', 'American Samoa', 'Andorra', 'Angola', 'Anguilla', 'Antigua and Barbuda', 
+'Argentina', 'Armenia', 'Aruba', 'Asia', 'Australia', 'Austria', 'Azerbaijan', 'Bahamas', 
+'Bahrain', 'Bangladesh', 'Barbados', 'Belarus', 'Belgium', 'Belize', 'Benin', 'Bermuda', 
+'Bhutan', 'Bolivia', 'Bonaire Sint Eustatius and Saba', 'Bosnia and Herzegovina', 'Botswana', 
+'Brazil', 'British Virgin Islands', 'Brunei', 'Bulgaria', 'Burkina Faso', 'Burundi', 'Cambodia', 
+'Cameroon', 'Canada', 'Cape Verde', 'Cayman Islands', 'Central African Republic', 'Chad', 'Chile',
+ 'Colombia', 'Comoros', 'Congo', 'Cook Islands', 'Costa Rica', "Cote d'Ivoire", 'Croatia', 
+'Cuba', 'Curacao', 'Cyprus', 'Czechia', 'Democratic Republic of Congo', 'Denmark', 'Djibouti', 
+'Dominica', 'Dominican Republic', 'Ecuador', 'Egypt', 'El Salvador', 'Equatorial Guinea', 'Eritrea', 
+'Estonia', 'Eswatini', 'Ethiopia', 'Europe', 'European Union', 'Faeroe Islands', 'Falkland Islands', 
+'Fiji', 'Finland', 'France', 'French Guiana', 'French Polynesia', 'Gabon', 'Gambia', 'Georgia', 
+'Germany', 'Ghana', 'Gibraltar', 'Greece', 'Greenland', 'Grenada', 'Guadeloupe', 'Guam', 'Guatemala', 
+'Guernsey', 'Guinea', 'Guinea-Bissau', 'Guyana', 'Haiti', 'High income', 'Honduras', 'Hungary',"Iceland", 
+"India","Indonesia","Iran", "Iraq" ,"Ireland","Isle.of.Man","Israel","Italy","Jamaica", "Japan","Jersey" ,
+"Jordan", "Kazakhstan","Kenya","Kiribati", "Kosovo","Kuwait","Kyrgyzstan", "Laos","Latvia","Lebanon", 
+"Lesotho","Liberia","Libya","Liechtenstein","Lithuania","Low.income","Lower.middle.income","Luxembourg",
+"Madagascar","Malawi","Malaysia","Maldives","Mali","Malta","Marshall.Islands","Martinique","Mauritania",
+"Mauritius","Mayotte","Mexico","Micronesia..country.","Moldova","Monaco","Mongolia","Montenegro","Montserrat",
+"Morocco","Mozambique","Myanmar","Namibia" ,"Nauru","Nepal","Netherlands","New.Caledonia","New.Zealand",
+"Nicaragua","Niger","Nigeria","Niue","North.America","North.Korea","North.Macedonia","Northern.Mariana.Islands",
+"Norway", "Oceania","Oman","Pakistan","Palau","Palestine","Panama" ,"Papua.New.Guinea", "Paraguay","Peru",
+"Philippines","Pitcairn","Poland", "Portugal","Puerto.Rico", "Qatar","Reunion","Romania","Russia","Rwanda",
+"Saint.Barthelemy","Saint.Helena","Saint.Kitts.and.Nevis","Saint.Lucia","Saint.Martin..French.part.",
+"Saint.Pierre.and.Miquelon","Saint.Vincent.and.the.Grenadines","Samoa","San.Marino","Sao.Tome.and.Principe",
+"Saudi.Arabia","Senegal","Serbia","Seychelles","Sierra.Leone","Singapore", "Sint.Maarten..Dutch.part.",
+"Slovakia","Slovenia","Solomon.Islands", "Somalia","South.Africa", "South.America","South.Korea","South.Sudan",
+"Spain","Sri.Lanka","Sudan","Suriname","Sweden","Switzerland","Syria","Tajikistan","Tanzania","Thailand",
+"Timor","Togo","Tokelau","Tonga","Trinidad.and.Tobago","Tunisia","Turkey","Turkmenistan", "Turks.and.Caicos.Islands",
+"Tuvalu","Uganda","Ukraine", "United.Arab.Emirates","United.Kingdom","United.States", "United.States.Virgin.Islands",
+"Upper.middle.income","Uruguay","Uzbekistan","Vanuatu", "Vatican","Venezuela","Vietnam","Wallis.and.Futuna","Yemen",
+"Zambia","Zimbabwe"]
 
 
 d3.select("#selectButton2")
@@ -107,7 +140,7 @@ d3.select("#selectButton2")
 
   d3.select("#selectButton3")
   .selectAll('myOptions')
-  .data(allCountries)
+  .data(allCountries2)
   .enter()
   .append('option')
   .text(function (d) { return d; }) // text showed in the menu
@@ -147,14 +180,14 @@ d3.select("#selectButton2")
       legendRow2.append("rect")
       .attr("width", 10)
       .attr("height", 10)
-      .attr("fill", myColor("valueA"))
+      .attr("fill", myColor("China"))
       
       legendRow2.append("text")
       .attr("x", -10)
       .attr("y", 10)
       .attr("text-anchor", "end")
       .style("text-transform", "capitalize")
-      .text('World')
+      .text('China')
 
 
 
@@ -177,10 +210,10 @@ var line2 = svg3
   .datum(data)
   .attr("d", d3.line()
     .x(function(d) { return x(+d.date) })
-    .y(function(d) { return y(+d.World) })
+    .y(function(d) { return y(+d.China) })
   )
   .attr("transform", "translate(70,10)")
-  .attr("stroke", function(d){ return myColor("valueA") })
+  .attr("stroke", function(d){ return myColor("China") })
   .style("stroke-width", 3)
   .style("fill", "none")
 

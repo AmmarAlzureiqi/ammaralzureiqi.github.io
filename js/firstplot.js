@@ -164,7 +164,6 @@ alldates = ['2020-01-03','2020-01-04','2020-01-05','2020-01-06','2020-01-07',
 '2023-07-03','2023-07-04','2023-07-05','2023-07-06','2023-07-07','2023-07-08','2023-07-09','2023-07-10',
 '2023-07-11','2023-07-12','2023-07-13','2023-07-14','2023-07-15','2023-07-16','2023-07-17','2023-07-18',
 '2023-07-19','2023-07-20','2023-07-21','2023-07-22','2023-07-23','2023-07-24','2023-07-25','2023-07-26']
-
 const MARGIN1 = { LEFT: 100, RIGHT: 10, TOP: 10, BOTTOM: 100 }
 const WIDTH1 = 900 - MARGIN1.LEFT - MARGIN1.RIGHT
 const HEIGHT1 = 450 - MARGIN1.TOP - MARGIN1.BOTTOM
@@ -199,7 +198,7 @@ const tip = d3.tip()
   .attr('class', 'd3-tip')
   .attr('fill', 'black')
 	.html(d => {
-		let text = `<strong>New Deaths:</strong> <span style='color:#008FFF;text-transform:capitalize'>${d.x}</span><br>`
+		let text = `<strong>New Tests:</strong> <span style='color:#008FFF;text-transform:capitalize'>${d.x}</span><br>`
 		text += `<strong>New Cases:</strong> <span style='color:#008FFF;text-transform:capitalize'>${d.y}</span><br>`
         text += `<strong>Country:</strong> <span style='color:#008FFF;text-transform:capitalize'>${d.country}</span><br>`
 		return text
@@ -207,9 +206,13 @@ const tip = d3.tip()
 g1.call(tip)
 
 // Scales
+// const xScale = d3.scalePow()
+// 	.exponent(0.25)
+// 	.domain([0, 10000])
+// 	.range([0, WIDTH1])
 const xScale = d3.scalePow()
 	.exponent(0.25)
-	.domain([0, 10000])
+	.domain([0, 3000000])
 	.range([0, WIDTH1])
 const yScale = d3.scalePow()
 	.exponent(0.1)
@@ -243,7 +246,7 @@ const xLabel1 = g1.append("text")
 	.attr("x", WIDTH1 / 2)
 	.attr("font-size", "20px")
 	.attr("text-anchor", "middle")
-	.text("New Deaths")
+	.text("New Tests")
 const yLabel1 = g1.append("text")
 	.attr("transform", "rotate(-90)")
 	.attr("y", -60)
@@ -260,14 +263,17 @@ const timeLabel = g1.append("text")
 	.text("2020-01-03")
 
 // X Axis
-const xAxisCall1 = d3.axisBottom(xScale).tickValues([0,1, 10, 100, 250, 500, 750, 1000, 2000, 3000, 4000, 5000, 7000, 9000])
+const xAxisCall1 = d3.axisBottom(xScale).tickValues([0,1, 10, 100, 1000, 10000, 50000, 100000, 200000, 400000, 600000, 1000000, 1500000, 2000000, 2750000])
+// const xAxisCall1 = d3.axisBottom(xScale).tickValues([0,1, 10, 100, 250, 500, 750, 1000, 2000, 3000, 4000, 5000, 7000, 9000])
+
 g1.append("g")
 	.attr("class", "x axis")
 	.attr("transform", `translate(0, ${HEIGHT1})`)
 	.call(xAxisCall1)
 
 // Y Axis
-const yAxisCall1 = d3.axisLeft(yScale).tickValues([0, 25000, 50000, 100000, 200000, 500000])
+const yAxisCall1 = d3.axisLeft(yScale).tickValues([0,1,10,50,100, 500, 1000, 5000, 10000, 25000, 50000, 100000, 200000, 500000])
+
 g1.append("g")
 	.attr("class", "y axis")
 	.call(yAxisCall1)
@@ -349,7 +355,8 @@ function filtercontinent(data, cont){
     if (cont == "all"){
         data2 = []
         for (let i = 0; i < 234; i++) {
-            data2.push({x:data['newDeaths'][i], y:data['newCases'][i], 
+            // data2.push({x:data['newDeaths'][i], y:data['newCases'][i],
+			data2.push({x:data['newTests'][i], y:data['newCases'][i], 
             country:data['country'][i], population:data['pop'][i], continent:data['continen'][i]})
         }
     }
@@ -357,7 +364,8 @@ function filtercontinent(data, cont){
         data2 = []
         for (let i = 0; i < 234; i++) {
             if (data['continen'][i] == cont){
-                data2.push({x:data['newDeaths'][i], y:data['newCases'][i], 
+				// data2.push({x:data['newDeaths'][i], y:data['newCases'][i],
+                data2.push({x:data['newTests'][i], y:data['newCases'][i], 
                     country:data['country'][i], population:data['pop'][i], continent:data['continen'][i]})
             }
             else{
