@@ -228,7 +228,6 @@ alldates = ['2020-01-03','2020-01-04','2020-01-05','2020-01-06','2020-01-07',
 names = ['iso_code', 'continent', 'location', 'date', 
                   'total_cases', 'new_cases', 'total_deaths', 'new_deaths', 'population',
                   'new_vaccinations', 'population_density', 'new_tests']
-arr1 = []
 
 
 const MARGIN1 = { LEFT: 100, RIGHT: 10, TOP: 10, BOTTOM: 100 }
@@ -258,8 +257,8 @@ d3.select("#continent-select")
 const tip = d3.tip()
   .attr('class', 'd3-tip')
 	.html(d => {
-		let text = `<strong>New Cases:</strong> <span style='color:red;text-transform:capitalize'>${d['newcases']}</span><br>`
-		text += `<strong>New Recovered:</strong> <span style='color:red;text-transform:capitalize'>${d['newrecovered']}</span><br>`
+		let text = `<strong>New Cases:</strong> <span style='color:red;text-transform:capitalize'>${d['newCases']}</span><br>`
+		text += `<strong>New Deaths:</strong> <span style='color:red;text-transform:capitalize'>${d['newDeaths']}</span><br>`
 		return text
 	})
 g1.call(tip)
@@ -294,7 +293,7 @@ const xLabel1 = g1.append("text")
 	.attr("x", WIDTH1 / 2)
 	.attr("font-size", "20px")
 	.attr("text-anchor", "middle")
-	.text("New Recovered")
+	.text("New Deaths")
 const yLabel1 = g1.append("text")
 	.attr("transform", "rotate(-90)")
 	.attr("y", -60)
@@ -344,14 +343,14 @@ regions.forEach((continent, i) => {
     .text(continent)
 })
 
-update1(arr1[0])
+update1(data[0])
 
 drawAnnotation();
 
 function step() {
 	// at the end of our data, loop back
 	time = (time < 187) ? time + 1 : 0
-	update1(arr1[time])
+	update1(data[time])
 }
 
 $("#play-button")
@@ -437,40 +436,48 @@ function ifpositive(val){
         return val;
     }
 }
+console.log(data[0])
+
+df = {a:[100000,20000,300000,400000,500000,600000,7000000,800000,900000,1000000],
+     b:[10000,20000,30000,40000,50000,60000,700000,80000,90000,100000]} 
+	console.log(df)
+
+    g1
+    .selectAll("dot")
+    .data(df)
+    .enter()
+    .append("circle")
+    //   .attr("cx", function (d) { return xScale(d['newDeaths']); } )
+    //   .attr("cy", function (d) { return yScale(d['newCases']); } )
+         .attr("cx", function (d) { return xScale(d.a); } )
+         .attr("cy", function (d) { return yScale(d.b); } )
+      .attr("r", 3)
+      .style("fill", "#69b3a2")
+
 function update1(data) {
 	// standard transition time for the visualization
 	const t = d3.transition()
 		.duration(100)
 	
-	df = {a:[100,200,300,400,500,600,7000,800,900,1000], b:[0,0,0,0,0,0,0,0,0,0]} 
+	// df = {a:[100,200,300,400,500,600,7000,800,900,1000], b:[0,0,0,0,0,0,0,0,0,0]} 
+    df = {a:[100,200,300,400,500,600,7000,800,900,1000], b:[100,200,300,400,500,600,7000,800,900,1000]} 
 	//console.log(df)
 
 	const tempregion = $("#continent-select").val()
 
+    g1
+    .selectAll("dot")
+    .data(df)
+    .enter()
+    .append("circle")
+    //   .attr("cx", function (d) { return xScale(d['newDeaths']); } )
+    //   .attr("cy", function (d) { return yScale(d['newCases']); } )
+         .attr("cx", function (d) { return xScale(d.a); } )
+         .attr("cy", function (d) { return yScale(d.b); } )
+      .attr("r", 1.5)
+      .style("fill", "#69b3a2")
 
-	// JOIN new data with old elements.
-	const circles = g1.selectAll("circle")
-		.data(data)
-	// EXIT old elements not present in new data.
-	circles.exit().remove()
-	// ENTER new elements present in new data.
-	circles.enter().append("circle")
-		// .attr("fill", d => continentColor(d['region']))
-		.attr("fill", "#FF0F00")
-		.on("mouseover", tip.show)
-		.on("mouseout", tip.hide)
-		.merge(circles)
-		.transition(t)
-			.attr("cx", function (d) { return xScale(d['newDehsat']); } )
-			.attr("cy", function (d) { return yScale(d['newCases']); } )
-			// .attr("cx", function (d) { return xScale(d.a); } )
-			// .attr("cy", function (d) { return yScale(d.b); } )
-			// .attr("cx", d => xScale(d.a))
-			// .attr("cy", d => yScale(d.b))
-			// .attr("cx", d => x1(d['newrecovered']))
-			// .attr("cy", d => y1(d['newcases']))
-			.attr("r", 3)
-			
+	
 	// update the time label
 	timeLabel.text(String(alldates[time]))
 

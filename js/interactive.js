@@ -35,8 +35,6 @@ const g = svg2.append("g")
 const runfunc2 = async () => {
   const data =  await d3.csv('https://ammaralzureiqi.github.io/COVID%20Data/weekly_cases.csv');
 
-console.log(data)
-
 var parseTime = d3.timeParse("%Y-%m-%d");
 data.forEach(function(d) {d['date'] = parseTime(d['date']);});
 
