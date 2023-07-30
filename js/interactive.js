@@ -73,6 +73,15 @@ d3.select("#selectButton2")
   .text(function (d) { return d; }) // text showed in the menu
   .attr("value", function (d) { return d; })
 
+  d3.select("#selectButton3")
+  .selectAll('myOptions')
+  .data(allCountries)
+  .enter()
+  .append('option')
+  .text(function (d) { return d; }) // text showed in the menu
+  .attr("value", function (d) { return d; })
+
+
 var myColor = d3.scaleOrdinal()
   .domain(allCountries)
   .range(d3.schemeSet2);
