@@ -59,9 +59,9 @@
 </div>
 <script>
 const runfunc = async () => {
-const data =  await d3.csv('https://ammaralzureiqi.github.io/COVID%20Data/owid-covid-data4.csv');
-
-
+// const data =  await d3.csv('https://ammaralzureiqi.github.io/COVID%20Data/owid-covid-data4.csv');
+const data =  await d3.csv('https://ammaralzureiqi.github.io/COVID%20Data/edited_covid.json');
+console.log(data)
 alldates = ['2020-01-01','2020-01-02','2020-01-03','2020-01-04','2020-01-05','2020-01-06','2020-01-07',
 '2020-01-08','2020-01-09','2020-01-10','2020-01-11','2020-01-12','2020-01-13','2020-01-14','2020-01-15',
 '2020-01-16','2020-01-17','2020-01-18','2020-01-19','2020-01-20','2020-01-21','2020-01-22','2020-01-23',
@@ -257,18 +257,18 @@ console.log(newdata1)
 // formatted = []
 
 // for (let dat = 0; dat < 1305; dat++) {
-//     iso = []
-//     continen = []
-//     country = []
-//     dat = []
-//     totalCases = []
-//     newCases = []
-//     totalDeaths = []
-//     newDeaths = []
-//     pop = []
-//     newVacc = []
-//     popdense = []
-//     newTests = []
+    // iso = []
+    // continen = []
+    // country = []
+    // dat = []
+    // totalCases = []
+    // newCases = []
+    // totalDeaths = []
+    // newDeaths = []
+    // pop = []
+    // newVacc = []
+    // popdense = []
+    // newTests = []
 //     for (let i = 0; i < 313347; i++) {
 //         if(data[i]['date'] == alldates[dat]){
 //             iso.push(data[i]['iso_code'])
