@@ -1,7 +1,7 @@
 const runfunc = async () => {
 const data =  await d3.json('https://ammaralzureiqi.github.io/COVID%20Data/edited_covid.json');
 console.log(data)
-console.log(data[0])
+console.log(data[300])
 
 
 alldates = ['2020-01-03','2020-01-04','2020-01-05','2020-01-06','2020-01-07',
@@ -405,9 +405,9 @@ function update1(data) {
       .transition(t)
         //   .attr("cx", function (d) { return xScale(d[7][1]); } )
         //   .attr("cy", function (d) { return yScale(d[5][1]); } )
-        .attr("cx", function (d) { return xScale(data1[0].a); } )
-        .attr("cy", function (d) { return yScale(data1[1].b); } )
-          .attr("fake", function (d) { console.log(yScale(d[5][1])); } )
+        .attr("cx", function (d) { return xScale(d?.[0]?.a); } )
+        .attr("cy", function (d) { return yScale(d?.[1]?.b); } )
+        //   .attr("fake", function (d) { console.log(yScale(d[0].a)); } )
           .attr("r", 3)
 	
 	// update the time label
