@@ -175,10 +175,18 @@ h1 {
     stroke-width: 2px;
     stroke-dasharray: 3,3;
   }
-  
+  #selections .dropdown {
+    display: inline-block;
+    position: relative;
+  }
   #selections .col-md-4 {
     padding-top: 10px;
     padding-bottom: 10px;
+  }
+
+  #selections .dropdown {
+    display: inline-block;
+    position: relative;
   }
   
   #chart-area1 svg {

@@ -234,7 +234,12 @@ span {
     stroke-width: 2px;
     stroke-dasharray: 3,3;
 }
+.dropdown-options {
+    position: absolute;
+    top: 30px;
+    background-color: #f9f9f9;
 
+  }
 #selections .col-md-4 {
     padding-top: 10px;
     padding-bottom: 10px;

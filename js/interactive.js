@@ -6,9 +6,15 @@ const HEIGHT = 500 - MARGIN.TOP - MARGIN.BOTTOM
 const svg2 = d3.select("#interactive_viz").append("svg")
   .attr("width", WIDTH + MARGIN.LEFT + MARGIN.RIGHT)
   .attr("height", HEIGHT + MARGIN.TOP + MARGIN.BOTTOM)
+  .attr('fill', 'white')
 
 const g = svg2.append("g")
-  .attr("transform", `translate(${MARGIN.LEFT}, ${MARGIN.TOP})`)
+  .attr("transform", `translate(${MARGIN.LEFT}, ${MARGIN.TOP})`);
+
+  svg2.append("rect")
+    .attr("width", "100%")
+    .attr("height", "100%")
+    .attr("fill", "white");
 
 const runfunc2 = async () => {
   const data =  await d3.csv('https://ammaralzureiqi.github.io/COVID%20Data/weekly_cases.csv');
@@ -22,14 +28,21 @@ var x = d3.scaleTime()
   .range([0, WIDTH]);
 
 svg2.append("g")
-  .attr("transform", "translate(0," + HEIGHT + ")")
-  .call(d3.axisBottom(x));
+  .attr("transform", "translate(70," + HEIGHT + ")")
+  .call(d3.axisBottom(x))
 
 var y = d3.scaleLinear()
-  .domain([0,44819041])
+  .domain([0,45000000])
   .range([HEIGHT, 0]);
 
-var yAxis = svg2.append("g").call(d3.axisLeft(y));
+  var y2 = d3.scaleLinear()
+  .domain([0,45000000])
+  .range([HEIGHT, 0]); 
+
+var yAxis = svg2.append("g").call(d3.axisLeft(y)).attr("transform", "translate(70,0)");
+var yAxis2 = svg2.append("g").call(d3.axisRight(y2)).attr("transform", "translate(670,0)");
+
+
 
 var allCountries = ['World', 'Afghanistan', 'Africa', 'Albania', 
     'Algeria', 'American Samoa', 'Andorra', 'Angola', 'Anguilla', 'Antigua and Barbuda', 
@@ -94,9 +107,23 @@ var line = svg2
       .x(function(d) { return x(+d.date) })
       .y(function(d) { return y(+d.World) })
     )
+    .attr("transform", "translate(70,0)")
     .attr("stroke", function(d){ return myColor("valueA") })
     .style("stroke-width", 3)
     .style("fill", "none")
+
+var line2 = svg2
+.append('g')
+.append("path")
+  .datum(data)
+  .attr("d", d3.line()
+    .x(function(d) { return x(+d.date) })
+    .y(function(d) { return y(+d.World) })
+  )
+  .attr("transform", "translate(70,0)")
+  .attr("stroke", function(d){ return myColor("valueA") })
+  .style("stroke-width", 3)
+  .style("fill", "none")
 
 
 
@@ -126,6 +153,24 @@ line
   .attr("stroke", function(d){ return myColor(selectedGroup) })
 }
 
+function update2(selectedGroup) {
+
+  var dataFilter = data.map(function(d){return {date: d.date, value:d[selectedGroup]} });
+  
+  y2.domain([0,max2]).range([HEIGHT, 0]);
+  yAxis2.transition().duration(200).call(d3.axisRight(y2))
+  
+  line2
+    .datum(dataFilter)
+    .transition()
+    .duration(1000)
+    .attr("d", d3.line()
+    .x(function(d) { return x(+d.date) })
+    .y(function(d) { return y(+d.value) }))
+    .attr("stroke", function(d){ return myColor(selectedGroup) })
+  }
+
+
 d3.select("#selectButton2").on("change", function(d) {
 
 var selectedOption = d3.select(this).property("value")
@@ -133,5 +178,12 @@ max = findMax(data, selectedOption)
 update(selectedOption)
 
 })
+d3.select("#selectButton3").on("change", function(d) {
+
+  var selectedOption = d3.select(this).property("value")
+  max2 = findMax(data, selectedOption)
+  update2(selectedOption)
+  
+  })
 }
 runfunc2();
