@@ -59,7 +59,7 @@
 </div>
 <script>
 const runfunc = async () => {
-const data =  await d3.csv('https://ammaralzureiqi.github.io/COVID%20Data/owid-covid-data3.csv');
+const data =  await d3.csv('https://ammaralzureiqi.github.io/COVID%20Data/owid-covid-data4.csv');
 
 
 alldates = ['2020-01-01','2020-01-02','2020-01-03','2020-01-04','2020-01-05','2020-01-06','2020-01-07',
@@ -226,29 +226,94 @@ alldates = ['2020-01-01','2020-01-02','2020-01-03','2020-01-04','2020-01-05','20
 '2023-07-11','2023-07-12','2023-07-13','2023-07-14','2023-07-15','2023-07-16','2023-07-17','2023-07-18',
 '2023-07-19','2023-07-20','2023-07-21','2023-07-22','2023-07-23','2023-07-24','2023-07-25','2023-07-26',
 '2023-07-27','2023-07-28']
-
-console.log(data)
+names = ['iso_code', 'continent', 'location', 'date', 
+                  'total_cases', 'new_cases', 'total_deaths', 'new_deaths', 'population',
+                  'new_vaccinations', 'population_density', 'new_tests']
 arr1 = []
 
+iso = [];continen = [];country = [];dat = [];totalCases = [];newCases = [];
+totalDeaths = [];newDeaths = [];pop = [];newVacc = [];popdense = []; newTests = [];
+
+for (let i = 0; i < 313347; i++) {
+    iso[i] = data[i]['iso_code']
+    continen[i] = data[i]['continent']
+    country[i] = data[i]['location']
+    dat[i] = data[i]['date']
+    totalCases[i] = data[i]['total_cases']
+    newCases[i] = data[i]['new_cases']
+    totalDeaths[i] = data[i]['total_deaths']
+    newDeaths[i] = data[i]['new_deaths']
+    pop[i] = data[i]['population']
+    newVacc[i] = data[i]['new_vaccinations']
+    popdense[i] = data[i]['population_density']
+    newTests[i] = data[i]['new_tests']
+}
+
+newdata1 = {iso_code:iso, continent:continen, location:country, date:dat, 
+                  total_cases:totalCases, new_cases:newCases, total_deaths:totalDeaths, new_deaths:newDeaths, population:pop,
+                  new_vaccinations:newVacc, population_density:popdense, new_tests:newTests}
+console.log(newdata1)
+
+// formatted = []
+
+// for (let dat = 0; dat < 1305; dat++) {
+//     iso = []
+//     continen = []
+//     country = []
+//     dat = []
+//     totalCases = []
+//     newCases = []
+//     totalDeaths = []
+//     newDeaths = []
+//     pop = []
+//     newVacc = []
+//     popdense = []
+//     newTests = []
+//     for (let i = 0; i < 313347; i++) {
+//         if(data[i]['date'] == alldates[dat]){
+//             iso.push(data[i]['iso_code'])
+//             continen.push(data[i]['continent'])
+//             country.push(data[i]['location'])
+//             dat.push(data[i]['date'])
+//             totalCases.push(data[i]['total_cases'])
+//             newCases.push(data[i]['new_cases'])
+//             totalDeaths.push(data[i]['total_deaths'])
+//             newDeaths.push(data[i]['new_deaths'])
+//             pop.push(data[i]['population'])
+//             newVacc.push(data[i]['new_vaccinations'])
+//             popdense.push(data[i]['population_density'])
+//             newTests.push(data[i]['new_tests'])
+//             console.log(i*dat)
+//         }
+//     }
+
+//     formatted.push({iso_code:iso, continent:continen, location:country, date:dat, 
+//                   total_cases:totalCases, new_cases:newCases, total_deaths:totalDeaths, new_deaths:newDeaths, population:pop,
+//                   new_vaccinations:newVacc, population_density:popdense, new_tests:newTests})
+// }
+
+// console.log(formatted)
+
 count = 0
-for (let dat = 0; dat < 1304; dat++) {
+for (let dat = 0; dat < 1305; dat++) {
 	tempCountry = []
 	tempNewCases = []
 	tempNewRecovered = []
 	tempConfirmed = []
 	tempRegion = []
 
-	for (let i = count; i < (count + 242); i++) {
-        console.log(data[dat])
+	for (let i = 0; i < 243; i++) {
+        //console.log(data[dat + 243*i]['location'])
+        tempCountry[i] = data[dat + i]['location']
 		tempCountry[i-count] = data[i]['Country/Region']
 		tempNewCases[i-count] = data[i]['New cases']
 		tempNewRecovered[i-count] = data[i]['New recovered']
 		tempConfirmed[i-count] = data[i]['Confirmed']
 		tempRegion[i-count] = data[i]['WHO Region']
 	}
-	newdata = {country:tempCountry, newcases:tempNewCases, newrecovered:tempNewRecovered, newconfirmed:tempConfirmed, region:tempRegion}
-	count = count + 187
-	arr1[dat] = newdata
+	count = count + 243
+	arr1[dat] = {country:tempCountry, newcases:tempNewCases, newrecovered:tempNewRecovered, newconfirmed:tempConfirmed, region:tempRegion}
+
 
 }
 

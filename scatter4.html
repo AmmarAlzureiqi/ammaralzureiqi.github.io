@@ -102,11 +102,12 @@ for (let dat = 0; dat < 188; dat++) {
 		tempConfirmed[i-count] = data[i]['Confirmed']
 		tempRegion[i-count] = data[i]['WHO Region']
 	}
-	newdata = {country:tempCountry, newcases:tempNewCases, newrecovered:tempNewRecovered, newconfirmed:tempConfirmed, region:tempRegion}
 	count = count + 187
-	arr1[dat] = newdata
+	arr1[dat] = {country:tempCountry, newcases:tempNewCases, newrecovered:tempNewRecovered, newconfirmed:tempConfirmed, region:tempRegion}
+
 
 }
+console.log(arr1)
 unique = d3.map(data, function(d){return d.Date;}).keys();
 
 const MARGIN1 = { LEFT: 100, RIGHT: 10, TOP: 10, BOTTOM: 100 }
