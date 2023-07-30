@@ -87,6 +87,7 @@
         .append("circle")
           .attr("cx", function (d) { return x(d.Confirmed); } )
           .attr("cy", function (d) { return y(d.Deaths); } )
+          .attr("fake", d=> console.log(d.Deaths))
           .attr("r", 7)
           .style("fill", "#69b3a2")
           .style("opacity", 0.3)
