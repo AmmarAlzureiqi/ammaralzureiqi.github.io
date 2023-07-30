@@ -388,10 +388,11 @@ function update1(data) {
     console.log(temp[5][1])
     data1 = [{a:temp[7][1]}, {b:temp[5][1]}]
     console.log(data1[0].a)
+    console.log(data1[1].b)
 	const tempregion = $("#continent-select").val()
 
   const circles = g1.selectAll("circle")
-      .data(temp)
+      .data(data1)
   // EXIT old elements not present in new data.
   circles.exit().remove()
   // ENTER new elements present in new data.
@@ -402,8 +403,10 @@ function update1(data) {
       .on("mouseout", tip.hide)
       .merge(circles)
       .transition(t)
-          .attr("cx", function (d) { return xScale(d[7][1]); } )
-          .attr("cy", function (d) { return yScale(d[5][1]); } )
+        //   .attr("cx", function (d) { return xScale(d[7][1]); } )
+        //   .attr("cy", function (d) { return yScale(d[5][1]); } )
+        .attr("cx", function (d) { return xScale(data1[0].a); } )
+        .attr("cy", function (d) { return yScale(data1[1].b); } )
           .attr("fake", function (d) { console.log(yScale(d[5][1])); } )
           .attr("r", 3)
 	
