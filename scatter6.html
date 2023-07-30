@@ -30,7 +30,7 @@
                 <button id="play-button" class="btn btn-primary">Play</button>
                 <button id="reset-button" class="btn btn-primary">Reset</button>
                 <div id="slider">
-                    <label>Date: <span id="date">2020-01-22</span></label>
+                    <label>Date: <span id="date">2020-01-03</span></label>
                     <div id="date-slider"></div>
                 </div>
             </div>
@@ -62,7 +62,7 @@ const runfunc = async () => {
 // const data =  await d3.csv('https://ammaralzureiqi.github.io/COVID%20Data/owid-covid-data4.csv');
 const data =  await d3.json('https://ammaralzureiqi.github.io/COVID%20Data/edited_covid.json');
 console.log(data)
-alldates = ['2020-01-01','2020-01-02','2020-01-03','2020-01-04','2020-01-05','2020-01-06','2020-01-07',
+alldates = ['2020-01-03','2020-01-04','2020-01-05','2020-01-06','2020-01-07',
 '2020-01-08','2020-01-09','2020-01-10','2020-01-11','2020-01-12','2020-01-13','2020-01-14','2020-01-15',
 '2020-01-16','2020-01-17','2020-01-18','2020-01-19','2020-01-20','2020-01-21','2020-01-22','2020-01-23',
 '2020-01-24','2020-01-25','2020-01-26','2020-01-27','2020-01-28','2020-01-29','2020-01-30','2020-01-31',
@@ -224,100 +224,12 @@ alldates = ['2020-01-01','2020-01-02','2020-01-03','2020-01-04','2020-01-05','20
 '2023-06-25','2023-06-26','2023-06-27','2023-06-28','2023-06-29','2023-06-30','2023-07-01','2023-07-02',
 '2023-07-03','2023-07-04','2023-07-05','2023-07-06','2023-07-07','2023-07-08','2023-07-09','2023-07-10',
 '2023-07-11','2023-07-12','2023-07-13','2023-07-14','2023-07-15','2023-07-16','2023-07-17','2023-07-18',
-'2023-07-19','2023-07-20','2023-07-21','2023-07-22','2023-07-23','2023-07-24','2023-07-25','2023-07-26',
-'2023-07-27','2023-07-28']
+'2023-07-19','2023-07-20','2023-07-21','2023-07-22','2023-07-23','2023-07-24','2023-07-25','2023-07-26']
 names = ['iso_code', 'continent', 'location', 'date', 
                   'total_cases', 'new_cases', 'total_deaths', 'new_deaths', 'population',
                   'new_vaccinations', 'population_density', 'new_tests']
 arr1 = []
 
-iso = [];continen = [];country = [];dat = [];totalCases = [];newCases = [];
-totalDeaths = [];newDeaths = [];pop = [];newVacc = [];popdense = []; newTests = [];
-
-for (let i = 0; i < 313347; i++) {
-    iso[i] = data[i]['iso_code']
-    continen[i] = data[i]['continent']
-    country[i] = data[i]['location']
-    dat[i] = data[i]['date']
-    totalCases[i] = data[i]['total_cases']
-    newCases[i] = data[i]['new_cases']
-    totalDeaths[i] = data[i]['total_deaths']
-    newDeaths[i] = data[i]['new_deaths']
-    pop[i] = data[i]['population']
-    newVacc[i] = data[i]['new_vaccinations']
-    popdense[i] = data[i]['population_density']
-    newTests[i] = data[i]['new_tests']
-}
-
-newdata1 = {iso_code:iso, continent:continen, location:country, date:dat, 
-                  total_cases:totalCases, new_cases:newCases, total_deaths:totalDeaths, new_deaths:newDeaths, population:pop,
-                  new_vaccinations:newVacc, population_density:popdense, new_tests:newTests}
-console.log(newdata1)
-
-// formatted = []
-
-// for (let dat = 0; dat < 1305; dat++) {
-    // iso = []
-    // continen = []
-    // country = []
-    // dat = []
-    // totalCases = []
-    // newCases = []
-    // totalDeaths = []
-    // newDeaths = []
-    // pop = []
-    // newVacc = []
-    // popdense = []
-    // newTests = []
-//     for (let i = 0; i < 313347; i++) {
-//         if(data[i]['date'] == alldates[dat]){
-//             iso.push(data[i]['iso_code'])
-//             continen.push(data[i]['continent'])
-//             country.push(data[i]['location'])
-//             dat.push(data[i]['date'])
-//             totalCases.push(data[i]['total_cases'])
-//             newCases.push(data[i]['new_cases'])
-//             totalDeaths.push(data[i]['total_deaths'])
-//             newDeaths.push(data[i]['new_deaths'])
-//             pop.push(data[i]['population'])
-//             newVacc.push(data[i]['new_vaccinations'])
-//             popdense.push(data[i]['population_density'])
-//             newTests.push(data[i]['new_tests'])
-//             console.log(i*dat)
-//         }
-//     }
-
-//     formatted.push({iso_code:iso, continent:continen, location:country, date:dat, 
-//                   total_cases:totalCases, new_cases:newCases, total_deaths:totalDeaths, new_deaths:newDeaths, population:pop,
-//                   new_vaccinations:newVacc, population_density:popdense, new_tests:newTests})
-// }
-
-// console.log(formatted)
-
-count = 0
-for (let dat = 0; dat < 1305; dat++) {
-	tempCountry = []
-	tempNewCases = []
-	tempNewRecovered = []
-	tempConfirmed = []
-	tempRegion = []
-
-	for (let i = 0; i < 243; i++) {
-        //console.log(data[dat + 243*i]['location'])
-        tempCountry[i] = data[dat + i]['location']
-		tempCountry[i-count] = data[i]['Country/Region']
-		tempNewCases[i-count] = data[i]['New cases']
-		tempNewRecovered[i-count] = data[i]['New recovered']
-		tempConfirmed[i-count] = data[i]['Confirmed']
-		tempRegion[i-count] = data[i]['WHO Region']
-	}
-	count = count + 243
-	arr1[dat] = {country:tempCountry, newcases:tempNewCases, newrecovered:tempNewRecovered, newconfirmed:tempConfirmed, region:tempRegion}
-
-
-}
-
-unique = d3.map(data, function(d){return d.Date;}).keys();
 
 const MARGIN1 = { LEFT: 100, RIGHT: 10, TOP: 10, BOTTOM: 100 }
 const WIDTH1 = 800 - MARGIN1.LEFT - MARGIN1.RIGHT
@@ -339,19 +251,10 @@ d3.select("#continent-select")
   .data(regions)
   .enter()
   .append('option')
-  .text(function (d) { return d; }) // text showed in the menu
+  .text(function (d) { return d; }) 
   .attr("value", function (d) { return d; })
 
-// d3.select("#date-select")
-// 	.selectAll('myOptions')
-// 	.data(unique)
-// 	.enter()
-// 	.append('option')
-// 	.text(function (d) {return d; }) // text showed in the menu
-// 	.attr("value", function (d) { return d; })
-
-
-// Tooltip
+  // Tooltip
 const tip = d3.tip()
   .attr('class', 'd3-tip')
 	.html(d => {
@@ -360,7 +263,6 @@ const tip = d3.tip()
 		return text
 	})
 g1.call(tip)
-
 
 // Scales
 // const x1 = d3.scalePow()
@@ -373,10 +275,10 @@ g1.call(tip)
 // 	.range([HEIGHT1, 0])
 
 var xScale = d3.scaleLinear()
-	.domain([0, 1000])
+	.domain([0, 6966046])
 	.range([0, WIDTH1])
 var yScale = d3.scaleLinear()
-	.domain([0, 1000])
+	.domain([0, 120896])
 	.range([HEIGHT1, 0])
 
 
@@ -406,7 +308,7 @@ const timeLabel = g1.append("text")
 	.attr("font-size", "20px")
 	.attr("opacity", "0.4")
 	.attr("text-anchor", "middle")
-	.text("2020-01-22")
+	.text("2020-01-03")
 
 // X Axis
 const xAxisCall1 = d3.axisBottom(xScale)
@@ -468,21 +370,21 @@ $("#play-button")
 $("#reset-button")
 	.on("click", () => {
 		time = 0
-		update1(arr1[0])
+		update1(data[0])
 	})
 
 $("#continent-select")
 	.on("change", () => {
-		update1(arr1[time])
+		update1(data[time])
 	})
 
 $("#date-slider").slider({
 	min: 0,
-	max: 187,
+	max: 1300,
 	step: 1,
 	slide: (event, ui) => {
 		time = ui.value
-		update1(arr1[time])
+		update1(data[time])
 	}
 })
 
@@ -540,23 +442,15 @@ function update1(data) {
 	const t = d3.transition()
 		.duration(100)
 	
-	//df = {a:[100,200,300,400,500,600,7000,800,900,1000], b:[0,0,0,0,0,0,0,0,0,0]} 
+	df = {a:[100,200,300,400,500,600,7000,800,900,1000], b:[0,0,0,0,0,0,0,0,0,0]} 
 	//console.log(df)
 
 	const tempregion = $("#continent-select").val()
 
-	filteredData = filterregion(tempregion, data);
-	data3 = {'newcases':filteredData['newcases'], 'newrecovered':filteredData['newrecovered'], 
-	'newconfirmed':filteredData['newconfirmed'], 'region':filteredData['region']}
 
-	// console.log(data3['newcases'])
-	// console.log(data3['newrecovered'])
-	// console.log(data3['newconfirmed'])
-	// console.log(data3['region'])
-	
 	// JOIN new data with old elements.
 	const circles = g1.selectAll("circle")
-		.data(data3)
+		.data(data)
 	// EXIT old elements not present in new data.
 	circles.exit().remove()
 	// ENTER new elements present in new data.
@@ -567,8 +461,8 @@ function update1(data) {
 		.on("mouseout", tip.hide)
 		.merge(circles)
 		.transition(t)
-			.attr("cx", function (d) { return xScale(d['newrecovered']); } )
-			.attr("cy", function (d) { return yScale(d['newcases']); } )
+			.attr("cx", function (d) { return xScale(d['newDehsat']); } )
+			.attr("cy", function (d) { return yScale(d['newCases']); } )
 			// .attr("cx", function (d) { return xScale(d.a); } )
 			// .attr("cy", function (d) { return yScale(d.b); } )
 			// .attr("cx", d => xScale(d.a))
