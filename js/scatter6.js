@@ -336,7 +336,7 @@ function drawAnnotation() {
 	  .attr('x', 110)
 	  .attr('y', 360)
 	  .classed('annotation', true)
-	  .text('text here');
+	  .text('');
   }
 
 function filterregion(cont, data){
