@@ -12,6 +12,11 @@ var svg = d3.select("#myworld")
 .attr("transform",
       "translate(" + margin.left + "," + margin.top + ")");
       
+      svg.append("rect")
+      .attr("width", "100%")
+      .attr("height", "100%")
+      .attr("fill", "white")
+      .attr("transform","translate(-75,0)");
 
 var allCountries = ['Afghanistan', 'Africa', 'Albania', 
   'Algeria', 'American Samoa', 'Andorra', 'Angola', 'Anguilla', 'Antigua and Barbuda', 
@@ -61,9 +66,9 @@ svg.append("g")
 // Add Y axis
 var y = d3.scaleLinear()
 .domain([0,45000000])
-.range([height, 0]);
+.range([height-10, 0]);
 svg.append("g")
-.call(d3.axisLeft(y));
+.call(d3.axisLeft(y)).attr("transform", "translate(0,10)");
 
 // This allows to find the closest X index of the mouse:
 var bisect = d3.bisector(function(d) { return d.Date; }).left;
@@ -74,6 +79,8 @@ var focus = svg
 .append('circle')
   .style("fill", "none")
   .attr("stroke", "black")
+  .attr("stroke-width", 3)
+  .attr("transform", "translate(0,10)")
   .attr('r', 8.5)
   .style("opacity", 0)
 
@@ -108,6 +115,7 @@ svg
 .attr("d", d3.line()
   .x(function(d) { return x(d.Date) })
   .y(function(d) { return y(d.World) }))
+.attr("transform", "translate(0,10)")
 .on("mouseover", mouseover )
 .on("mousemove", mousemove )
 .on("mouseout", mouseout )
@@ -120,6 +128,7 @@ svg
 .style("pointer-events", "all")
 .attr('width', width)
 .attr('height', height)
+.attr("transform", "translate(0,10)")
 .on('mouseover', mouseover)
 .on('mousemove', mousemove)
 .on('mouseout', mouseout);

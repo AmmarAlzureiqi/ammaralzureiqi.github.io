@@ -1,23 +1,41 @@
 
-const MARGIN = { LEFT: 100, RIGHT: 100, TOP: 50, BOTTOM: 100 }
+const MARGIN = { LEFT: 50, RIGHT: 50, TOP: 25, BOTTOM: 50 }
 const WIDTH = 800 - MARGIN.LEFT - MARGIN.RIGHT
-const HEIGHT = 500 - MARGIN.TOP - MARGIN.BOTTOM
+const HEIGHT = 250 - MARGIN.TOP - MARGIN.BOTTOM
+
+const MARGIN2 = { LEFT: 50, RIGHT: 50, TOP: 25, BOTTOM: 50 }
+const WIDTH2 = 800 - MARGIN2.LEFT - MARGIN2.RIGHT
+const HEIGHT2 = 250 - MARGIN2.TOP - MARGIN2.BOTTOM
 
 const svg2 = d3.select("#interactive_viz").append("svg")
   .attr("width", WIDTH + MARGIN.LEFT + MARGIN.RIGHT)
   .attr("height", HEIGHT + MARGIN.TOP + MARGIN.BOTTOM)
-
-const g = svg2.append("g")
-  .attr("transform", `translate(${MARGIN.LEFT}, ${MARGIN.TOP})`);
 
   svg2.append("rect")
     .attr("width", "100%")
     .attr("height", "85%")
     .attr("fill", "white");
 
+  const svg3 = d3.select("#interactive_viz").append("svg")
+  .attr("width", WIDTH2 + MARGIN2.LEFT + MARGIN2.RIGHT)
+  .attr("height", HEIGHT2 + MARGIN2.TOP + MARGIN2.BOTTOM)
+
+  svg3.append("rect")
+    .attr("width", "100%")
+    .attr("height", "85%")
+    .attr("fill", "white");
+
+const g = svg2.append("g")
+  .attr("transform", `translate(${MARGIN.LEFT}, ${MARGIN.TOP})`);
+
+  const g2 = svg3.append("g")
+  .attr("transform", `translate(${MARGIN2.LEFT}, ${MARGIN2.TOP})`);
+
+
 const runfunc2 = async () => {
   const data =  await d3.csv('https://ammaralzureiqi.github.io/COVID%20Data/weekly_cases.csv');
 
+console.log(data)
 
 var parseTime = d3.timeParse("%Y-%m-%d");
 data.forEach(function(d) {d['date'] = parseTime(d['date']);});
@@ -30,16 +48,20 @@ svg2.append("g")
   .attr("transform", "translate(70," + HEIGHT + ")")
   .call(d3.axisBottom(x))
 
+  svg3.append("g")
+  .attr("transform", "translate(70," + HEIGHT2 + ")")
+  .call(d3.axisBottom(x))
+
 var y = d3.scaleLinear()
   .domain([0,45000000])
-  .range([HEIGHT, 0]);
+  .range([HEIGHT-10, 0]);
 
   var y2 = d3.scaleLinear()
   .domain([0,45000000])
-  .range([HEIGHT, 0]); 
+  .range([HEIGHT2-10, 0]); 
 
-var yAxis = svg2.append("g").call(d3.axisLeft(y)).attr("transform", "translate(70,0)");
-var yAxis2 = svg2.append("g").call(d3.axisRight(y2)).attr("transform", "translate(670,0)");
+var yAxis = svg2.append("g").call(d3.axisLeft(y)).attr("transform", "translate(70,10)");
+var yAxis2 = svg3.append("g").call(d3.axisLeft(y2)).attr("transform", "translate(70,10)");
 
 
 
@@ -93,10 +115,50 @@ d3.select("#selectButton2")
   .text(function (d) { return d; }) // text showed in the menu
   .attr("value", function (d) { return d; })
 
-
-var myColor = d3.scaleOrdinal()
+  var myColor = d3.scaleOrdinal()
   .domain(allCountries)
   .range(d3.schemeSet2);
+
+  const continentColor = d3.scaleOrdinal(d3.schemePastel1)
+
+  const legend = g.append("g")
+	.attr("transform", `translate(${WIDTH - 5}, ${HEIGHT - 80})`)
+
+  const legendRow = legend.append("g")
+      .attr("transform", `translate(0, 0)`)
+  
+      legendRow.append("rect")
+      .attr("width", 10)
+      .attr("height", 10)
+      .attr("fill", myColor("valueA"))
+      
+      legendRow.append("text")
+      .attr("x", -10)
+      .attr("y", 10)
+      .attr("text-anchor", "end")
+      .style("text-transform", "capitalize")
+      .text('World')
+      
+
+      const legend2 = g2.append("g")
+	.attr("transform", `translate(${WIDTH2 - 5}, ${HEIGHT2 - 80})`)
+
+      const legendRow2 = legend2.append("g")
+      .attr("transform", `translate(0, 15)`)
+
+      legendRow2.append("rect")
+      .attr("width", 10)
+      .attr("height", 10)
+      .attr("fill", myColor("valueA"))
+      
+      legendRow2.append("text")
+      .attr("x", -10)
+      .attr("y", 10)
+      .attr("text-anchor", "end")
+      .style("text-transform", "capitalize")
+      .text('World')
+
+
 
 var line = svg2
   .append('g')
@@ -106,12 +168,12 @@ var line = svg2
       .x(function(d) { return x(+d.date) })
       .y(function(d) { return y(+d.World) })
     )
-    .attr("transform", "translate(70,0)")
+    .attr("transform", "translate(70,10)")
     .attr("stroke", function(d){ return myColor("valueA") })
     .style("stroke-width", 3)
     .style("fill", "none")
 
-var line2 = svg2
+var line2 = svg3
 .append('g')
 .append("path")
   .datum(data)
@@ -119,7 +181,7 @@ var line2 = svg2
     .x(function(d) { return x(+d.date) })
     .y(function(d) { return y(+d.World) })
   )
-  .attr("transform", "translate(70,0)")
+  .attr("transform", "translate(70,10)")
   .attr("stroke", function(d){ return myColor("valueA") })
   .style("stroke-width", 3)
   .style("fill", "none")
@@ -139,7 +201,7 @@ function update(selectedGroup) {
 
 var dataFilter = data.map(function(d){return {date: d.date, value:d[selectedGroup]} });
 
-y.domain([0,max]).range([HEIGHT, 0]);
+y.domain([0,max]).range([HEIGHT-10, 0]);
 yAxis.transition().duration(200).call(d3.axisLeft(y))
 
 line
@@ -150,14 +212,28 @@ line
   .x(function(d) { return x(+d.date) })
   .y(function(d) { return y(+d.value) }))
   .attr("stroke", function(d){ return myColor(selectedGroup) })
+
+  legendRow.append("rect")
+      .attr("width", 10)
+      .attr("height", 10)
+      .attr("fill", myColor(selectedGroup))
+
+      legendRow.selectAll('text').remove()
+
+      legendRow.append("text")
+      .attr("x", -10)
+      .attr("y", 10)
+      .attr("text-anchor", "end")
+      .style("text-transform", "capitalize")
+      .text(selectedGroup)
 }
 
 function update2(selectedGroup) {
 
   var dataFilter = data.map(function(d){return {date: d.date, value:d[selectedGroup]} });
   
-  y2.domain([0,max2]).range([HEIGHT, 0]);
-  yAxis2.transition().duration(200).call(d3.axisRight(y2))
+  y2.domain([0,max2]).range([HEIGHT2-10, 0]);
+  yAxis2.transition().duration(200).call(d3.axisLeft(y2))
   
   line2
     .datum(dataFilter)
@@ -165,8 +241,21 @@ function update2(selectedGroup) {
     .duration(1000)
     .attr("d", d3.line()
     .x(function(d) { return x(+d.date) })
-    .y(function(d) { return y(+d.value) }))
+    .y(function(d) { return y2(+d.value) }))
     .attr("stroke", function(d){ return myColor(selectedGroup) })
+
+    legendRow2.append("rect")
+      .attr("width", 10)
+      .attr("height", 10)
+      .attr("fill", myColor(selectedGroup))
+      
+      legendRow2.selectAll('text').remove()
+      legendRow2.append("text")
+      .attr("x", -10)
+      .attr("y", 10)
+      .attr("text-anchor", "end")
+      .style("text-transform", "capitalize")
+      .text(selectedGroup)
   }
 
 
