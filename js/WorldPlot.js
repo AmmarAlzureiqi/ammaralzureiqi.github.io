@@ -120,6 +120,167 @@ svg
 .on("mousemove", mousemove )
 .on("mouseout", mouseout )
   
+const type = d3.annotationLabel
+const annotations = [{
+  note: {
+    label: "Wave 1: 2020-02-25",
+    bgPadding: 20,
+  },
+  data: { date: '2020-02-25', World: 6577 },
+  className: "show-bg",
+  dy: -137,
+  dx: 15
+}]
+
+const makeAnnotations = d3.annotation()
+  .editMode(true)
+  .notePadding(15)
+  .type(type)
+  .accessors({
+    x: d => x(parseTime(d.date)),
+    y: d => y(d.World)
+  })
+  .annotations(annotations)
+  svg
+  .append("g")
+  .attr("class", "annotation-group")
+  .attr("transform", "translate(0,10)")
+  .call(makeAnnotations)
+
+  const type1 = d3.annotationLabel
+const annotations1 = [{
+  note: {
+    label: "Wave 2: 2020-08-31",
+    bgPadding: 20,
+  },
+  data: { date: '2020-08-31', World: 1886525 },
+  className: "show-bg",
+  dy: -137,
+  dx: -0
+}]
+
+const makeAnnotations1 = d3.annotation()
+  .editMode(true)
+  .notePadding(15)
+  .type(type1)
+  .accessors({
+    x: d => x(parseTime(d.date)),
+    y: d => y(d.World)
+  })
+  .annotations(annotations1)
+  svg
+  .append("g")
+  .attr("class", "annotation-group")
+  .attr("transform", "translate(0,10)")
+  .call(makeAnnotations1)
+
+  const type2 = d3.annotationLabel
+const annotations2 = [{
+  note: {
+    label: "Wave 3: 2021-03-01",
+    bgPadding: 20,
+  },
+  data: { date: '2021-03-01', World: 2672625 },
+  className: "show-bg",
+  dy: -137,
+  dx: -0
+}]
+
+const makeAnnotations2 = d3.annotation()
+  .editMode(true)
+  .notePadding(15)
+  .type(type2)
+  .accessors({
+    x: d => x(parseTime(d.date)),
+    y: d => y(d.World)
+  })
+  .annotations(annotations2)
+  svg
+  .append("g")
+  .attr("class", "annotation-group")
+  .attr("transform", "translate(0,10)")
+  .call(makeAnnotations2)
+
+  const type3 = d3.annotationLabel
+const annotations3 = [{
+  note: {
+    label: "Wave 4: 2021-08-01",
+    bgPadding: 20,
+  },
+  data: { date: '2021-08-01', World: 4143183 },
+  className: "show-bg",
+  dy: -137,
+  dx: -0
+}]
+
+const makeAnnotations3 = d3.annotation()
+  .editMode(true)
+  .notePadding(15)
+  .type(type3)
+  .accessors({
+    x: d => x(parseTime(d.date)),
+    y: d => y(d.World)
+  })
+  .annotations(annotations3)
+  svg
+  .append("g")
+  .attr("class", "annotation-group")
+  .attr("transform", "translate(0,10)")
+  .call(makeAnnotations3)
+
+  const type4 = d3.annotationLabel
+const annotations4 = [{
+  note: {
+    label: "Wave 5: 2021-12-14",
+    bgPadding: 20,
+  },
+  data: { date: '2021-12-14', World: 4336882 },
+  className: "show-bg",
+  dy: -200,
+  dx: -20
+}]
+
+const makeAnnotations4 = d3.annotation()
+  .editMode(true)
+  .notePadding(15)
+  .type(type4)
+  .accessors({
+    x: d => x(parseTime(d.date)),
+    y: d => y(d.World)
+  })
+  .annotations(annotations4)
+  svg
+  .append("g")
+  .attr("class", "annotation-group")
+  .attr("transform", "translate(0,10)")
+  .call(makeAnnotations4)
+
+  const type5 = d3.annotationLabel
+const annotations5 = [{
+  note: {
+    label: "Wave 6: 2022-03-01",
+    bgPadding: 20,
+  },
+  data: { date: '2022-03-01', World: 10944027 },
+  className: "show-bg",
+  dy: -150,
+  dx: 20
+}]
+
+const makeAnnotations5 = d3.annotation()
+  .editMode(true)
+  .notePadding(15)
+  .type(type5)
+  .accessors({
+    x: d => x(parseTime(d.date)),
+    y: d => y(d.World)
+  })
+  .annotations(annotations5)
+  svg
+  .append("g")
+  .attr("class", "annotation-group")
+  .attr("transform", "translate(0,10)")
+  .call(makeAnnotations5)
 
 // Create a rect on top of the svg area: this rectangle recovers mouse position
 svg
@@ -184,167 +345,6 @@ focusText.style("opacity", 0)
 tooltip.style("opacity",0)
 }
 
-const type = d3.annotationLabel
-const annotations = [{
-  note: {
-    label: "Wave 1",
-    bgPadding: 20,
-  },
-  data: { date: '2020-02-25', World: 6577 },
-  className: "show-bg",
-  dy: -137,
-  dx: -0
-}]
-
-const makeAnnotations = d3.annotation()
-  .editMode(true)
-  .notePadding(15)
-  .type(type)
-  .accessors({
-    x: d => x(parseTime(d.date)),
-    y: d => y(d.World)
-  })
-  .annotations(annotations)
-  svg
-  .append("g")
-  .attr("class", "annotation-group")
-  .attr("transform", "translate(0,10)")
-  .call(makeAnnotations)
-
-  const type1 = d3.annotationLabel
-const annotations1 = [{
-  note: {
-    label: "Wave 2",
-    bgPadding: 20,
-  },
-  data: { date: '2020-08-31', World: 1886525 },
-  className: "show-bg",
-  dy: -137,
-  dx: -0
-}]
-
-const makeAnnotations1 = d3.annotation()
-  .editMode(true)
-  .notePadding(15)
-  .type(type1)
-  .accessors({
-    x: d => x(parseTime(d.date)),
-    y: d => y(d.World)
-  })
-  .annotations(annotations1)
-  svg
-  .append("g")
-  .attr("class", "annotation-group")
-  .attr("transform", "translate(0,10)")
-  .call(makeAnnotations1)
-
-  const type2 = d3.annotationLabel
-const annotations2 = [{
-  note: {
-    label: "Wave 3",
-    bgPadding: 20,
-  },
-  data: { date: '2021-03-01', World: 2672625 },
-  className: "show-bg",
-  dy: -137,
-  dx: -0
-}]
-
-const makeAnnotations2 = d3.annotation()
-  .editMode(true)
-  .notePadding(15)
-  .type(type2)
-  .accessors({
-    x: d => x(parseTime(d.date)),
-    y: d => y(d.World)
-  })
-  .annotations(annotations2)
-  svg
-  .append("g")
-  .attr("class", "annotation-group")
-  .attr("transform", "translate(0,10)")
-  .call(makeAnnotations2)
-
-  const type3 = d3.annotationLabel
-const annotations3 = [{
-  note: {
-    label: "Wave 4",
-    bgPadding: 20,
-  },
-  data: { date: '2021-08-01', World: 4143183 },
-  className: "show-bg",
-  dy: -137,
-  dx: -0
-}]
-
-const makeAnnotations3 = d3.annotation()
-  .editMode(true)
-  .notePadding(15)
-  .type(type3)
-  .accessors({
-    x: d => x(parseTime(d.date)),
-    y: d => y(d.World)
-  })
-  .annotations(annotations3)
-  svg
-  .append("g")
-  .attr("class", "annotation-group")
-  .attr("transform", "translate(0,10)")
-  .call(makeAnnotations3)
-
-  const type4 = d3.annotationLabel
-const annotations4 = [{
-  note: {
-    label: "Wave 5",
-    bgPadding: 20,
-  },
-  data: { date: '2021-12-14', World: 4336882 },
-  className: "show-bg",
-  dy: -157,
-  dx: -10
-}]
-
-const makeAnnotations4 = d3.annotation()
-  .editMode(true)
-  .notePadding(15)
-  .type(type4)
-  .accessors({
-    x: d => x(parseTime(d.date)),
-    y: d => y(d.World)
-  })
-  .annotations(annotations4)
-  svg
-  .append("g")
-  .attr("class", "annotation-group")
-  .attr("transform", "translate(0,10)")
-  .call(makeAnnotations4)
-
-  const type5 = d3.annotationLabel
-const annotations5 = [{
-  note: {
-    label: "Wave 6",
-    bgPadding: 20,
-  },
-  data: { date: '2022-03-01', World: 10944027 },
-  className: "show-bg",
-  dy: -137,
-  dx: 20
-}]
-
-const makeAnnotations5 = d3.annotation()
-  .editMode(true)
-  .notePadding(15)
-  .type(type5)
-  .accessors({
-    x: d => x(parseTime(d.date)),
-    y: d => y(d.World)
-  })
-  .annotations(annotations5)
-  svg
-  .append("g")
-  .attr("class", "annotation-group")
-  .attr("transform", "translate(0,10)")
-  .call(makeAnnotations5)
 
 }
 runfunc1();

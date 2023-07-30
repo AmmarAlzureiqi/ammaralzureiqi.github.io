@@ -127,9 +127,7 @@ h1 {
     overflow: hidden;
   }
   
-  span {
-    background: black !important;
-  }
+
   
   #overview-chart-area svg {
     margin-left: auto;

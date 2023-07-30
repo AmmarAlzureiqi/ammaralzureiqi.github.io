@@ -169,15 +169,16 @@ const MARGIN1 = { LEFT: 100, RIGHT: 10, TOP: 10, BOTTOM: 100 }
 const WIDTH1 = 800 - MARGIN1.LEFT - MARGIN1.RIGHT
 const HEIGHT1 = 500 - MARGIN1.TOP - MARGIN1.BOTTOM
 
-const svg3 = d3.select("#overview-chart-area").append("svg")
+var svg1 = d3.select("#overview-chart-area").append("svg")
   .attr("width", WIDTH1 + MARGIN1.LEFT + MARGIN1.RIGHT)
   .attr("height", HEIGHT1 + MARGIN1.TOP + MARGIN1.BOTTOM)
 
-const g3 = svg3.append("g")
+var g1 = svg1.append("g")
   .attr("transform", `translate(${MARGIN1.LEFT}, ${MARGIN1.TOP})`)
 
 let time = 0
 let interval
+let dur = 100
 
 const continents = ['Africa','Asia', 'Europe', 'North America', 'Oceania', 'South America']
 
@@ -192,59 +193,61 @@ d3.select("#continent-select")
   // Tooltip
 const tip = d3.tip()
   .attr('class', 'd3-tip')
+  .attr('fill', 'black')
 	.html(d => {
-		let text = `<strong>New Cases:</strong> <span style='color:red;text-transform:capitalize'>${d[0]}</span><br>`
-		text += `<strong>New Deaths:</strong> <span style='color:red;text-transform:capitalize'>${d[1]}</span><br>`
+		let text = `<strong>New Deaths:</strong> <span style='color:#008FFF;text-transform:capitalize'>${d.x}</span><br>`
+		text += `<strong>New Cases:</strong> <span style='color:#008FFF;text-transform:capitalize'>${d.y}</span><br>`
+        text += `<strong>Country:</strong> <span style='color:#008FFF;text-transform:capitalize'>${d.country}</span><br>`
 		return text
 	})
-g3.call(tip)
+g1.call(tip)
 
 // Scales
-// const x1 = d3.scalePow()
-// 	.exponent(0.5)
-// 	.domain([0, 100000])
-// 	.range([0, WIDTH1])
-// const y1 = d3.scalePow()
-// 	.exponent(0.5)
-// 	.domain([0, 60000])
-// 	.range([HEIGHT1, 0])
+const xScale = d3.scalePow()
+	.exponent(0.25)
+	.domain([0, 10000])
+	.range([0, WIDTH1])
+const yScale = d3.scalePow()
+	.exponent(0.1)
+	.domain([0, 500000])
+	.range([HEIGHT1, 0])
 
 // var xScale = d3.scaleLinear()
 // 	.domain([0, 6966046])
 // 	.range([0, WIDTH1])
 // var yScale = d3.scaleLinear()
-// 	.domain([0, 120896])
+// 	.domain([0, 20000])
 // 	.range([HEIGHT1, 0])
 
-var xScale = d3.scaleLinear()
-	.domain([0, 1000])
-	.range([0, WIDTH1]);
+// var xScale = d3.scaleLinear()
+// 	.domain([0, 1000])
+// 	.range([0, WIDTH1]);
 
-var yScale = d3.scaleLinear()
-	.domain([0, 1000])
-	.range([HEIGHT1, 0]);
+// var yScale = d3.scaleLinear()
+// 	.domain([0, 1000])
+// 	.range([HEIGHT1, 0]);
 
-// const area = d3.scaleLinear()
-// 	.range([25*Math.PI, 1500*Math.PI])
-// 	.domain([100, 4290259])
+const area = d3.scaleLinear()
+	.range([25*Math.PI, 150*Math.PI])
+	.domain([100, 1425887360])
 
 const continentColor = d3.scaleOrdinal(d3.schemePastel1)
 
 // Labels
-const xLabel1 = g3.append("text")
+const xLabel1 = g1.append("text")
 	.attr("y", HEIGHT1 + 50)
 	.attr("x", WIDTH1 / 2)
 	.attr("font-size", "20px")
 	.attr("text-anchor", "middle")
 	.text("New Deaths")
-const yLabel1 = g3.append("text")
+const yLabel1 = g1.append("text")
 	.attr("transform", "rotate(-90)")
 	.attr("y", -60)
 	.attr("x", -170)
 	.attr("font-size", "20px")
 	.attr("text-anchor", "middle")
 	.text("New Cases")
-const timeLabel = g3.append("text")
+const timeLabel = g1.append("text")
 	.attr("y", HEIGHT1 - 10)
 	.attr("x", WIDTH1 - 60)
 	.attr("font-size", "20px")
@@ -253,20 +256,20 @@ const timeLabel = g3.append("text")
 	.text("2020-01-03")
 
 // X Axis
-const xAxisCall1 = d3.axisBottom(xScale)
-g3.append("g")
+const xAxisCall1 = d3.axisBottom(xScale).tickValues([0,1, 10, 100, 250, 500, 750, 1000, 2000, 3000, 4000, 5000, 7000, 9000])
+g1.append("g")
 	.attr("class", "x axis")
 	.attr("transform", `translate(0, ${HEIGHT1})`)
 	.call(xAxisCall1)
 
 // Y Axis
-const yAxisCall1 = d3.axisLeft(yScale)
-g3.append("g")
+const yAxisCall1 = d3.axisLeft(yScale).tickValues([0, 25000, 50000, 100000, 200000, 500000])
+g1.append("g")
 	.attr("class", "y axis")
 	.call(yAxisCall1)
 
 
-const legend = g3.append("g")
+const legend = g1.append("g")
 	.attr("transform", `translate(${WIDTH1 - 10}, ${HEIGHT1 - 160})`)
 
     continents.forEach((continent, i) => {
@@ -286,8 +289,6 @@ const legend = g3.append("g")
     .text(continent)
 })
 
-update1(data[300])
-
 drawAnnotation();
 
 function step() {
@@ -301,10 +302,11 @@ $("#play-button")
 		const button = $(this)
 		if (button.text() === "Play") {
 			button.text("Pause")
-			interval = setInterval(step, 5)
+			interval = setInterval(step, dur)
 		}
 		else {
 			button.text("Play")
+            update1(data[time])
 			clearInterval(interval)
 		}
 	})
@@ -325,13 +327,13 @@ $("#date-slider").slider({
 	max: 1300,
 	step: 1,
 	slide: (event, ui) => {
-		time = ui.value
-		update1(data[time])
+		time = ui.value;
+		update1(data[time]);
 	}
 })
 
 function drawAnnotation() {
-	var annotation1 = svg3.append('g');
+	var annotation1 = svg1.append('g');
 	annotation1.append('text')
 	  .attr('x', 110)
 	  .attr('y', 360)
@@ -339,48 +341,57 @@ function drawAnnotation() {
 	  .text('');
   }
 
-function filterregion(cont, data){
-	if (cont === "all"){
-		return data;
-	}
-	else{
-		newdata = filterdata(cont, data)
-		return newdata;
-	}
+function filtercontinent(data, cont){
+    if (cont == "all"){
+        data2 = []
+        for (let i = 0; i < 234; i++) {
+            data2.push({x:data['newDeaths'][i], y:data['newCases'][i], 
+            country:data['country'][i], population:data['pop'][i], continent:data['continen'][i]})
+        }
+    }
+    else{
+        data2 = []
+        for (let i = 0; i < 234; i++) {
+            if (data['continen'][i] == cont){
+                data2.push({x:data['newDeaths'][i], y:data['newCases'][i], 
+                    country:data['country'][i], population:data['pop'][i], continent:data['continen'][i]})
+            }
+            else{
+                data2.push({x:0, y:0, 
+                    country:0, population:0, continent:0})
+            }
+            }
+    }
+    return data2;
 }
 
+update1(data[0])
 function update1(data) {
 
-    const t = d3.transition()
-    .duration(10)
-    
-    temp = Object.entries(data)
+    const t = d3.transition().duration(10)
 
-    temp3 = [temp[7][1], temp[5][1]]
+    var tempcontinent = $("#continent-select").val()
 
-    console.log(temp3[0])
-    console.log(temp3[1])
+    newdata = filtercontinent(data, tempcontinent)
 
-  const tempregion = $("#continent-select").val()
+    var circles = g1.selectAll("circle").data(newdata)
 
-  const circles = g3.selectAll("circle").data(temp3)
-  // EXIT old elements not present in new data.
-  circles.exit().remove()
-  // ENTER new elements present in new data.
-  circles.enter().append("circle")
-      // .attr("fill", d => continentColor(d['region']))
-      .attr("fill", "#FF0F00")
-      .attr("cx", function (d) { return xScale(d[0]); } )
-      .attr("cy", function (d) { return yScale(d[1]); } )
-      .attr("r", 3)
+    circles.exit().remove()
+
+      circles.enter().append("circle")
+      .attr("fill", d => continentColor(d.continent))
       .on("mouseover", tip.show)
       .on("mouseout", tip.hide)
+      .merge(circles)
+      .transition(t)
+      .attr("cx", function (d) { return xScale(d.x); } )
+      .attr("cy", function (d) { return yScale(d.y); } )
+      .attr("r", d => Math.sqrt(area(d.population) / Math.PI))
 	
-	// update the time label
-	timeLabel.text(String(alldates[time]))
+    timeLabel.text(String(alldates[time]))
 
 	$("#date")[0].innerHTML = String(alldates[time])
-	//$("#date-slider").slider("value", Number(time))
+	$("#date-slider").slider("value", Number(time))
 }
 }
 runfunc();
