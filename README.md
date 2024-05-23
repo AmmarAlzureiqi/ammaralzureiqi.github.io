@@ -2,7 +2,7 @@
 
 Welcome to my portfolio website! This site showcases my work, skills, and projects. You can visit the live site by clicking the link below:
 
-[Visit My Portfolio](ammaralzureiqi.netlify.app)
+[Visit My Portfolio](www.ammaralzureiqi.netlify.app)
 
 ## About
 
