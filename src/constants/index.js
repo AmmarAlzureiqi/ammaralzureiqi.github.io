@@ -168,20 +168,20 @@ const projects = [
     id: 'project-1',
     name: 'Movie Recommender',
     description: 'A comic characters list app that displays Marvel characters.',
-    tags: [
-      {
-        name: 'react',
-        color: 'blue-text-gradient',
-      },
-      {
-        name: 'mongodb',
-        color: 'green-text-gradient',
-      },
-      {
-        name: 'tailwind',
-        color: 'pink-text-gradient',
-      },
-    ],
+    // tags: [
+    //   {
+    //     name: 'react',
+    //     color: 'blue-text-gradient',
+    //   },
+    //   {
+    //     name: 'mongodb',
+    //     color: 'green-text-gradient',
+    //   },
+    //   {
+    //     name: 'tailwind',
+    //     color: 'pink-text-gradient',
+    //   },
+    // ],
     image: komikult,
     repo: 'https://github.com/AmmarAlzureiqi/Movie-Recommender?tab=readme-ov-file',
     demo: 'https://movie-recommender-aa.streamlit.app/',
