@@ -4,8 +4,6 @@ Welcome to my portfolio website! This site showcases my work, skills, and projec
 
 [Visit My Portfolio](https://ammaralzureiqi.github.io/Ammar-Web/)
 
-[Back-Up Link](https://ammaralzureiqi.netlify.app/)
-
 ## About
 
 This portfolio website includes:
