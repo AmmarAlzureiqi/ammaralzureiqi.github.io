@@ -166,7 +166,7 @@ const experiences = [
 const projects = [
   {
     id: 'project-1',
-    name: 'KomiKult',
+    name: 'Movie Recommender',
     description: 'A comic characters list app that displays Marvel characters.',
     tags: [
       {
@@ -183,8 +183,8 @@ const projects = [
       },
     ],
     image: komikult,
-    repo: 'https://github.com/shaqdeff/KomiKult',
-    demo: 'https://shaqdeff.github.io/KomiKult/',
+    repo: 'https://github.com/AmmarAlzureiqi/Movie-Recommender?tab=readme-ov-file',
+    demo: 'https://movie-recommender-aa.streamlit.app/',
   },
   {
     id: 'project-2',
