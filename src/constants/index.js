@@ -211,7 +211,7 @@ const projects = [
   },
   {
     id: 'project-3',
-    name: 'Math Magicians',
+    name: 'AI Study Pal',
     description: 'This is a single-page calculator app built with React',
     tags: [
       {
@@ -228,8 +228,8 @@ const projects = [
       },
     ],
     image: math,
-    repo: 'https://github.com/shaqdeff/Math-Magicians',
-    demo: 'https://inspiring-medovik-37d3b3.netlify.app/',
+    repo: 'https://github.com/AmmarAlzureiqi/AI-Study-Pal',
+    demo: 'https://mainpy-5s6az9nkusczdxb5f9vgio.streamlit.app/',
   },
   {
     id: 'project-4',
