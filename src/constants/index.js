@@ -229,7 +229,7 @@ const projects = [
     ],
     image: math,
     repo: 'https://github.com/AmmarAlzureiqi/AI-Study-Pal',
-    demo: 'https://mainpy-5s6az9nkusczdxb5f9vgio.streamlit.app/',
+    demo: 'https://aistudypal.streamlit.app/',
   },
   {
     id: 'project-4',
