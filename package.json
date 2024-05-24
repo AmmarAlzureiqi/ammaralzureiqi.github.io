@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://AmmarAlzureiqi.github.io/",
+  "homepage": "https://AmmarAlzureiqi.github.io/Ammar-Web",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
