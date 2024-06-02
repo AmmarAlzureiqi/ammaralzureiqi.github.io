@@ -171,7 +171,7 @@ const projects = [
   {
     id: 'project-1',
     name: 'Movie Recommender',
-    description: 'The Movie Recommender Website allows users to search for movies and receive personalized recommendations based on movie titles, genres, or user input. It leverages machine learning algorithms to enhance the recommendation accuracy and improve user experience.',
+    description: 'Movie Recommender allows users to search for movies and receive personalized recommendations based on movie titles, genres, or user input. It leverages machine learning algorithms to enhance the recommendation accuracy and improve user experience.',
     // tags: [
     //   {
     //     name: 'react',
