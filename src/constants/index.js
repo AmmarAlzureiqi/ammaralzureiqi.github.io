@@ -26,6 +26,7 @@ import {
   aws,
   R,
   mysql,
+  postgresql,
   tableau,
   pytorch,
   flask,
@@ -37,6 +38,9 @@ import {
   western,
   mkbookkeeping,
   uiuc,
+  moodofmusic,
+  aistudypal,
+  movierecommender
 } from '../assets';
 
 export const navLinks = [
@@ -111,6 +115,10 @@ const technologies = [
     icon: mysql,
   },
   {
+    name: 'postgresql',
+    icon: postgresql,
+  },
+  {
     name: 'React JS',
     icon: reactjs,
   },
@@ -121,10 +129,6 @@ const technologies = [
   {
     name: 'git',
     icon: git,
-  },
-  {
-    name: 'figma',
-    icon: figma,
   },
   {
     name: 'docker',
@@ -167,7 +171,7 @@ const projects = [
   {
     id: 'project-1',
     name: 'Movie Recommender',
-    description: 'A comic characters list app that displays Marvel characters.',
+    description: 'The Movie Recommender Website allows users to search for movies and receive personalized recommendations based on movie titles, genres, or user input. It leverages machine learning algorithms to enhance the recommendation accuracy and improve user experience.',
     // tags: [
     //   {
     //     name: 'react',
@@ -182,7 +186,7 @@ const projects = [
     //     color: 'pink-text-gradient',
     //   },
     // ],
-    image: komikult,
+    image: movierecommender,
     repo: 'https://github.com/AmmarAlzureiqi/Movie-Recommender?tab=readme-ov-file',
     demo: 'https://movie-recommender-aa.streamlit.app/',
   },
@@ -190,7 +194,7 @@ const projects = [
     id: 'project-2',
     name: 'Mood of Music',
     description:
-      'A leaderboard list app that displays scores submitted by different players.',
+      'Mood of Music creates a personalized soundtrack from your surroundings. Upload an image, and the app curates a matching Spotify playlist, instantly added to your account and embedded on the website.',
     // tags: [
     //   {
     //     name: 'react',
@@ -205,29 +209,29 @@ const projects = [
     //     color: 'pink-text-gradient',
     //   },
     // ],
-    image: leaderboard,
-    repo: 'https://github.com/AmmarAlzureiqi/Mood-of-Music',
-    demo: 'https://github.com/AmmarAlzureiqi/Mood-of-Music',
+    image: moodofmusic,
+    repo: 'https://github.com/AmmarAlzureiqi/MoodofMusic',
+    demo: 'https://moodofmusic.onrender.com/',
   },
   {
     id: 'project-3',
     name: 'AI Study Pal',
-    description: 'This is a single-page calculator app built with React',
-    tags: [
-      {
-        name: 'nextjs',
-        color: 'blue-text-gradient',
-      },
-      {
-        name: 'supabase',
-        color: 'green-text-gradient',
-      },
-      {
-        name: 'css',
-        color: 'pink-text-gradient',
-      },
-    ],
-    image: math,
+    description: 'An AI-powered student support hub—get study assistance, note summaries, and personalized study plans, all in one place.',
+    // tags: [
+    //   {
+    //     name: 'nextjs',
+    //     color: 'blue-text-gradient',
+    //   },
+    //   {
+    //     name: 'supabase',
+    //     color: 'green-text-gradient',
+    //   },
+    //   {
+    //     name: 'css',
+    //     color: 'pink-text-gradient',
+    //   },
+    // ],
+    image: aistudypal,
     repo: 'https://github.com/AmmarAlzureiqi/AI-Study-Pal',
     demo: 'https://aistudypal.streamlit.app/',
   },

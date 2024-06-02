@@ -64,6 +64,9 @@ import math from './projects/math-magicians.png';
 import movie from './projects/movie-metro.png';
 import nyeusi from './projects/nyeusi.png';
 import space from './projects/space-hub.png';
+import moodofmusic from './projects/moodofmusic.png';
+import aistudypal from './projects/aistudypal.png';
+import movierecommender from './projects/movierecommender.png';
 
 
 export {
@@ -127,4 +130,7 @@ export {
   western,
   mkbookkeeping,
   uiuc,
+  moodofmusic,
+  aistudypal,
+  movierecommender
 };
