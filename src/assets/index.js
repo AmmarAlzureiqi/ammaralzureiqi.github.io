@@ -57,6 +57,7 @@ import microverse from './company/microverse.png';
 import western from './company/western.png';
 import mkbookkeeping from './company/mkbookkeeping.png';
 import uiuc from './company/uiuc.png';
+import sinaai from './company/sinaai.png';
 
 import komikult from './projects/komikult.png';
 import leaderboard from './projects/leaderboard.png';
@@ -67,6 +68,7 @@ import space from './projects/space-hub.png';
 import moodofmusic from './projects/moodofmusic.png';
 import aistudypal from './projects/aistudypal.png';
 import movierecommender from './projects/movierecommender.png';
+import hirestack from './projects/hirestack.png';
 
 
 export {
@@ -130,7 +132,9 @@ export {
   western,
   mkbookkeeping,
   uiuc,
+  sinaai,
   moodofmusic,
   aistudypal,
-  movierecommender
+  movierecommender,
+  hirestack
 };

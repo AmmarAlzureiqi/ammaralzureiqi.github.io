@@ -38,6 +38,7 @@ import {
   western,
   mkbookkeeping,
   uiuc,
+  sinaai,
   moodofmusic,
   aistudypal,
   movierecommender
@@ -156,7 +157,7 @@ const experiences = [
     company_name: 'MK Bookkeeping and Tax Services',
     icon: mkbookkeeping,
     iconBg: '#333333',
-    date: 'Apr 2020 - Aug 2020',
+    date: 'Jan 2023 - Aug 2023',
   },
   {
     title: "Master's of Computer Science in Data Science",
@@ -164,6 +165,13 @@ const experiences = [
     icon: uiuc,
     iconBg: '#333333',
     date: 'May 2023 - Dec 2024',
+  },
+  {
+    title: 'Software Engineer',
+    company_name: 'SinaAI Scribe',
+    icon: sinaai,
+    iconBg: '#333333',
+    date: 'May 2024 - Present',
   },
 ];
 
