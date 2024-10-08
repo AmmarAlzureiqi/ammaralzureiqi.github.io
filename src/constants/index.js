@@ -41,7 +41,8 @@ import {
   sinaai,
   moodofmusic,
   aistudypal,
-  movierecommender
+  movierecommender,
+  hirestack
 } from '../assets';
 
 export const navLinks = [
@@ -200,6 +201,28 @@ const projects = [
   },
   {
     id: 'project-2',
+    name: 'Hirestack',
+    description: 'HireStack is designed for IT professionals seeking their next career opportunity. We aggregate job listings from top websites in real-time, providing you with comprehensive information to give you an edge in the hiring process.',
+    // tags: [
+    //   {
+    //     name: 'nextjs',
+    //     color: 'blue-text-gradient',
+    //   },
+    //   {
+    //     name: 'supabase',
+    //     color: 'green-text-gradient',
+    //   },
+    //   {
+    //     name: 'css',
+    //     color: 'pink-text-gradient',
+    //   },
+    // ],
+    image: hirestack,
+    repo: 'https://github.com/AdamKhalif8254/Hirestack',
+    demo: 'https://hirestackjobs.vercel.app/',
+  },
+  {
+    id: 'project-3',
     name: 'Mood of Music',
     description:
       'Mood of Music creates a personalized soundtrack from your surroundings. Upload an image, and the app curates a matching Spotify playlist, instantly added to your account and embedded on the website.',
@@ -222,7 +245,7 @@ const projects = [
     demo: 'https://moodofmusic.onrender.com/',
   },
   {
-    id: 'project-3',
+    id: 'project-4',
     name: 'AI Study Pal',
     description: 'An AI-powered student support hub—get study assistance, note summaries, and personalized study plans, all in one place.',
     // tags: [
