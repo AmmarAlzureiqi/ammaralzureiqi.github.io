@@ -42,7 +42,8 @@ import {
   moodofmusic,
   aistudypal,
   movierecommender,
-  hirestack
+  hirestack,
+  peoplecounter
 } from '../assets';
 
 export const navLinks = [
@@ -246,6 +247,28 @@ const projects = [
   },
   {
     id: 'project-4',
+    name: 'People Counter',
+    description: `A real-time customer traffic counter for retail stores using a Raspberry Pi, camera, and computer vision (OpenCV, PyTorch). Provides live analytics through a Streamlit dashboard, with enhanced accuracy via WiFi-based device detection. Scalable for stores of any size, helping optimize operations and customer experience.`,
+    // tags: [
+    //   {
+    //     name: 'nextjs',
+    //     color: 'blue-text-gradient',
+    //   },
+    //   {
+    //     name: 'supabase',
+    //     color: 'green-text-gradient',
+    //   },
+    //   {
+    //     name: 'css',
+    //     color: 'pink-text-gradient',
+    //   },
+    // ],
+    image: peoplecounter,
+    repo: 'https://github.com/AhmedElfarra/People-Counter-App',
+    demo: 'https://github.com/AhmedElfarra/People-Counter-App',
+  },
+  {
+    id: 'project-5',
     name: 'AI Study Pal',
     description: 'An AI-powered student support hub—get study assistance, note summaries, and personalized study plans, all in one place.',
     // tags: [
@@ -266,28 +289,6 @@ const projects = [
     repo: 'https://github.com/AmmarAlzureiqi/AI-Study-Pal',
     demo: 'https://aistudypal.streamlit.app/',
   },
-  // {
-  //   id: 'project-4',
-  //   name: 'Movie Metro',
-  //   description: `A single-page application that allows users to search for any movie or show's ratings and its details.`,
-  //   tags: [
-  //     {
-  //       name: 'nextjs',
-  //       color: 'blue-text-gradient',
-  //     },
-  //     {
-  //       name: 'supabase',
-  //       color: 'green-text-gradient',
-  //     },
-  //     {
-  //       name: 'css',
-  //       color: 'pink-text-gradient',
-  //     },
-  //   ],
-  //   image: movie,
-  //   repo: 'https://github.com/shaqdeff/Movie-Metro',
-  //   demo: 'https://movie-metro.netlify.app/',
-  // },
   // {
   //   id: 'project-5',
   //   name: 'Nyeusi Fest Site',

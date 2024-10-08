@@ -69,6 +69,7 @@ import moodofmusic from './projects/moodofmusic.png';
 import aistudypal from './projects/aistudypal.png';
 import movierecommender from './projects/movierecommender.png';
 import hirestack from './projects/hirestack.png';
+import peoplecounter from './projects/peoplecounter.png';
 
 
 export {
@@ -136,5 +137,6 @@ export {
   moodofmusic,
   aistudypal,
   movierecommender,
-  hirestack
+  hirestack,
+  peoplecounter
 };
