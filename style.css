@@ -365,7 +365,7 @@ article .icon {
   border-radius: 1rem;
   width: 30%;
   margin: 1rem;
-  min-height: 300px; /* Set a minimum height to make the boxes taller */
+  min-height: 300px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -384,13 +384,13 @@ article .icon {
 .project-details-container {
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap; /* Ensures projects wrap on smaller screens */
+  flex-wrap: wrap;
 }
 
 .about-containers {
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap; /* Allows for responsiveness */
+  flex-wrap: wrap; 
   gap: 1rem;
 }
 
@@ -401,15 +401,15 @@ article .icon {
 }
 
 p {
-  flex-grow: 1; /* Ensures text occupies the middle space */
-  text-align: center; /* Center text within the project boxes */
+  flex-grow: 1; 
+  text-align: center;
 }
 
 .btn-container {
   display: flex;
   justify-content: center;
   gap: 0.5rem;
-  margin-top: auto; /* Ensures buttons stay at the bottom */
+  margin-top: auto; 
 }
 
 
@@ -418,20 +418,20 @@ p {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  padding: 2rem 0; /* Reduce the padding to make it more compact */
-  height: auto; /* Adjust height so it's not too large */
+  padding: 2rem 0; 
+  height: auto; 
 }
 
 .contact-info-upper-container {
   display: flex;
   justify-content: center;
-  gap: 2rem; /* Ensure elements are spaced correctly without too much space */
+  gap: 2rem;
   border-radius: 2rem;
   border: rgb(53, 53, 53) 0.1rem solid;
   border-color: rgb(163, 163, 163);
   background-color: #f9f9f9;
-  margin: 1rem auto; /* Reduce the margin to eliminate excess space */
-  padding: 1rem; /* Reduce padding */
+  margin: 1rem auto;
+  padding: 1rem; 
 }
 
 .contact-info-container {
@@ -439,12 +439,12 @@ p {
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  margin: 0; /* Remove extra margin */
+  margin: 0; 
 }
 
 .contact-info-container p {
-  font-size: 1.2rem; /* Adjust font size if needed */
-  margin: 0; /* Ensure there's no extra space around the text */
+  font-size: 1.2rem; 
+  margin: 0; 
 }
 
 .contact-icon {
@@ -492,11 +492,11 @@ footer p {
 }
 
 .timeline-entry {
-  padding: 1rem 2rem; /* Reduced from 2rem 4rem to 1rem 2rem */
+  padding: 1rem 2rem;
   position: relative;
   width: calc(60% - 4rem);
   box-sizing: border-box;
-  margin-bottom: 1rem; /* Add margin-bottom to separate entries */
+  margin-bottom: 1rem; 
 }
 
 
