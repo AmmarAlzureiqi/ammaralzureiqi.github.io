@@ -314,20 +314,20 @@ section {
   margin: auto 0;
 }
 
-/* EXPERIENCE SECTION */
+/* TECHSTACK SECTION */
 
-#experience {
+#techstack {
   position: relative;
 }
 
-.experience-sub-title {
+.techstack-sub-title {
   color: rgb(85, 85, 85);
   font-weight: 600;
   font-size: 1.75rem;
   margin-bottom: 2rem;
 }
 
-.experience-details-container {
+.techstack-details-container {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -380,6 +380,13 @@ article .icon {
   border-color: rgb(163, 163, 163);
 }
 
+.project-details-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+
 /* CONTACT */
 
 #contact {
@@ -430,9 +437,9 @@ footer {
 footer p {
   text-align: center;
 }
-/* WORK EXPERIENCE SECTION TIMELINE */
+/* TIMELINE SECTION */
 
-#work-experience {
+#timeline {
   margin: 2rem 10rem;
   padding-top: 4vh;
   min-height: fit-content;
@@ -447,7 +454,7 @@ footer p {
 .timeline::after {
   content: '';
   position: absolute;
-  width: 6px;
+  width: 4px;
   background-color: rgb(163, 163, 163);
   top: 0;
   bottom: 0;
@@ -456,11 +463,13 @@ footer p {
 }
 
 .timeline-entry {
-  padding: 2rem 4rem;
+  padding: 1rem 2rem; /* Reduced from 2rem 4rem to 1rem 2rem */
   position: relative;
   width: calc(60% - 4rem);
   box-sizing: border-box;
+  margin-bottom: 1rem; /* Add margin-bottom to separate entries */
 }
+
 
 .timeline-entry.left {
   left: -4.4%;
@@ -494,7 +503,7 @@ footer p {
   content: '';
   position: absolute;
   top: 22px;
-  right: 30px;
+  right: 17.5px;
   border: medium solid rgb(163, 163, 163);
   border-width: 10px 0 10px 10px;
   border-color: transparent transparent transparent rgb(163, 163, 163);
@@ -504,7 +513,7 @@ footer p {
   content: '';
   position: absolute;
   top: 22px;
-  left: 30px;
+  left: 17.5px;
   border: medium solid rgb(163, 163, 163);
   border-width: 10px 10px 10px 0;
   border-color: transparent rgb(163, 163, 163) transparent transparent;
@@ -538,7 +547,7 @@ footer p {
 
 /* Responsive design for smaller screens */
 @media screen and (max-width: 768px) {
-  #work-experience {
+  #timeline {
     margin: 2rem 1rem;
   }
 
