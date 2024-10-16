@@ -361,17 +361,18 @@ article .icon {
 
 .color-container {
   border-color: rgb(163, 163, 163);
-  background: rgb(250, 250, 250);
-}
-
-.project-img {
-  border-radius: 2rem;
-  width: 90%;
-  height: 90%;
+  padding: 1rem;
+  border-radius: 1rem;
+  width: 30%;
+  margin: 1rem;
+  min-height: 300px; /* Set a minimum height to make the boxes taller */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .project-title {
-  margin: 1rem;
+  margin: 1rem 0;
   color: black;
 }
 
@@ -382,46 +383,74 @@ article .icon {
 
 .project-details-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  flex-wrap: wrap; /* Ensures projects wrap on smaller screens */
+}
+
+.about-containers {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; /* Allows for responsiveness */
+  gap: 1rem;
+}
+
+.details-container {
+  display: flex;
   flex-direction: column;
+  align-items: center;
+}
+
+p {
+  flex-grow: 1; /* Ensures text occupies the middle space */
+  text-align: center; /* Center text within the project boxes */
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: auto; /* Ensures buttons stay at the bottom */
 }
 
 
-/* CONTACT */
-
+/* CONTACT SECTION */
 #contact {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  height: 70vh;
+  padding: 2rem 0; /* Reduce the padding to make it more compact */
+  height: auto; /* Adjust height so it's not too large */
 }
 
 .contact-info-upper-container {
   display: flex;
   justify-content: center;
+  gap: 2rem; /* Ensure elements are spaced correctly without too much space */
   border-radius: 2rem;
   border: rgb(53, 53, 53) 0.1rem solid;
   border-color: rgb(163, 163, 163);
-  background: (250, 250, 250);
-  margin: 2rem auto;
-  padding: 0.5rem;
+  background-color: #f9f9f9;
+  margin: 1rem auto; /* Reduce the margin to eliminate excess space */
+  padding: 1rem; /* Reduce padding */
 }
 
 .contact-info-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  margin: 1rem;
+  gap: 1rem;
+  margin: 0; /* Remove extra margin */
 }
 
 .contact-info-container p {
-  font-size: larger;
+  font-size: 1.2rem; /* Adjust font size if needed */
+  margin: 0; /* Ensure there's no extra space around the text */
 }
 
 .contact-icon {
-  cursor: default;
+  height: 2.5rem;
 }
+
 
 .email-icon {
   height: 2.5rem;
