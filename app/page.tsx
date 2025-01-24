@@ -118,7 +118,7 @@ export default function Home() {
             title="RetailPulse"
             description="IoT-based People Counter for retail environments"
             tech={["Python", "OpenCV", "FastAPI", "Docker"]}
-            github="https://github.com/AmmarAlzureiqi/RetailPulse"
+            github="https://github.com/AmmarAlzureiqi/CustomerTrafficAnalysis"
             details={[
               "Developed computer vision algorithms for accurate people counting",
               "Implemented real-time data processing pipeline using FastAPI",
