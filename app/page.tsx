@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <div className="max-w-4xl mx-auto space-y-16 py-12">
       <section className="space-y-4">
-        <h1 className="text-4xl font-bold">Ammar Alzureiqi1</h1>
+        <h1 className="text-4xl font-bold">Ammar Alzureiqi</h1>
         <div className="flex flex-wrap gap-2 mb-4">
           <Badge variant="secondary" className="text-sm">
             <Briefcase className="w-3 h-3 mr-1" />
@@ -107,7 +107,7 @@ export default function Home() {
               "Integrated with multiple job board APIs for real-time data aggregation",
               "Implemented user authentication and profile management features",
             ]}
-            role="Lead Developer"
+            type="Full-Stack Web Application"
             achievements={[
               "Reduced infrastructure costs by 40% through serverless architecture",
               "Improved job matching accuracy by 25% using ML algorithms",
@@ -126,7 +126,7 @@ export default function Home() {
               "Integrated with IoT devices for seamless data collection",
               "Containerized application using Docker for easy deployment",
             ]}
-            role="Full-stack Developer & ML Engineer"
+            type="Computer Vision & IoT Application"
             achievements={[
               "Achieved 95% accuracy in people counting",
               "Reduced manual counting labor by 100%",
