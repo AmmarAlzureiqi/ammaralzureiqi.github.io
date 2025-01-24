@@ -9,14 +9,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-      
+
       - run: npm ci
       - run: npm run build
-      
-      - name: Deploy
+      - run: npm run export  # Export static files into 'out' directory
+
+      - run: ls -la ./out  # List the contents of the 'out' folder for debugging
+
+      - name: Deploy to GitHub Pages (gh-pages branch)
         uses: peaceiris/actions-gh-pages@v3
         with:
           deploy_key: ${{ secrets.DEPLOY_KEY }}
