@@ -6,7 +6,7 @@ Welcome to my portfolio website! This site showcases my work, skills, and projec
 
 ## About
 
-This portfolio website includes:
+This portfolio website includes:a
 
 - An overview of my skills and expertise
 - A showcase of my recent projects
