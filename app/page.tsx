@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <div className="max-w-4xl mx-auto space-y-16 py-12">
       <section className="space-y-4">
-        <h1 className="text-4xl font-bold">Ammar Alzureiqi</h1>
+        <h1 className="text-4xl font-bold">Ammar Alzureiqi1</h1>
         <div className="flex flex-wrap gap-2 mb-4">
           <Badge variant="secondary" className="text-sm">
             <Briefcase className="w-3 h-3 mr-1" />
