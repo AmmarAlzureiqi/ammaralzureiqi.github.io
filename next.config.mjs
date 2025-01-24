@@ -5,7 +5,7 @@ const nextConfig = {
     unoptimized: true, // Required for static export
   },
   trailingSlash: true, // Ensures paths like `/about/` work
-  assetPrefix: './', // Use relative paths for assets
+  assetPrefix: '/', // Use relative paths for assets
 };
 
 export default nextConfig;
