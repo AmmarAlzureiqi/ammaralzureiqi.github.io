@@ -2,10 +2,10 @@
 const nextConfig = {
   output: 'export',
   images: {
-    unoptimized: true, // Required for static export
+    unoptimized: true,
   },
-  trailingSlash: true, // Ensures paths like `/about/` work
-  assetPrefix: '/', // Use relative paths for assets
+  trailingSlash: true,
+  assetPrefix: '/', // Ensure asset paths are absolute for GitHub Pages
 };
 
 export default nextConfig;
