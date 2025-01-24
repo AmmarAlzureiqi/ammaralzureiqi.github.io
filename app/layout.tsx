@@ -1,8 +1,9 @@
 import { Inter } from 'next/font/google'
 import './globals.css'
-import { Sidebar } from '../components/sidebar'
+import { TopNavigation } from "../components/top-navigation"
+import { ThemeProvider } from "../components/theme-provider"
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] })
 
 export default function RootLayout({
   children,
@@ -10,14 +11,14 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className} bg-background text-foreground antialiased`}>
-        <div className="flex h-screen overflow-hidden">
-          <Sidebar />
-          <main className="flex-1 overflow-y-auto p-8">
-            {children}
-          </main>
-        </div>
+        <ThemeProvider defaultTheme="light">
+          <div className="flex flex-col min-h-screen">
+            <TopNavigation />
+            <main className="flex-1 p-8">{children}</main>
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   )

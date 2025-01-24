@@ -21,7 +21,7 @@ export function CurrentlyLearning() {
       setLearningItems((items) =>
         items.map((item) => ({
           ...item,
-          progress: Math.min(item.progress + Math.random() * 5, 100),
+          progress: (item.progress + Math.random() * 5) % 100,
         })),
       )
     }, 1000)
