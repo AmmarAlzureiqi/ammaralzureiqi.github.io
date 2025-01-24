@@ -3,32 +3,27 @@ name: Deploy Next.js to GitHub Pages
 on:
   push:
     branches:
-      - main # Change to your default branch if needed
+      - main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-    # 1. Checkout the code
     - name: Checkout code
       uses: actions/checkout@v3
 
-    # 2. Set up Node.js
     - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: 18 # Use the Node.js version compatible with your project
+        node-version: 18
 
-    # 3. Install dependencies
     - name: Install dependencies
       run: npm install
 
-    # 4. Build the site
     - name: Build site
       run: npm run build
 
-    # 5. Deploy to GitHub Pages
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:

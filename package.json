@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next export && touch out/.nojekyll && echo 'alzureiqi.dev' > out/CNAME",
+    "build": "next build && touch out/.nojekyll && echo 'alzureiqi.dev' > out/CNAME",
     "start": "next start",
     "lint": "next lint",
     "export": "next build && next export",
