@@ -1,7 +1,26 @@
 import { DynamicProjectCard } from "../../components/dynamic-project-card"
+import { InProgressProjectCard } from "../../components/in-progress-project-card"
 
 
 export default function Projects() {
+  const inProgressProjects = [
+    {
+      title: "Learning Management System",
+        description: "A modern Learning Management System enabling course creation, student progress tracking, and interactive learning experiences with real-time assessment capabilities.",
+        tech: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "AWS S3"],
+        // github: "https://github.com/AmmarAlzureiqi/",
+        progress: 45,
+        },
+    {
+      title: "NeuroLearn",
+      description:
+        "An adaptive learning platform using AI to personalize educational content and optimize study schedules for students.",
+      tech: ["Python", "TensorFlow", "Flask", "PostgreSQL", "React"],
+      github: "https://github.com/AmmarAlzureiqi/NeuroLearn",
+      progress: 40,
+    },
+  ]
+
   const projects = [
     {
       title: "Hirestack",
@@ -17,7 +36,7 @@ export default function Projects() {
         "Integrated with multiple job board APIs for real-time data aggregation",
         "Implemented user authentication and profile management features",
       ],
-      role: "Lead Developer",
+      type: "Full-Stack Web Application",
       achievements: [
         "Reduced infrastructure costs by 40% through serverless architecture",
         "Improved job matching accuracy by 25% using ML algorithms",
@@ -37,7 +56,7 @@ export default function Projects() {
         "Integrated with IoT devices for seamless data collection",
         "Containerized application using Docker for easy deployment",
       ],
-      role: "Full-stack Developer & ML Engineer",
+      type: "Computer Vision & IoT Application",
       achievements: [
         "Achieved 95% accuracy in people counting",
         "Reduced manual counting labor by 100%",
@@ -45,24 +64,23 @@ export default function Projects() {
       ],
     },
     {
-      title: "Spotify-Clone",
-      description:
-        "A full-stack Spotify clone featuring user authentication, playlist management, and real-time music playback. Implements Stripe integration for premium subscriptions.",
-      tech: ["Next.js", "React", "Supabase", "Stripe", "Tailwind CSS"],
-      github: "https://github.com/AmmarAlzureiqi/spotify-clone",
+      title: "Mood of Music",
+      description: "A web application that generates personalized Spotify playlists from environment images using AI for mood detection and song recommendations",
+      tech: ["Python", "Flask", "PyTorch", "Spotify API", "OpenAI API", "PostgreSQL", "Docker", "Render.com"],
+      github: "https://github.com/AmmarAlzureiqi/MoodofMusic",
       details: [
-        "Implemented user authentication and authorization using Supabase",
-        "Developed real-time music playback functionality",
-        "Integrated Stripe for handling premium subscription payments",
-        "Designed and implemented responsive UI using Tailwind CSS",
-        "Implemented playlist management and sharing features",
+        "Implemented image analysis using PyTorch to extract emotional parameters from uploaded images",
+        "Integrated OpenAI API for image description and playlist generation based on detected moods",
+        "Developed Spotify API integration for playlist creation and management",
+        "Built user authentication system with Spotify OAuth",
+        "Implemented database storage for user accounts and playlist details using PostgreSQL"
       ],
-      role: "Full-stack Developer",
+      type: "AI/ML Web Application",
       achievements: [
-        "Developed a fully functional Spotify clone with 90% feature parity",
-        "Implemented seamless audio streaming with <50ms latency",
-        "Achieved 98% test coverage using Jest and React Testing Library",
-      ],
+        "Created dual recommendation system using both image analysis and user's top artists",
+        "Implemented containerized deployment with Docker supporting both PostgreSQL and MySQL",
+        "Developed responsive web interface for seamless playlist embedding and playback"
+      ]
     },
     {
       title: "E-Commerce API",
@@ -77,53 +95,53 @@ export default function Projects() {
         "Developed order management and inventory tracking features",
         "Implemented caching strategies for improved performance",
       ],
-      role: "Backend Developer",
+      type: "Full-Stack Web Application",
       achievements: [
         "Reduced API response time by 40% through efficient database indexing",
         "Implemented rate limiting to prevent API abuse",
         "Achieved 99.9% uptime through robust error handling and logging",
       ],
     },
-    {
-      title: "AI Image Generator",
-      description:
-        "An AI-powered image generation platform using DALL-E API, featuring prompt engineering and image manipulation capabilities.",
-      tech: ["React", "OpenAI API", "Node.js", "Express", "MongoDB"],
-      github: "https://github.com/AmmarAlzureiqi/ai-image-generator",
-      details: [
-        "Integrated OpenAI's DALL-E API for AI-powered image generation",
-        "Developed prompt engineering interface for optimized image generation",
-        "Implemented image manipulation features using canvas API",
-        "Designed and built gallery for showcasing generated images",
-        "Implemented user accounts and image saving functionality",
-      ],
-      role: "Full-stack Developer",
-      achievements: [
-        "Created an intuitive UI resulting in 30% increase in user engagement",
-        "Optimized API calls to reduce costs by 25%",
-        "Implemented efficient image storage reducing storage costs by 40%",
-      ],
-    },
-    {
-      title: "Task Management System",
-      description:
-        "A comprehensive task management system with real-time updates, team collaboration features, and automated task prioritization.",
-      tech: ["React", "Firebase", "Material-UI", "Redux"],
-      github: "https://github.com/AmmarAlzureiqi/task-management",
-      details: [
-        "Implemented real-time updates using Firebase Realtime Database",
-        "Developed team collaboration features including task assignment and comments",
-        "Designed and implemented automated task prioritization algorithm",
-        "Built responsive UI using Material-UI components",
-        "Implemented state management using Redux for improved performance",
-      ],
-      role: "Frontend Developer",
-      achievements: [
-        "Increased team productivity by 35% through intuitive task management",
-        "Reduced task completion time by 20% with automated prioritization",
-        "Achieved 98% positive user feedback on UI/UX design",
-      ],
-    },
+    // {
+    //   title: "AI Image Generator",
+    //   description:
+    //     "An AI-powered image generation platform using DALL-E API, featuring prompt engineering and image manipulation capabilities.",
+    //   tech: ["React", "OpenAI API", "Node.js", "Express", "MongoDB"],
+    //   github: "https://github.com/AmmarAlzureiqi/ai-image-generator",
+    //   details: [
+    //     "Integrated OpenAI's DALL-E API for AI-powered image generation",
+    //     "Developed prompt engineering interface for optimized image generation",
+    //     "Implemented image manipulation features using canvas API",
+    //     "Designed and built gallery for showcasing generated images",
+    //     "Implemented user accounts and image saving functionality",
+    //   ],
+    //   role: "Full-stack Developer",
+    //   achievements: [
+    //     "Created an intuitive UI resulting in 30% increase in user engagement",
+    //     "Optimized API calls to reduce costs by 25%",
+    //     "Implemented efficient image storage reducing storage costs by 40%",
+    //   ],
+    // },
+    // {
+    //   title: "Task Management System",
+    //   description:
+    //     "A comprehensive task management system with real-time updates, team collaboration features, and automated task prioritization.",
+    //   tech: ["React", "Firebase", "Material-UI", "Redux"],
+    //   github: "https://github.com/AmmarAlzureiqi/task-management",
+    //   details: [
+    //     "Implemented real-time updates using Firebase Realtime Database",
+    //     "Developed team collaboration features including task assignment and comments",
+    //     "Designed and implemented automated task prioritization algorithm",
+    //     "Built responsive UI using Material-UI components",
+    //     "Implemented state management using Redux for improved performance",
+    //   ],
+    //   role: "Frontend Developer",
+    //   achievements: [
+    //     "Increased team productivity by 35% through intuitive task management",
+    //     "Reduced task completion time by 20% with automated prioritization",
+    //     "Achieved 98% positive user feedback on UI/UX design",
+    //   ],
+    // },
   ]
 
   return (
@@ -134,6 +152,25 @@ export default function Projects() {
           A collection of my recent work in software development and data science.
         </p>
       </div>
+
+      <div className="max-w-7xl mx-auto">
+        <h2 className="text-2xl font-bold mb-4">Currently in Progress</h2>
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-2">
+          {inProgressProjects.map((project, index) => (
+            <InProgressProjectCard
+              key={index}
+              title={project.title}
+              description={project.description}
+              tech={project.tech}
+              github={project.github}
+              progress={project.progress}
+            />
+          ))}
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto">
+      <h2 className="text-2xl font-bold mb-4">Completed Projects</h2>
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-2 max-w-7xl mx-auto [&>*]:h-[350px]">
         {projects.map((project, index) => (
           <DynamicProjectCard
@@ -144,11 +181,12 @@ export default function Projects() {
             github={project.github}
             demo={project.demo}
             details={project.details}
-            role={project.role}
+            type={project.type}
             achievements={project.achievements}
           />
         ))}
       </div>
+    </div>
     </div>
   )
 }

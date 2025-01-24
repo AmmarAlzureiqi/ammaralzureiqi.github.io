@@ -159,3 +159,7 @@
   pointer-events: none; /* Prevent interaction */
   z-index: 10;
 }
+
+.animated-progress-bar {
+  animation: progressPulse 2s ease-in-out infinite;
+}

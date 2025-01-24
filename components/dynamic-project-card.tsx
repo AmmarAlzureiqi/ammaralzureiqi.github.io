@@ -12,7 +12,7 @@ interface DynamicProjectCardProps {
   github?: string
   demo?: string
   details: string[]
-  role: string
+  type: string
   achievements: string[]
 }
 
@@ -23,7 +23,7 @@ export function DynamicProjectCard({
   github,
   demo,
   details,
-  role,
+  type,
   achievements,
 }: DynamicProjectCardProps) {
   return (
@@ -60,8 +60,8 @@ export function DynamicProjectCard({
         <CardContent className="flex-grow overflow-y-auto pr-4 custom-scrollbar relative">
   <div className="space-y-4">
     <div>
-      <h3 className="font-semibold mb-2">Role</h3>
-      <p>{role}</p>
+      <h3 className="font-semibold mb-2">Type</h3>
+      <p>{type}</p>
     </div>
     <div>
       <h3 className="font-semibold mb-2">Key Achievements</h3>
