@@ -13,12 +13,11 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-
+      
       - run: npm ci
-      - run: npm run build
-      - run: npm run export  # Export static files into 'out' directory
+      - run: npm run build  # No need for 'next export' since it's now handled in next.config.js
 
-      - run: ls -la ./out  # List the contents of the 'out' folder for debugging
+      - run: ls -la ./out  # List contents of the 'out' folder for debugging
 
       - name: Deploy to GitHub Pages (gh-pages branch)
         uses: peaceiris/actions-gh-pages@v3
