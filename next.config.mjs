@@ -1,5 +1,5 @@
-// next.config.js or next.config.mjs
-module.exports = {
+// next.config.mjs
+export default {
   trailingSlash: true,  // Replaces exportTrailingSlash
-  output: 'export',     // Enables static export (replaces `next export` command)
+  output: 'export',     // Enables static export
 };
