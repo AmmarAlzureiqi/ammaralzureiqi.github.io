@@ -10,7 +10,7 @@ This portfolio website includes:
 
 - An overview of my skills and expertise
 - A showcase of my recent projects
-- Information about my professional experience
+- Information about my professional experiencea
 - Contact information
 
 ## Features
