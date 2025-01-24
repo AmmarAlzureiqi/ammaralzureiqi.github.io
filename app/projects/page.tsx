@@ -68,6 +68,7 @@ export default function Projects() {
       description: "A web application that generates personalized Spotify playlists from environment images using AI for mood detection and song recommendations",
       tech: ["Python", "Flask", "PyTorch", "Spotify API", "OpenAI API", "PostgreSQL", "Docker", "Render.com"],
       github: "https://github.com/AmmarAlzureiqi/MoodofMusic",
+      demo: "https://moodofmusic.onrender.com/",
       details: [
         "Implemented image analysis using PyTorch to extract emotional parameters from uploaded images",
         "Integrated OpenAI API for image description and playlist generation based on detected moods",
