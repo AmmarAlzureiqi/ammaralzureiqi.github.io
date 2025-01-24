@@ -99,7 +99,7 @@ export default function Home() {
             description="A scalable, serverless job aggregation platform"
             tech={["Python", "Django", "Next.js", "AWS", "DynamoDB"]}
             github="https://github.com/AmmarAlzureiqi/Hirestack"
-            demo="https://hirestack.com"
+            demo="https://hirestackjobs.vercel.app/"
             details={[
               "Implemented serverless architecture using AWS Lambda and API Gateway",
               "Designed and optimized DynamoDB schema for efficient querying",

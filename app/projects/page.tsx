@@ -9,7 +9,7 @@ export default function Projects() {
         "A scalable, serverless job aggregation platform that processes real-time data from multiple job boards and provides intelligent job recommendations using machine learning.",
       tech: ["Python", "Django", "Next.js", "AWS", "DynamoDB", "Machine Learning"],
       github: "https://github.com/AmmarAlzureiqi/Hirestack",
-      demo: "https://hirestack.com",
+      demo: "https://hirestackjobs.vercel.app/",
       details: [
         "Implemented serverless architecture using AWS Lambda and API Gateway",
         "Designed and optimized DynamoDB schema for efficient querying",
@@ -29,7 +29,7 @@ export default function Projects() {
       description:
         "An IoT-based People Counter application using computer vision for accurate real-time customer tracking in retail environments, providing actionable insights for store optimization.",
       tech: ["Python", "OpenCV", "FastAPI", "Docker", "PyTorch", "IoT"],
-      github: "https://github.com/AmmarAlzureiqi/RetailPulse",
+      github: "https://github.com/AmmarAlzureiqi/CustomerTrafficAnalysis",
       details: [
         "Developed computer vision algorithms for accurate people counting",
         "Implemented real-time data processing pipeline using FastAPI",
