@@ -2,30 +2,25 @@ name: Deploy Next.js site
 
 on:
   push:
-    branches: [main]  # Trigger the action when you push to the main branch
+    branches: [main]
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
       
       - run: npm ci
-      - run: npm run build
-      - run: npm run export  # Export static files into 'out' directory
+      - run: npm run build  # No need for 'next export' since it's now handled in next.config.js
 
-      # Optionally check the contents of 'out'
-      - run: ls -la ./out  # List contents of the 'out' folder
+      - run: ls -la ./out  # List contents of the 'out' folder for debugging
 
-      # Deploy to the root of the repository (if GitHub Pages is set to the root)
-      - name: Deploy to GitHub Pages
-        run: |
-          # Ensure we're in the correct directory
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "actions@github.com"
-          git add -A
-          git commit -m "Deploy to GitHub Pages"
-          git push origin main  # Push to the 'main' branch if Pages is set to GitHub Actions source
+      - name: Deploy to GitHub Pages (gh-pages branch)
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_key: ${{ secrets.DEPLOY_KEY }}
+          publish_dir: ./out
