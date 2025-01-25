@@ -6,18 +6,19 @@ export default function Projects() {
   const inProgressProjects = [
     {
       title: "Learning Management System",
-        description: "A modern Learning Management System enabling course creation, student progress tracking, and interactive learning experiences with real-time assessment capabilities.",
-        tech: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "AWS S3"],
-        // github: "https://github.com/AmmarAlzureiqi/",
-        progress: 45,
-        },
+      description: "A modern Learning Management System enabling course creation, student progress tracking, and interactive learning experiences with real-time assessment capabilities.",
+      tech: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "AWS S3"],
+      // github: "https://github.com/AmmarAlzureiqi/",
+      progress: 45,
+    },
     {
       title: "zyumn.ai",
       description: "AI-powered trading platform with real-time market analysis, strategy backtesting, and performance analytics. Uses machine learning for sentiment analysis and automated technical trading signals.",
-      tech: ["Next.js", "Rust/Go", "Python", "Kafka", "TimescaleDB", "Docker", "Kubernetes", "LangChain"],
+      tech: ["Next.js", "Go", "Python", "Kafka", "TimescaleDB", "Docker", "Kubernetes", "LangChain"],
       github: "https://github.com/AmmarAlzureiqi/zyumn.ai",
+      demo: "https://zyumn-ai.vercel.app/",
       progress: 5
-  }
+    }
   ]
 
   const projects = [

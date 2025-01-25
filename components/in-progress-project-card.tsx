@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Github } from "lucide-react"
+import { Github, ExternalLink } from "lucide-react"
 import Link from "next/link"
 
 interface InProgressProjectCardProps {
@@ -11,10 +11,18 @@ interface InProgressProjectCardProps {
   description: string
   tech: string[]
   github?: string
+  demo?: string
   progress: number
 }
 
-export function InProgressProjectCard({ title, description, tech, github, progress }: InProgressProjectCardProps) {
+export function InProgressProjectCard({ 
+  title, 
+  description, 
+  tech, 
+  github, 
+  demo,
+  progress 
+}: InProgressProjectCardProps) {
   const [animatedProgress, setAnimatedProgress] = useState(0)
 
   useEffect(() => {
@@ -30,11 +38,18 @@ export function InProgressProjectCard({ title, description, tech, github, progre
       <CardHeader>
         <CardTitle className="flex items-center justify-between">
           <span>{title}</span>
-          {github && (
-            <Link href={github} target="_blank" rel="noopener noreferrer">
-              <Github className="h-5 w-5 text-muted-foreground hover:text-primary" />
-            </Link>
-          )}
+          <div className="flex gap-2">
+            {github && (
+              <Link href={github} target="_blank" rel="noopener noreferrer">
+                <Github className="h-5 w-5 text-muted-foreground hover:text-primary" />
+              </Link>
+            )}
+            {demo && (
+              <Link href={demo} target="_blank" rel="noopener noreferrer">
+                <ExternalLink className="h-5 w-5 text-muted-foreground hover:text-primary" />
+              </Link>
+            )}
+          </div>
         </CardTitle>
       </CardHeader>
       <CardContent className="flex-grow flex flex-col justify-between">
@@ -61,4 +76,3 @@ export function InProgressProjectCard({ title, description, tech, github, progre
     </Card>
   )
 }
-
