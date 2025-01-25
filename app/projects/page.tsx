@@ -12,19 +12,11 @@ export default function Projects() {
         progress: 45,
         },
     {
-      title: "NeuroLearn",
-      description:
-        "An adaptive learning platform using AI to personalize educational content and optimize study schedules for students.",
-      tech: ["Python", "TensorFlow", "Flask", "PostgreSQL", "React"],
-      github: "https://github.com/AmmarAlzureiqi/NeuroLearn",
-      progress: 40,
-    },
-    {
       title: "zyumn.ai",
-      description: "AI-powered quantitative trading platform combining real-time market analysis, machine learning models, and backtesting capabilities for algorithmic trading strategies. Features include sentiment analysis, automated technical analysis, risk modeling, and performance analytics dashboards.",
+      description: "AI-powered trading platform with real-time market analysis, strategy backtesting, and performance analytics. Uses machine learning for sentiment analysis and automated technical trading signals.",
       tech: ["Next.js", "Rust/Go", "Python", "Kafka", "TimescaleDB", "Docker", "Kubernetes", "LangChain"],
       github: "https://github.com/AmmarAlzureiqi/zyumn.ai",
-      progress: 0
+      progress: 5
   }
   ]
 
