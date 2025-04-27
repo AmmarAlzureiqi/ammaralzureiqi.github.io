@@ -48,6 +48,7 @@ export default function Home() {
             "Implementing machine learning solutions",
             "Optimizing cloud architectures",
             "Crafting intuitive user experiences",
+            "LS Swapping The World"
           ]}
         />
         <div className="flex space-x-4 mt-6">
