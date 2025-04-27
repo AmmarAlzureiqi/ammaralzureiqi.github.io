@@ -11,8 +11,8 @@ interface LearningItem {
 
 export function CurrentlyLearning() {
   const [learningItems, setLearningItems] = useState<LearningItem[]>([
-    { name: "Go", progress: 0 },
-    { name: "Object-Relational Mapping", progress: 0 },
+    { name: "Natural Language Processing", progress: 0 },
+    { name: "AI Agents", progress: 0 },
     { name: "Real-time Systems", progress: 0 },
   ])
 

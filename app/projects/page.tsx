@@ -13,8 +13,8 @@ export default function Projects() {
     },
     {
       title: "zyumn.ai",
-      description: "AI-powered trading platform with real-time market analysis, strategy backtesting, and performance analytics. Uses machine learning for sentiment analysis and automated technical trading signals.",
-      tech: ["Next.js", "Go", "Python", "Kafka", "TimescaleDB", "Docker", "Kubernetes", "LangChain"],
+      description: "AI-powered application that analyzes job descriptions, customizes resumes and cover letters based on user profiles, and generates professionally formatted PDF documents. Features profile management, intelligent job requirement analysis, and document templating system.",
+      tech: ["Django", "Python", "LLMs", "OpenAI API", "Langchain", "Prompt Engineering", "NLP", "REST API", "React"],
       github: "https://github.com/AmmarAlzureiqi/zyumn.ai",
       demo: "https://zyumn-ai.vercel.app/",
       progress: 5
@@ -83,26 +83,26 @@ export default function Projects() {
         "Developed responsive web interface for seamless playlist embedding and playback"
       ]
     },
-    // {
-    //   title: "E-Commerce API",
-    //   description:
-    //     "A robust REST API for e-commerce platforms with features like product management, user authentication, order processing, and payment integration.",
-    //   tech: ["Node.js", "Express", "MongoDB", "JWT", "Stripe"],
-    //   github: "https://github.com/AmmarAlzureiqi/e-commerce-api",
-    //   details: [
-    //     "Designed and implemented RESTful API endpoints for e-commerce functionality",
-    //     "Implemented user authentication and authorization using JWT",
-    //     "Integrated Stripe for secure payment processing",
-    //     "Developed order management and inventory tracking features",
-    //     "Implemented caching strategies for improved performance",
-    //   ],
-    //   type: "Full-Stack Web Application",
-    //   achievements: [
-    //     "Reduced API response time by 40% through efficient database indexing",
-    //     "Implemented rate limiting to prevent API abuse",
-    //     "Achieved 99.9% uptime through robust error handling and logging",
-    //   ],
-    // },
+    {
+      title: "E-Commerce API",
+      description:
+        "A robust REST API for e-commerce platforms with features like product management, user authentication, order processing, and payment integration.",
+      tech: ["Node.js", "Express", "MongoDB", "JWT", "Stripe"],
+      github: "https://github.com/AmmarAlzureiqi/e-commerce-api",
+      details: [
+        "Designed and implemented RESTful API endpoints for e-commerce functionality",
+        "Implemented user authentication and authorization using JWT",
+        "Integrated Stripe for secure payment processing",
+        "Developed order management and inventory tracking features",
+        "Implemented caching strategies for improved performance",
+      ],
+      type: "Full-Stack Web Application",
+      achievements: [
+        "Reduced API response time by 40% through efficient database indexing",
+        "Implemented rate limiting to prevent API abuse",
+        "Achieved 99.9% uptime through robust error handling and logging",
+      ],
+    },
     // {
     //   title: "AI Image Generator",
     //   description:
