@@ -149,7 +149,6 @@ export default function Home() {
               "Architected and developed a scalable Learning Management System from scratch",
               "Implemented advanced analytics dashboard for tracking student performance and engagement",
               "Optimized database queries, resulting in 50% reduction in page load times",
-              "Led a team of 3 developers, implementing agile methodologies",
               "Integrated third-party APIs for enhanced content delivery and assessment tools",
             ]}
           />
