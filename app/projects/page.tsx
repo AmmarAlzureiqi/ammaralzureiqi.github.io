@@ -14,7 +14,7 @@ export default function Projects() {
     {
       title: "zyumn.ai",
       description: "AI-powered application that analyzes job descriptions, customizes resumes and cover letters based on user profiles, and generates professionally formatted PDF documents. Features profile management, intelligent job requirement analysis, and document templating system.",
-      tech: ["Django", "Python", "LLMs", "OpenAI API", "Langchain", "Prompt Engineering", "NLP", "REST API", "React"],
+      tech: ["Django", "LLMs", "Langchain", "Prompt Engineering", "NLP"],
       github: "https://github.com/AmmarAlzureiqi/zyumn.ai",
       demo: "https://zyumn-ai.vercel.app/",
       progress: 5

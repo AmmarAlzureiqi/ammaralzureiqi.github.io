@@ -46,9 +46,9 @@ export default function Home() {
           phrases={[
             "Building scalable web applications",
             "Implementing machine learning solutions",
+            "LS Swapping The World",
             "Optimizing cloud architectures",
-            "Crafting intuitive user experiences",
-            "LS Swapping The World"
+            "Crafting intuitive user experiences"
           ]}
         />
         <div className="flex space-x-4 mt-6">
