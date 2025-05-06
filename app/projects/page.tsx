@@ -83,24 +83,23 @@ export default function Projects() {
       ]
     },
     {
-      title: "E-Commerce API",
-      description:
-        "A robust REST API for e-commerce platforms with features like product management, user authentication, order processing, and payment integration.",
-      tech: ["Node.js", "Express", "MongoDB", "JWT", "Stripe"],
-      github: "https://github.com/AmmarAlzureiqi/e-commerce-api",
+      title: "Infera: Data Insight Generator",
+      description: "An AI-powered data analytics system that transforms natural language instructions into interactive visualization dashboards and actionable insights.",
+      tech: ["Python", "LangChain", "React", "D3.js", "FastAPI", "PostgreSQL", "OpenAI API"],
+      github: "https://github.com/AmmarAlzureiqi/infera",
       details: [
-        "Designed and implemented RESTful API endpoints for e-commerce functionality",
-        "Implemented user authentication and authorization using JWT",
-        "Integrated Stripe for secure payment processing",
-        "Developed order management and inventory tracking features",
-        "Implemented caching strategies for improved performance",
+        "Developed an LLM-powered interface that interprets user requests in natural language and automatically generates relevant data visualizations and analytics",
+        "Created a pipeline that processes structured and unstructured data, selects appropriate visualization techniques, and provides contextual insights based on statistical analysis",
+        "Built an interactive dashboard generator that allows non-technical users to explore complex datasets and discover patterns through conversation-like interactions",
+        "Implemented data validation and transformation layers to ensure accuracy and consistency of insights",
+        "Designed a modular architecture that supports plugin extensions for specialized data domains"
       ],
-      type: "Full-Stack Web Application",
+      type: "AI/Data Visualization Application",
       achievements: [
-        "Reduced API response time by 40% through efficient database indexing",
-        "Implemented rate limiting to prevent API abuse",
-        "Achieved 99.9% uptime through robust error handling and logging",
-      ],
+        "Reduced time-to-insight by 75% compared to traditional BI workflows",
+        "Successfully analyzed datasets with 1M+ records while maintaining interactive performance",
+        "Implemented semantic understanding of 20+ domain-specific data contexts"
+      ]
     },
     // {
     //   title: "AI Image Generator",
