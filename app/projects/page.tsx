@@ -83,8 +83,8 @@ export default function Projects() {
       ]
     },
     {
-      title: "Infera: Data Insight Generator",
-      description: "An AI-powered data analytics system that transforms natural language instructions into interactive visualization dashboards and actionable insights.",
+      title: "Infera",
+      description: "Data Insight Generator - An AI powered data analytics system that transforms natural language instructions into interactive visualization dashboards and actionable insights.",
       tech: ["Python", "LangChain", "React", "D3.js", "FastAPI", "PostgreSQL", "OpenAI API"],
       // github: "https://github.com/AmmarAlzureiqi/infera",
       details: [
