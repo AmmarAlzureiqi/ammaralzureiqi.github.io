@@ -173,7 +173,7 @@ export default function About() {
         </Card>
       </div>
 
-{/* 
+
       <div>
         <h2 className="text-2xl font-bold mb-6">Version History</h2>
         <div className="space-y-4">
@@ -192,7 +192,7 @@ export default function About() {
           ))}
         </div>
       </div> 
-      */}
+     
 
 
     </div>
