@@ -83,22 +83,22 @@ export default function Projects() {
       ]
     },
     {
-      title: "Infera",
-      description: "Data Insight Generator - An AI powered data analytics system that transforms natural language instructions into interactive visualization dashboards and actionable insights.",
-      tech: ["Python", "LangChain", "React", "D3.js", "FastAPI", "PostgreSQL", "OpenAI API"],
-      // github: "https://github.com/AmmarAlzureiqi/infera",
+      title: "CryoCast: Long-Term Prediction Framework",
+      description: "An AI forecasting system that 'freezes' current trends and extrapolates them far into the future with comprehensive uncertainty quantification.",
+      tech: ["Python", "TensorFlow", "PyTorch", "Pandas", "Matplotlib", "Streamlit"],
+      github: "https://github.com/AmmarAlzureiqi/cryocast",
       details: [
-        "Developed an LLM-powered interface that interprets user requests in natural language and automatically generates relevant data visualizations and analytics",
-        "Created a pipeline that processes structured and unstructured data, selects appropriate visualization techniques, and provides contextual insights based on statistical analysis",
-        "Built an interactive dashboard generator that allows non-technical users to explore complex datasets and discover patterns through conversation-like interactions",
-        "Implemented data validation and transformation layers to ensure accuracy and consistency of insights",
-        "Designed a modular architecture that supports plugin extensions for specialized data domains"
+        "Architected a machine learning framework for long-range forecasting that captures trend dynamics and quantifies prediction uncertainty across multiple time horizons",
+        "Implemented ensemble methods combining statistical time-series models with deep learning approaches to improve reliability of extended predictions",
+        "Designed a visualization system that transparently communicates confidence intervals and probability distributions as forecasts extend further into the future",
+        "Incorporated multiple data sources to enhance prediction accuracy and provide contextual insights",
+        "Built a user-friendly interface for configuring prediction parameters and visualizing results"
       ],
-      type: "AI/Data Visualization Application",
+      type: "AI/ML Application",
       achievements: [
-        "Reduced time-to-insight by 75% compared to traditional BI workflows",
-        "Successfully analyzed datasets with 1M+ records while maintaining interactive performance",
-        "Implemented semantic understanding of 20+ domain-specific data contexts"
+        "Demonstrated improved forecast consistency compared to standard time-series models",
+        "Created visualization tools that effectively communicate prediction uncertainty",
+        "Implemented a modular architecture that supports multiple forecasting approaches"
       ]
     },
     // {
