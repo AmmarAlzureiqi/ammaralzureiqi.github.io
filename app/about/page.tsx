@@ -53,9 +53,9 @@ interface Education {
 // ]
 
 
-const languages = ["Python", "R", "SQL", "Java", "Javascript", "HTML/CSS"]
+const languages = ["Python", "R", "SQL", "Java", "Go", "Javascript", "HTML/CSS"]
 
-const technologies = ["Flask", "AWS", "PostgreSQL", "Git", "MongoDB", "MySQL"]
+const technologies = ["Flask", "AWS", "PostgreSQL", "Git", "MongoDB", "MySQL", "Docker", "React",]
 
 const education: Education[] = [
   {

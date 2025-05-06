@@ -91,9 +91,7 @@ export default function Projects() {
         "Architected a machine learning framework for long-range forecasting that captures trend dynamics and quantifies prediction uncertainty across multiple time horizons",
         "Implemented ensemble methods combining statistical time-series models with deep learning approaches to improve reliability of extended predictions",
         "Designed a visualization system that transparently communicates confidence intervals and probability distributions as forecasts extend further into the future",
-        "Incorporated multiple data sources to enhance prediction accuracy and provide contextual insights",
-        "Built a user-friendly interface for configuring prediction parameters and visualizing results"
-      ],
+        "Incorporated multiple data sources to enhance prediction accuracy and provide contextual insights"      ],
       type: "AI/ML Application",
       achievements: [
         "Demonstrated improved forecast consistency compared to standard time-series models",
