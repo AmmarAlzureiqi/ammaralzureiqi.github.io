@@ -154,7 +154,7 @@ export default function About() {
             </div>
           </CardContent>
         </Card>
-        {/* <Card>
+        <Card>
           <CardHeader>
             <CardTitle className="flex items-center space-x-2">
               <Wrench className="h-6 w-6" />
@@ -170,7 +170,7 @@ export default function About() {
               ))}
             </div>
           </CardContent>
-        </Card> */}
+        </Card>
       </div>
 
 {/* 
