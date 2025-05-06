@@ -84,7 +84,7 @@ export default function Projects() {
     },
     {
       title: "CryoCast",
-      description: "Long-Term Prediction Framework - An AI forecasting system that 'freezes' current trends and extrapolates them far into the future with comprehensive uncertainty quantification.",
+      description: "Long-Term Prediction Framework - An AI forecasting system that 'freezes' current trends and extrapolates them into the future with comprehensive uncertainty quantification.",
       tech: ["Python", "TensorFlow", "PyTorch", "Pandas", "Matplotlib", "Streamlit"],
       github: "https://github.com/AmmarAlzureiqi/cryocast",
       details: [
