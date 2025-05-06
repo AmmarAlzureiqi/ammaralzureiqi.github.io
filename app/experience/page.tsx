@@ -4,15 +4,13 @@ export default function Experience() {
   const experiences = [
     {
       title: "Software Developer",
-      company: "The Wellness Network",
+      company: "Alzureiqi Solutions",
       date: "Sept. 2024 – Present",
-      description: "Leading the development of a custom Learning Management System, improving student engagement and administrative efficiency. Engineered PostgreSQL database solutions and implemented comprehensive analytics tools, reducing latency by 50%.",
+      description: "Developing custom solutions for diverse clients including educational institutions and community organizations. Creating specialized platforms that enhance efficiency, engagement, and data-driven decision making.",
       details: [
-        "Architected and developed a scalable Learning Management System from scratch",
-        "Implemented advanced analytics dashboard for tracking student performance and engagement",
-        "Optimized database queries, resulting in 50% reduction in page load times",
-        "Led a team of 3 developers, implementing agile methodologies",
-        "Integrated third-party APIs for enhanced content delivery and assessment tools"
+        "IDA Academy: Streamlined LMS migration and optimization, significantly reducing system load times and enhancing student engagement; developed integrated marketing website with custom student portal enabling real-time progress tracking for students, teachers, and administrators",
+        "The Wellness Network: Designed and deployed a self-service CMS platform for the organization's website, allowing the marketing team to independently manage content, events, and initiatives without technical support",
+        "Arqam SIL: Led comprehensive community census development and data analysis for thousands of responses, uncovering key demographic insights and community challenges that directly informed program improvements and resource allocation decisions"
       ]
     },
     {
@@ -24,7 +22,6 @@ export default function Experience() {
         "Implemented and fine-tuned LLAMA 3.1 70B model for business-specific use cases",
         "Designed and developed ETL pipelines using Apache Spark and Kafka",
         "Improved data processing speed by 40% through optimized indexing and caching strategies",
-        "Implemented real-time analytics dashboard using React and D3.js",
         "Collaborated with data scientists to develop and deploy machine learning models"
       ]
     },

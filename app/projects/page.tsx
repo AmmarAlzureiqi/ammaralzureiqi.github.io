@@ -12,10 +12,18 @@ export default function Projects() {
       progress: 45,
     },
     {
-      title: "zyumn.ai",
+      title: "optimyze",
       description: "AI-powered application that analyzes job descriptions, customizes resumes and cover letters based on user profiles, and generates professionally formatted PDF documents. Features profile management, intelligent job requirement analysis, and document templating system.",
       tech: ["Django", "LLMs", "Langchain", "Prompt Engineering", "NLP"],
-      github: "https://github.com/AmmarAlzureiqi/zyumn.ai",
+      github: "https://github.com/AmmarAlzureiqi/optimyze",
+      demo: "https://zyumn-ai.vercel.app/",
+      progress: 5
+    },
+    {
+      title: "optimyze",
+      description: "AI-powered application that analyzes job descriptions, customizes resumes and cover letters based on user profiles, and generates professionally formatted PDF documents. Features profile management, intelligent job requirement analysis, and document templating system.",
+      tech: ["Django", "LLMs", "Langchain", "Prompt Engineering", "NLP"],
+      github: "https://github.com/AmmarAlzureiqi/optimyze",
       demo: "https://zyumn-ai.vercel.app/",
       progress: 5
     }
@@ -39,8 +47,7 @@ export default function Projects() {
       type: "Full-Stack Web Application",
       achievements: [
         "Reduced infrastructure costs by 40% through serverless architecture",
-        "Improved job matching accuracy by 25% using ML algorithms",
-        "Scaled to handle 1M+ daily active users",
+        "Improved job matching accuracy significantly by using ML algorithms",
       ],
     },
     {
@@ -59,7 +66,7 @@ export default function Projects() {
       type: "Computer Vision & IoT Application",
       achievements: [
         "Achieved 95% accuracy in people counting",
-        "Reduced manual counting labor by 100%",
+        "Reduced manual counting labor",
         "Provided actionable insights leading to 15% increase in store efficiency",
       ],
     },

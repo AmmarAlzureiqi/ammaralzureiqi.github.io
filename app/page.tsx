@@ -111,8 +111,7 @@ export default function Home() {
             type="Full-Stack Web Application"
             achievements={[
               "Reduced infrastructure costs by 40% through serverless architecture",
-              "Improved job matching accuracy by 25% using ML algorithms",
-              "Scaled to handle 1M+ daily active users",
+              "Improved job matching accuracy significantly by using ML algorithms",
             ]}
           />
           <DynamicProjectCard
@@ -130,7 +129,7 @@ export default function Home() {
             type="Computer Vision & IoT Application"
             achievements={[
               "Achieved 95% accuracy in people counting",
-              "Reduced manual counting labor by 100%",
+              "Reduced manual counting labor",
               "Provided actionable insights leading to 15% increase in store efficiency",
             ]}
           />
@@ -140,16 +139,15 @@ export default function Home() {
       <section>
         <h2 className="text-2xl font-bold mb-6">Recent Experience</h2>
         <div className="space-y-6">
-          <ExperienceCard
+        <ExperienceCard
             title="Software Developer"
-            company="The Wellness Network"
+            company="Alzureiqi Solutions"
             date="Sept. 2024 – Present"
-            description="Leading the development of a custom Learning Management System, improving student engagement and administrative efficiency while implementing comprehensive analytics tools."
+            description="Developing custom solutions for diverse clients including educational institutions and community organizations. Creating specialized platforms that enhance efficiency, engagement, and data-driven decision making."
             details={[
-              "Architected and developed a scalable Learning Management System from scratch",
-              "Implemented advanced analytics dashboard for tracking student performance and engagement",
-              "Optimized database queries, resulting in 50% reduction in page load times",
-              "Integrated third-party APIs for enhanced content delivery and assessment tools",
+              "IDA Academy: Streamlined LMS migration and optimization, significantly reducing system load times and enhancing student engagement; developed integrated marketing website with custom student portal enabling real-time progress tracking for students, teachers, and administrators",
+              "The Wellness Network: Designed and deployed a self-service CMS platform for the organization's website, allowing the marketing team to independently manage content, events, and initiatives without technical support",
+              "Arqam SIL: Led comprehensive community census development and data analysis for thousands of responses, uncovering key demographic insights and community challenges that directly informed program improvements and resource allocation decisions"
             ]}
           />
           <ExperienceCard
@@ -161,7 +159,6 @@ export default function Home() {
               "Implemented and fine-tuned LLAMA 3.1 70B model for business-specific use cases",
               "Designed and developed ETL pipelines using Apache Spark and Kafka",
               "Improved data processing speed by 40% through optimized indexing and caching strategies",
-              "Implemented real-time analytics dashboard using React and D3.js",
               "Collaborated with data scientists to develop and deploy machine learning models",
             ]}
           />
