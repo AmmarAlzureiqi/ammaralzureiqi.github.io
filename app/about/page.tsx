@@ -1,57 +1,13 @@
-// import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Code2, Wrench, GraduationCap } from "lucide-react"
+import { GraduationCap } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
-
-
 
 interface Education {
   degree: string
   school: string
   date: string
-  // gpa?: string
   courses: string[]
 }
-
-// interface Commit {
-//   date: string
-//   message: string
-//   details: string
-// }
-
-// const commits: Commit[] = [
-//   {
-//     date: "2024-01-15",
-//     message: "Mastered Next.js and React Server Components",
-//     details: "Completed advanced course and built several production-ready applications.",
-//   },
-//   {
-//     date: "2023-11-01",
-//     message: "Implemented AI-powered features in Hirestack",
-//     details: "Integrated GPT-4 for smart job matching and resume analysis.",
-//   },
-//   {
-//     date: "2023-08-20",
-//     message: "Graduated with MS in Computer Science",
-//     details: "Focused on Machine Learning and Distributed Systems. GPA: 4.0",
-//   },
-//   {
-//     date: "2023-05-10",
-//     message: "Started internship at CensusX.ai",
-//     details: "Worked on developing ETL pipelines and implementing ML models.",
-//   },
-//   {
-//     date: "2022-09-01",
-//     message: "Began Master's program at UIUC",
-//     details: "Enrolled in MS Computer Science program with a focus on AI and Data Science.",
-//   },
-//   {
-//     date: "2021-04-30",
-//     message: "Graduated with BS in Statistics",
-//     details: "Completed Honor's Bachelor's degree with a minor in Computer Science. GPA: 3.9",
-//   },
-// ]
-
 
 const languages = ["Python", "R", "SQL", "Java", "Go", "Javascript", "HTML/CSS"]
 
@@ -62,7 +18,6 @@ const education: Education[] = [
     degree: "Master's of Computer Science",
     school: "University of Illinois Urbana Champaign",
     date: "May 2023 - Dec 2024",
-    // gpa: "4.0",
     courses: [
       "Advanced Machine Learning",
       "Statistical Modeling",
@@ -75,7 +30,6 @@ const education: Education[] = [
     degree: "Bachelor's of Statistics",
     school: "Western University",
     date: "Sep 2017 - Apr 2021",
-    // gpa: "3.9",
     courses: ["Probability Theory", "Statistical Inference", "Regression Analysis", "Data Science", "Machine Learning"],
   },
 ]
@@ -104,7 +58,6 @@ export default function About() {
           impact. I believe in writing clean, maintainable code and building systems that solve real-world problems.
         </p>
       </div>
-
 
       <Card>
         <CardHeader>
@@ -136,66 +89,8 @@ export default function About() {
         </CardContent>
       </Card>
 
-      <div className="grid gap-6 md:grid-cols-2">
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center space-x-2">
-              <Code2 className="h-6 w-6" />
-              <span>Languages</span>
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="flex flex-wrap gap-2">
-              {languages.map((lang, index) => (
-                <Badge key={index} variant="secondary">
-                  {lang}
-                </Badge>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center space-x-2">
-              <Wrench className="h-6 w-6" />
-              <span>Tools & Technologies</span>
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="flex flex-wrap gap-2">
-              {technologies.map((tech, index) => (
-                <Badge key={index} variant="secondary">
-                  {tech}
-                </Badge>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
-      </div>
-
-{/* 
-      <div>
-        <h2 className="text-2xl font-bold mb-6">Version History</h2>
-        <div className="space-y-4">
-          {commits.map((commit, index) => (
-            <Card key={index}>
-              <CardHeader>
-                <CardTitle className="flex justify-between items-center">
-                  <span className="text-primary">{commit.date}</span>
-                  <span className="text-lg font-semibold">{commit.message}</span>
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p>{commit.details}</p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </div> 
-      */}
-
+      {/* Languages and Tools & Technologies cards removed */}
 
     </div>
   )
 }
-
