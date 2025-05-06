@@ -136,7 +136,7 @@ export default function About() {
         </CardContent>
       </Card>
 
-      <div className="grid gap-6 md:grid-cols-2">
+      {/* <div className="grid gap-6 md:grid-cols-2">
         <Card>
           <CardHeader>
             <CardTitle className="flex items-center space-x-2">
@@ -171,7 +171,7 @@ export default function About() {
             </div>
           </CardContent>
         </Card>
-      </div>
+      </div> */}
 
 {/* 
       <div>
