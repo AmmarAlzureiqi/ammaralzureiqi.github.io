@@ -16,7 +16,7 @@ export default function Projects() {
       description: "AI-powered application that analyzes job descriptions, customizes resumes and cover letters based on user profiles, and generates professionally formatted PDF documents. Features profile management, intelligent job requirement analysis, and document templating system.",
       tech: ["Django", "LLMs", "Langchain", "Prompt Engineering", "NLP"],
       github: "https://github.com/AmmarAlzureiqi/optimyze",
-      demo: "https://zyumn-ai.vercel.app/",
+      demo: "https://optimyze.vercel.app/",
       progress: 5
     }
   ]
