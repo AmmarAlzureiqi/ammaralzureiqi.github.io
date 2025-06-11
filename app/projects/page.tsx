@@ -15,7 +15,7 @@ export default function Projects() {
       title: "optimyze",
       description: "AI-powered application that analyzes job descriptions, customizes resumes and cover letters based on user profiles, and generates professionally formatted PDF documents. Features profile management, intelligent job requirement analysis, and document templating system.",
       tech: ["Django", "LLMs", "Langchain", "Prompt Engineering", "NLP"],
-      // github: "https://github.com/AmmarAlzureiqi/optimyze",
+      github: "https://github.com/AmmarAlzureiqi/optimyze",
       demo: "https://optimyze.vercel.app/",
       progress: 5
     }
@@ -159,6 +159,7 @@ export default function Projects() {
               title={project.title}
               description={project.description}
               tech={project.tech}
+              github={project.github}
               demo={project.demo}
               progress={project.progress}
             />
