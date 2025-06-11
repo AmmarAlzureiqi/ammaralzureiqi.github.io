@@ -159,7 +159,6 @@ export default function Projects() {
               title={project.title}
               description={project.description}
               tech={project.tech}
-              github={project.github}
               demo={project.demo}
               progress={project.progress}
             />
