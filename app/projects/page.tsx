@@ -4,13 +4,20 @@ import { InProgressProjectCard } from "../../components/in-progress-project-card
 
 export default function Projects() {
   const inProgressProjects = [
+    // {
+    //   title: "Learning Management System",
+    //   description: "A modern Learning Management System enabling course creation, student progress tracking, and interactive learning experiences with real-time assessment capabilities.",
+    //   tech: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "AWS S3"],
+    //   // github: "https://github.com/AmmarAlzureiqi/",
+    //   progress: 45,
+    // },
     {
-      title: "Learning Management System",
-      description: "A modern Learning Management System enabling course creation, student progress tracking, and interactive learning experiences with real-time assessment capabilities.",
-      tech: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "AWS S3"],
-      // github: "https://github.com/AmmarAlzureiqi/",
-      progress: 45,
-    },
+      title: "Skema",
+      description: "An AI-powered SQL schema designer that guides users through data modeling via structured questions, interactive chat, and a visual ERD editor — generating production-ready SQL with smart defaults.",
+      tech: "Go, Tailwind, LLMs, Docker, PostgreSQL, Mermaid.js, TypeScript",
+      // github: "https://github.com/yourname/skema",
+      progress: 10,
+    },    
     {
       title: "optimyze",
       description: "AI-powered application that analyzes job descriptions, customizes resumes and cover letters based on user profiles, and generates professionally formatted PDF documents. Features profile management, intelligent job requirement analysis, and document templating system.",
