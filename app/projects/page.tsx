@@ -16,7 +16,7 @@ export default function Projects() {
       description: "An AI-powered SQL schema designer that guides users through data modeling via structured questions, interactive chat, and a visual ERD editor — generating production-ready SQL with smart defaults.",
       tech: ["Go", "Tailwind", "LLMs", "Docker", "PostgreSQL", "Mermaid.js", "TypeScript"],
       github: "https://github.com/AmmarAlzureiqi/Skema",
-      demo: "https://skema-ai-schema-plan.lovable.app",
+      demo: "https://skema.lovable.app/",
       progress: 5,
     },    
     {
