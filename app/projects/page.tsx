@@ -16,7 +16,7 @@ export default function Projects() {
       description: "An AI-powered SQL schema designer that guides users through data modeling via structured questions, interactive chat, and a visual ERD editor — generating production-ready SQL with smart defaults.",
       tech: ["Go, Tailwind, LLMs, Docker, PostgreSQL, Mermaid.js, TypeScript"],
       // github: "https://github.com/yourname/skema",
-      progress: 10,
+      progress: 5,
     },    
     {
       title: "optimyze",
@@ -24,7 +24,7 @@ export default function Projects() {
       tech: ["Django", "LLMs", "Langchain", "Prompt Engineering", "NLP"],
       github: "https://github.com/AmmarAlzureiqi/optimyze",
       demo: "https://optimyze.vercel.app/",
-      progress: 5
+      progress: 15
     }
   ]
 
