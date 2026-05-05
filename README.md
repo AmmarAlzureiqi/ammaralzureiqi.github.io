@@ -4,33 +4,25 @@
 
 </div>
 
-<br>
+### Hi, I'm Ammar
 
-<table>
-<tr>
-<td>
+Software developer working in MLOps. I studied CS at UIUC and Statistics at Western. Most of what I do now sits between ML infrastructure, LLM inference, and figuring out how to make agents work reliably in production.
 
-**Ammar Alzureiqi**
-
-Software developer, MLOps. Building ML platform infra by day, tinkering with inference and agents by night.
-
-UIUC (MS CS) · Western (BS Stats)
-
-</td>
-<td>
-
-```
-currently:    LLM inference, agentic AI, ML platforms
-learning:     TRT-LLM, Triton, vLLM, Dynamo
-interested:   LLM eval at scale, agent infra, inference ops
-languages:    Python, Go, TypeScript
-```
-
-</td>
-</tr>
-</table>
+Outside of work I'm usually deep in some rabbit hole involving model serving, building side projects, or wrenching on a car that probably shouldn't have a V8 in it.
 
 ---
+
+### What I'm into right now
+
+| | |
+|:--|:--|
+| **Day to day** | ML platform infrastructure, model orchestration, observability |
+| **Learning** | TRT-LLM, Triton, vLLM, Dynamo, KV cache optimization |
+| **Exploring** | Agentic AI patterns, LLM eval systems, inference ops |
+
+---
+
+### How it all connects
 
 ```mermaid
 graph LR
@@ -74,11 +66,12 @@ graph LR
 ```
 
 <details>
-<summary>full toolbox</summary>
+<summary><b>Full toolbox</b></summary>
+
 <br>
 
-| | |
-|:--|:--|
+| Layer | Tools |
+|:------|:------|
 | **Inference** | TRT-LLM, Triton, Dynamo, vLLM |
 | **ML / AI** | PyTorch, LangChain, LangGraph |
 | **Orchestration** | Kubernetes, Flyte, Docker |
