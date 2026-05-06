@@ -42,10 +42,6 @@ Always happy to talk about ML infrastructure, inference, agents, or anything int
 
 <div align="center">
 
-<img src="https://streak-stats.demolab.com?user=AmmarAlzureiqi&theme=transparent&hide_border=true&date_format=M%20j%5B%2C%20Y%5D&ring=6B8E7B&fire=6B8E7B&currStreakLabel=4A5568&sideLabels=4A5568&currStreakNum=4A5568&sideNums=4A5568&dates=9CA3AF" alt="GitHub Streak" width="600" />
-
-<br>
-
 <img src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=AmmarAlzureiqi&theme=default" alt="GitHub Stats" height="150" />
 <img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=AmmarAlzureiqi&theme=default" alt="Top Languages" height="150" />
 
