@@ -5,7 +5,7 @@ Welcome to my GitHub! I'm a **Software Developer** working in MLOps/AIOps, build
 ### 🚀 About Me
 - **Master's in Computer Science** from University of Illinois Urbana-Champaign
 - **Bachelor's in Statistics** from Western University
-- Currently building ML/AI platform infrastructure, working on LLM inference, and exploring agentic AI systems
+- Currently building ML platform infrastructure, working on LLM inference, and exploring agentic AI systems
 
 ### 💡 Tech Stack & Skills
 
