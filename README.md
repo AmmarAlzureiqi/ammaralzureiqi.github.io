@@ -2,11 +2,17 @@
 
 [![Typing SVG](https://readme-typing-svg.demolab.com/?font=DM+Sans&weight=500&size=28&duration=3000&pause=1500&color=4A5568&center=true&vCenter=true&width=600&height=45&lines=hey%2C+i'm+ammar;ml+infra+%C2%B7+inference+%C2%B7+agents;making+ai+work+in+production)](https://alzureiqi.dev)
 
-<br>
-
-Software developer working in MLOps. I build the platform infrastructure that gets ML models from notebooks into production, and lately I've been going deep on LLM inference, agentic AI, and the tooling that ties it all together. Background in CS and statistics. Also the kind of person who puts a V8 in a car that wasn't built for one.
+</div>
 
 <br>
+
+### About Me
+
+I'm a software developer working in MLOps, focused on building ML platform infrastructure and getting models into production reliably. My background is in **Computer Science** (MS, University of Illinois Urbana-Champaign) and **Statistics** (BS, Western University), and I've always been drawn to the space where ML meets real systems.
+
+Right now I'm spending most of my time on LLM inference and serving, agentic AI systems, and the orchestration and observability layers that make it all run. I care a lot about building things that actually ship, not just things that work in a notebook.
+
+### What I Work With
 
 **languages** · Python · Go · TypeScript
 
@@ -16,11 +22,25 @@ Software developer working in MLOps. I build the platform infrastructure that ge
 
 **observability** · Grafana LGTM · LangFuse · OpenLLMetry
 
-**learning** · TRT-LLM · Triton · vLLM · Dynamo · KV cache optimization
+### What I'm Learning
+
+Currently going deep on the inference side of things: **TRT-LLM**, **Triton**, **vLLM**, and **Dynamo** for model serving and optimization. Also exploring KV cache patterns, LLM eval systems, and production agent infrastructure.
+
+### Let's Connect
+
+I'm always happy to talk about ML infrastructure, inference, agents, or anything else that's interesting. Feel free to reach out.
+
+<div align="center">
+
+[alzureiqi.dev](https://alzureiqi.dev) · [LinkedIn](https://linkedin.com/in/AmmarAlzureiqi) · [alzureiqi3@gmail.com](mailto:alzureiqi3@gmail.com)
+
+</div>
 
 <br>
 
 ---
+
+<div align="center">
 
 <img src="https://streak-stats.demolab.com?user=AmmarAlzureiqi&theme=transparent&hide_border=true&date_format=M%20j%5B%2C%20Y%5D&ring=6B8E7B&fire=6B8E7B&currStreakLabel=4A5568&sideLabels=4A5568&currStreakNum=4A5568&sideNums=4A5568&dates=9CA3AF" alt="GitHub Streak" width="600" />
 
@@ -40,9 +60,5 @@ Software developer working in MLOps. I build the platform infrastructure that ge
   <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/AmmarAlzureiqi/AmmarAlzureiqi/output/github-snake.svg" />
   <img alt="contribution snake" src="https://raw.githubusercontent.com/AmmarAlzureiqi/AmmarAlzureiqi/output/github-snake.svg" />
 </picture>
-
-<br>
-
-[alzureiqi.dev](https://alzureiqi.dev) · [LinkedIn](https://linkedin.com/in/AmmarAlzureiqi) · [alzureiqi3@gmail.com](mailto:alzureiqi3@gmail.com)
 
 </div>
