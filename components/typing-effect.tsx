@@ -12,33 +12,41 @@ export function TypingEffect({ phrases }: TypingEffectProps) {
   const [isDeleting, setIsDeleting] = useState(false)
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentPhrase((prev) => {
-        const currentPhrase = phrases[currentIndex]
-        if (!isDeleting && prev === currentPhrase) {
-          setIsDeleting(true)
-          return prev
-        }
-        if (isDeleting && prev === "") {
-          setIsDeleting(false)
-          setCurrentIndex((prevIndex) => (prevIndex + 1) % phrases.length)
-          return ""
-        }
-        if (isDeleting) {
-          return prev.slice(0, -1)
-        }
-        return currentPhrase.slice(0, prev.length + 1)
-      })
-    }, 100)
+    const typingSpeed = isDeleting ? 40 : 70
+    const pauseAtEnd = 2000
+    const pauseAtStart = 300
 
-    return () => clearInterval(interval)
-  }, [currentIndex, isDeleting, phrases])
+    const timeout = setTimeout(() => {
+      const target = phrases[currentIndex]
+
+      if (!isDeleting && currentPhrase === target) {
+        // Pause at fully typed state, then start deleting
+        setTimeout(() => setIsDeleting(true), pauseAtEnd)
+        return
+      }
+
+      if (isDeleting && currentPhrase === "") {
+        setIsDeleting(false)
+        setTimeout(() => {
+          setCurrentIndex((prev) => (prev + 1) % phrases.length)
+        }, pauseAtStart)
+        return
+      }
+
+      if (isDeleting) {
+        setCurrentPhrase((prev) => prev.slice(0, -1))
+      } else {
+        setCurrentPhrase(target.slice(0, currentPhrase.length + 1))
+      }
+    }, typingSpeed)
+
+    return () => clearTimeout(timeout)
+  }, [currentPhrase, currentIndex, isDeleting, phrases])
 
   return (
-    <div className="h-8 text-lg font-semibold text-primary">
+    <div className="h-8 text-base font-medium text-primary/80">
       {currentPhrase}
-      <span className="animate-blink">|</span>
+      <span className="animate-blink ml-0.5 text-primary/40">|</span>
     </div>
   )
 }
-

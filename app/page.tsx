@@ -1,169 +1,177 @@
-"use client";
+"use client"
 
-import { DynamicProjectCard } from "../components/dynamic-project-card";
-import { ExperienceCard } from "../components/experience-card";
-import { Button } from "@/components/ui/button";
-import { Mail, Linkedin, Github, FileText, Briefcase, GraduationCap, Award } from "lucide-react";
+import { useState, useEffect } from "react"
+import { SpotlightCard } from "@/components/spotlight-card"
+import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { TypingEffect } from "../components/typing-effect";
-import { CurrentlyLearning } from "../components/currently-learning";
+import { Mail, Linkedin, Github, FileText, ArrowRight, ExternalLink, Wrench } from "lucide-react"
+import Link from "next/link"
+import { TypingEffect } from "@/components/typing-effect"
+import { CurrentlyLearning } from "@/components/currently-learning"
 
 export default function Home() {
+  const [modKey, setModKey] = useState("⌘")
+  useEffect(() => {
+    setModKey(/(Mac|iPhone|iPod|iPad)/i.test(navigator.platform) ? "⌘" : "Ctrl")
+  }, [])
+
   return (
-    <div className="max-w-4xl mx-auto space-y-16 py-12">
-      <section className="space-y-4">
-        <h1 className="text-4xl font-bold">Ammar Alzureiqi</h1>
-        <div className="flex flex-wrap gap-2 mb-4">
-          <Badge variant="secondary" className="text-sm">
-            <Briefcase className="w-3 h-3 mr-1" />
-            Software Developer
-          </Badge>
-          <Badge variant="secondary" className="text-sm">
-            <GraduationCap className="w-3 h-3 mr-1" />
-            MS - Computer Science @ UIUC
-          </Badge>
-          {/* <Badge variant="secondary" className="text-sm">
-            <Award className="w-3 h-3 mr-1" />
-            BS - Statistics
-          </Badge> */}
-          <Badge variant="secondary" className="text-sm">
-            <Award className="w-3 h-3 mr-1" />
-            2 Years of Experience
-          </Badge>
-        </div>
-        <div className="text-xl text-muted-foreground space-y-4">
-          <p>
-            Software Developer & Data Scientist crafting elegant solutions at the intersection of code and data. With a
-            passion for building scalable applications and implementing cutting-edge machine learning solutions, I
-            transform complex problems into intuitive, user-friendly applications.
+    <div className="max-w-5xl mx-auto py-12 animate-fade-in-up">
+      {/* Bento Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {/* Hero - 2 cols */}
+        <SpotlightCard className="md:col-span-2 p-8">
+          <h1 className="text-3xl font-bold tracking-tight mb-3">Ammar Alzureiqi</h1>
+          <p className="text-base text-muted-foreground leading-relaxed max-w-lg mb-4">
+            I build the systems that get ML models out of notebooks and into production.
+            Pipelines, infrastructure, and the glue that makes AI actually work at scale.
           </p>
-          <p>
-            My expertise spans full-stack development, cloud architecture, and data science, allowing me to create
-            comprehensive solutions that drive innovation and efficiency.
-          </p>
-        </div>
-        <TypingEffect
-          phrases={[
-            "Building scalable web applications",
-            "Implementing machine learning solutions",
-            "LS Swapping The World",
-            "Optimizing cloud architectures",
-            "Crafting intuitive user experiences"
-          ]}
-        />
-        <div className="flex space-x-4 mt-6">
-          {/* Email Button */}
-          <Button variant="ghost" size="icon" asChild>
-            <a href="mailto:alzureiqi3@gmail.com" aria-label="Email">
-              <Mail className="h-6 w-6" />
-            </a>
-          </Button>
-          {/* LinkedIn Button */}
-          <Button variant="ghost" size="icon" asChild>
-            <a
-              href="https://linkedin.com/in/AmmarAlzureiqi"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn"
+          <TypingEffect
+            phrases={[
+              "Building ML infrastructure at scale",
+              "Training models on Kubernetes",
+              "Orchestrating with Flyte",
+              "Optimizing LLM inference",
+              "Observing everything with Grafana",
+            ]}
+          />
+          <div className="flex flex-wrap gap-2 my-5">
+            <Badge variant="secondary" className="text-xs">MS CS, UIUC</Badge>
+            <Badge variant="secondary" className="text-xs">MLOps / AIOps</Badge>
+            <Badge variant="secondary" className="text-xs">BS Statistics, Western</Badge>
+          </div>
+          <div className="flex gap-1">
+            <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-foreground" asChild>
+              <a href="mailto:alzureiqi3@gmail.com" aria-label="Email">
+                <Mail className="h-5 w-5" />
+              </a>
+            </Button>
+            <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-foreground" asChild>
+              <a href="https://linkedin.com/in/AmmarAlzureiqi" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <Linkedin className="h-5 w-5" />
+              </a>
+            </Button>
+            <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-foreground" asChild>
+              <a href="https://github.com/AmmarAlzureiqi" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <Github className="h-5 w-5" />
+              </a>
+            </Button>
+            <Button
+              variant="ghost"
+              size="icon"
+              className="text-muted-foreground hover:text-foreground"
+              onClick={() => window.open('/assets/Alzureiqi_Resume.pdf', '_blank')}
+              aria-label="Resume"
             >
-              <Linkedin className="h-6 w-6" />
+              <FileText className="h-5 w-5" />
+            </Button>
+          </div>
+        </SpotlightCard>
+
+        {/* Current Role + Currently Working On - 1 col */}
+        <SpotlightCard className="p-6 flex flex-col">
+          <div>
+            <div className="flex items-center gap-2 mb-3">
+              <span className="pulse-dot w-2 h-2 rounded-full bg-primary inline-block" />
+              <p className="text-xs text-muted-foreground uppercase tracking-wider font-medium">Current Role</p>
+            </div>
+            <h3 className="font-semibold text-sm mb-1">Software Developer</h3>
+            <p className="text-xs text-muted-foreground mb-1">MLOps / AIOps</p>
+            <p className="text-sm font-medium text-primary mb-4">Carfax</p>
+          </div>
+          <div className="border-t border-border pt-3 mt-auto">
+            <p className="text-xs text-muted-foreground uppercase tracking-wider font-medium mb-2">Working On</p>
+            <div className="space-y-1.5">
+              <p className="text-xs text-muted-foreground">ML platform infrastructure</p>
+              <p className="text-xs text-muted-foreground">LLM inference & model serving</p>
+              <p className="text-xs text-muted-foreground">Agentic AI workloads</p>
+            </div>
+          </div>
+        </SpotlightCard>
+
+        {/* Currently Learning - full width */}
+        <SpotlightCard className="md:col-span-2 p-6">
+          <h2 className="text-lg font-semibold mb-5">Currently Learning</h2>
+          <CurrentlyLearning />
+        </SpotlightCard>
+
+        {/* Project Car card - subtle, visual hint */}
+        <SpotlightCard className="p-6 group overflow-hidden relative">
+          <div className="flex items-center gap-2 mb-3">
+            <Wrench className="h-3.5 w-3.5 text-muted-foreground" />
+            <p className="text-xs text-muted-foreground uppercase tracking-wider font-medium">Project Car</p>
+          </div>
+          <p className="text-sm font-medium mb-1">LS-Swapped FR-S</p>
+          <p className="text-xs text-muted-foreground leading-relaxed">
+            V8 engine swap into a lightweight chassis. Built, tuned, and daily driven.
+          </p>
+          {/* Subtle animated engine pulse visual */}
+          <div className="absolute -bottom-4 -right-4 w-24 h-24 opacity-[0.04] group-hover:opacity-[0.08] transition-opacity duration-700">
+            <svg viewBox="0 0 100 100" className="w-full h-full">
+              <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" strokeWidth="2" className="animate-[spin_8s_linear_infinite]" />
+              <circle cx="50" cy="50" r="35" fill="none" stroke="currentColor" strokeWidth="1" className="animate-[spin_12s_linear_infinite_reverse]" />
+              <circle cx="50" cy="50" r="8" fill="currentColor" opacity="0.3" />
+            </svg>
+          </div>
+        </SpotlightCard>
+
+        {/* Featured Project - Noteflow */}
+        <SpotlightCard className="md:col-span-2 p-6">
+          <div className="flex items-center justify-between mb-3">
+            <div className="flex items-center gap-2">
+              <span className="pulse-dot w-2 h-2 rounded-full bg-primary inline-block" />
+              <p className="text-xs text-muted-foreground uppercase tracking-wider font-medium">Featured Project</p>
+            </div>
+            <div className="flex gap-2">
+              <a href="https://github.com/AmmarAlzureiqi/Noteflow" target="_blank" rel="noopener noreferrer">
+                <Github className="h-4 w-4 text-muted-foreground hover:text-foreground transition-colors" />
+              </a>
+            </div>
+          </div>
+          <h3 className="font-semibold text-lg mb-2">Noteflow</h3>
+          <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+            AI-powered desktop note-taking with local knowledge graphs and Notion sync.
+            Captures lectures, videos, PDFs, and handwritten notes. User-led: AI assists, you write.
+          </p>
+          <div className="flex flex-wrap gap-1.5">
+            {["Electron", "LangGraph", "Whisper", "ChromaDB", "Claude"].map((t) => (
+              <Badge key={t} variant="secondary" className="text-xs">{t}</Badge>
+            ))}
+          </div>
+        </SpotlightCard>
+
+        {/* Explore + Cmd+K */}
+        <SpotlightCard className="p-6">
+          <p className="text-xs text-muted-foreground uppercase tracking-wider font-medium mb-4">Explore</p>
+          <div className="space-y-2">
+            <Link href="/projects" className="flex items-center justify-between group/link py-1.5 text-sm text-foreground hover:text-primary transition-colors">
+              <span>All Projects</span>
+              <ArrowRight className="h-3.5 w-3.5 opacity-0 -translate-x-1 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all" />
+            </Link>
+            <Link href="/experience" className="flex items-center justify-between group/link py-1.5 text-sm text-foreground hover:text-primary transition-colors">
+              <span>Experience</span>
+              <ArrowRight className="h-3.5 w-3.5 opacity-0 -translate-x-1 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all" />
+            </Link>
+            <Link href="/about" className="flex items-center justify-between group/link py-1.5 text-sm text-foreground hover:text-primary transition-colors">
+              <span>About Me</span>
+              <ArrowRight className="h-3.5 w-3.5 opacity-0 -translate-x-1 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all" />
+            </Link>
+            <a href="/assets/Alzureiqi_Resume.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center justify-between group/link py-1.5 text-sm text-foreground hover:text-primary transition-colors">
+              <span>Resume</span>
+              <ExternalLink className="h-3.5 w-3.5 opacity-0 -translate-x-1 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all" />
             </a>
-          </Button>
-          {/* GitHub Button */}
-          <Button variant="ghost" size="icon" asChild>
-            <a href="https://github.com/AmmarAlzureiqi" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-              <Github className="h-6 w-6" />
-            </a>
-          </Button>
-          {/* Resume Button */}
-          <Button
-          variant="ghost"
-          size="icon"
-          onClick={() => window.open('../assets/Alzureiqi_Resume.pdf', '_blank')}
-          aria-label="Resume"
-        >
-          <FileText className="h-6 w-6" />
-        </Button>
-        </div>
-      </section>
-
-      <section>
-        <h2 className="text-2xl font-bold mb-6">Currently Learning</h2>
-        <CurrentlyLearning />
-      </section>
-
-      <section>
-        <h2 className="text-2xl font-bold mb-6">Featured Projects</h2>
-        <div className="grid gap-6 md:grid-cols-2">
-          <DynamicProjectCard
-            title="Hirestack"
-            description="A scalable, serverless job aggregation platform"
-            tech={["Python", "Django", "Next.js", "AWS", "DynamoDB"]}
-            github="https://github.com/AmmarAlzureiqi/Hirestack"
-            demo="https://hirestackjobs.vercel.app/"
-            details={[
-              "Implemented serverless architecture using AWS Lambda and API Gateway",
-              "Designed and optimized DynamoDB schema for efficient querying",
-              "Developed machine learning models for personalized job recommendations",
-              "Integrated with multiple job board APIs for real-time data aggregation",
-              "Implemented user authentication and profile management features",
-            ]}
-            type="Full-Stack Web Application"
-            achievements={[
-              "Reduced infrastructure costs by 40% through serverless architecture",
-              "Improved job matching accuracy significantly by using ML algorithms",
-            ]}
-          />
-          <DynamicProjectCard
-            title="RetailPulse"
-            description="IoT-based People Counter for retail environments"
-            tech={["Python", "OpenCV", "FastAPI", "Docker"]}
-            github="https://github.com/AmmarAlzureiqi/CustomerTrafficAnalysis"
-            details={[
-              "Developed computer vision algorithms for accurate people counting",
-              "Implemented real-time data processing pipeline using FastAPI",
-              "Designed and built responsive dashboard for visualizing foot traffic data",
-              "Integrated with IoT devices for seamless data collection",
-              "Containerized application using Docker for easy deployment",
-            ]}
-            type="Computer Vision & IoT Application"
-            achievements={[
-              "Achieved 95% accuracy in people counting",
-              "Reduced manual counting labor",
-              "Provided actionable insights leading to 15% increase in store efficiency",
-            ]}
-          />
-        </div>
-      </section>
-
-      <section>
-        <h2 className="text-2xl font-bold mb-6">Recent Experience</h2>
-        <div className="space-y-6">
-        <ExperienceCard
-            title="Software Developer"
-            company="Alzureiqi Solutions"
-            date="Sept. 2024 – Present"
-            description="Developing custom solutions for diverse clients including educational institutions and community organizations. Creating specialized platforms that enhance efficiency, engagement, and data-driven decision making."
-            details={[
-              "IDA Academy: Streamlined LMS migration and optimization, significantly reducing system load times and enhancing student engagement; developed integrated marketing website with custom student portal enabling real-time progress tracking for students, teachers, and administrators",
-              "The Wellness Network: Designed and deployed a self-service CMS platform for the organization's website, allowing the marketing team to independently manage content, events, and initiatives without technical support",
-              "Arqam SIL: Led comprehensive community census development and data analysis for thousands of responses, uncovering key demographic insights and community challenges that directly informed program improvements and resource allocation decisions"
-            ]}
-          />
-          <ExperienceCard
-            title="Software Engineer"
-            company="CensusX.ai"
-            date="May 2024 – Oct 2024"
-            description="Developed an AI business assistant using advanced LLM systems and engineered scalable ETL pipelines, providing real-time analytics and actionable business intelligence."
-            details={[
-              "Implemented and fine-tuned LLAMA 3.1 70B model for business-specific use cases",
-              "Designed and developed ETL pipelines using Apache Spark and Kafka",
-              "Improved data processing speed by 40% through optimized indexing and caching strategies",
-              "Collaborated with data scientists to develop and deploy machine learning models",
-            ]}
-          />
-        </div>
-      </section>
+          </div>
+          <div className="mt-4 pt-3 border-t border-border text-center">
+            <button
+              onClick={() => document.dispatchEvent(new KeyboardEvent("keydown", { key: "k", metaKey: true }))}
+              className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
+            >
+              <kbd className="px-1.5 py-0.5 font-mono bg-muted rounded border border-border text-[10px]">{modKey}+K</kbd>
+              <span>Quick navigation</span>
+            </button>
+          </div>
+        </SpotlightCard>
+      </div>
     </div>
-  );
+  )
 }

@@ -1,51 +1,120 @@
 "use client"
 
-import { useState, useEffect } from "react"
-import { Progress } from "@/components/ui/progress"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { useState, useEffect, useRef } from "react"
 
 interface LearningItem {
-  name: string
-  progress: number
+  label: string
+  baseProgress: number
+  tooltip: string
+  link?: string
 }
 
-export function CurrentlyLearning() {
-  const [learningItems, setLearningItems] = useState<LearningItem[]>([
-    { name: "Natural Language Processing", progress: 0 },
-    { name: "AI Agents", progress: 0 },
-    { name: "Real-time Systems", progress: 0 },
-  ])
+const items: LearningItem[] = [
+  {
+    label: "LLM Inference & Serving",
+    baseProgress: 42,
+    tooltip: "Model serving, optimization, and scaling for production workloads",
+  },
+  {
+    label: "Agentic AI Systems",
+    baseProgress: 55,
+    tooltip: "Multi-agent orchestration, tool-use patterns, planning and reflection loops",
+  },
+  {
+    label: "MLOps / Platform Engineering",
+    baseProgress: 60,
+    tooltip: "ML platform infrastructure on Kubernetes, Flyte, and AWS",
+  },
+]
+
+function useRandomWalk(base: number, amplitude: number = 3) {
+  const [value, setValue] = useState(base)
+  const direction = useRef(1)
+  const current = useRef(base)
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setLearningItems((items) =>
-        items.map((item) => ({
-          ...item,
-          progress: (item.progress + Math.random() * 5) % 100,
-        })),
+      const step = (Math.random() * amplitude * 0.6) * direction.current
+      current.current = Math.max(
+        base - amplitude,
+        Math.min(base + amplitude, current.current + step)
       )
-    }, 1000)
+      // Occasionally flip direction
+      if (Math.random() > 0.7) {
+        direction.current *= -1
+      }
+      setValue(current.current)
+    }, 1800 + Math.random() * 1200)
 
     return () => clearInterval(interval)
-  }, [])
+  }, [base, amplitude])
 
-  return (
-    <Card>
-      <CardHeader>
-        <CardTitle>Currently Learning</CardTitle>
-      </CardHeader>
-      <CardContent className="space-y-4">
-        {learningItems.map((item, index) => (
-          <div key={index} className="space-y-2">
-            <div className="flex justify-between text-sm font-medium">
-              <span>{item.name}</span>
-              <span>{Math.round(item.progress)}%</span>
-            </div>
-            <Progress value={item.progress} className="w-full h-2" />
-          </div>
-        ))}
-      </CardContent>
-    </Card>
-  )
+  return value
 }
 
+function LearningBar({ item, index }: { item: LearningItem; index: number }) {
+  const progress = useRandomWalk(item.baseProgress)
+  const [hovered, setHovered] = useState(false)
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    const timer = setTimeout(() => setMounted(true), index * 150)
+    return () => clearTimeout(timer)
+  }, [index])
+
+  const content = (
+    <div
+      className={`group relative transition-all duration-500 ease-cozy ${
+        mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
+      }`}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      <div className="flex justify-between items-baseline mb-1.5">
+        <span className="text-sm font-medium">{item.label}</span>
+        <span className="text-xs text-muted-foreground tabular-nums">
+          {Math.round(progress)}%
+        </span>
+      </div>
+      <div className="h-2 rounded-full bg-secondary overflow-hidden">
+        <div
+          className="h-full rounded-full bg-primary/70 transition-all duration-[1200ms]"
+          style={{
+            width: `${progress}%`,
+            transitionTimingFunction: "cubic-bezier(0.34, 1.56, 0.64, 1)",
+          }}
+        />
+      </div>
+      {/* Tooltip */}
+      <div
+        className={`absolute left-0 right-0 -bottom-1 translate-y-full z-20 transition-all duration-300 ${
+          hovered ? "opacity-100 translate-y-full" : "opacity-0 translate-y-[calc(100%+4px)] pointer-events-none"
+        }`}
+      >
+        <div className="bg-card border border-border rounded-lg p-3 mt-2 shadow-lg text-xs text-muted-foreground leading-relaxed">
+          {item.tooltip}
+        </div>
+      </div>
+    </div>
+  )
+
+  if (item.link) {
+    return (
+      <a href={item.link} className="block cursor-pointer">
+        {content}
+      </a>
+    )
+  }
+
+  return content
+}
+
+export function CurrentlyLearning() {
+  return (
+    <div className="space-y-6">
+      {items.map((item, i) => (
+        <LearningBar key={item.label} item={item} index={i} />
+      ))}
+    </div>
+  )
+}

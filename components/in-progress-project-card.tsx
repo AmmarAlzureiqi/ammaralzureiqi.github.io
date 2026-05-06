@@ -1,6 +1,5 @@
 "use client"
 
-import { useEffect, useState } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Github, ExternalLink } from "lucide-react"
@@ -12,41 +11,31 @@ interface InProgressProjectCardProps {
   tech: string[]
   github?: string
   demo?: string
-  progress: number
+  status: string
 }
 
-export function InProgressProjectCard({ 
-  title, 
-  description, 
-  tech, 
-  github, 
+export function InProgressProjectCard({
+  title,
+  description,
+  tech,
+  github,
   demo,
-  progress 
+  status,
 }: InProgressProjectCardProps) {
-  const [animatedProgress, setAnimatedProgress] = useState(0)
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setAnimatedProgress(progress)
-    }, 100)
-
-    return () => clearTimeout(timer)
-  }, [progress])
-
   return (
-    <Card className="w-full h-[300px] flex flex-col bg-card text-card-foreground">
+    <Card className="w-full flex flex-col group hover:-translate-y-0.5 transition-all duration-400 ease-cozy">
       <CardHeader>
         <CardTitle className="flex items-center justify-between">
           <span>{title}</span>
           <div className="flex gap-2">
             {github && (
               <Link href={github} target="_blank" rel="noopener noreferrer">
-                <Github className="h-5 w-5 text-muted-foreground hover:text-primary" />
+                <Github className="h-5 w-5 text-muted-foreground hover:text-primary transition-colors duration-300" />
               </Link>
             )}
             {demo && (
               <Link href={demo} target="_blank" rel="noopener noreferrer">
-                <ExternalLink className="h-5 w-5 text-muted-foreground hover:text-primary" />
+                <ExternalLink className="h-5 w-5 text-muted-foreground hover:text-primary transition-colors duration-300" />
               </Link>
             )}
           </div>
@@ -54,23 +43,20 @@ export function InProgressProjectCard({
       </CardHeader>
       <CardContent className="flex-grow flex flex-col justify-between">
         <div>
-          <p className="text-muted-foreground mb-4">{description}</p>
+          <p className="text-sm text-muted-foreground mb-4">{description}</p>
           <div className="flex flex-wrap gap-2 mb-4">
             {tech.map((t, i) => (
-              <Badge key={i} variant="secondary">
+              <Badge key={i} variant="secondary" className="text-xs">
                 {t}
               </Badge>
             ))}
           </div>
         </div>
-        <div>
-          <div className="text-sm font-medium mb-2">Progress: {animatedProgress}%</div>
-          <div className="w-full bg-secondary rounded-full h-2.5 overflow-hidden">
-            <div
-              className="bg-primary h-2.5 rounded-full transition-all duration-1000 ease-out"
-              style={{ width: `${animatedProgress}%` }}
-            ></div>
-          </div>
+        <div className="flex items-center gap-2">
+          <span className="pulse-dot w-2 h-2 rounded-full bg-primary inline-block" />
+          <Badge variant="outline" className="text-xs">
+            {status}
+          </Badge>
         </div>
       </CardContent>
     </Card>

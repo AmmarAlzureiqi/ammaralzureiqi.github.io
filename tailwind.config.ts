@@ -43,19 +43,19 @@ const config: Config = {
   			border: 'hsl(var(--border))',
   			input: 'hsl(var(--input))',
   			ring: 'hsl(var(--ring))',
-  			chart: {
-  				'1': 'hsl(var(--chart-1))',
-  				'2': 'hsl(var(--chart-2))',
-  				'3': 'hsl(var(--chart-3))',
-  				'4': 'hsl(var(--chart-4))',
-  				'5': 'hsl(var(--chart-5))'
-  			}
   		},
   		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
-  		}
+  		},
+  		transitionTimingFunction: {
+  			'cozy': 'cubic-bezier(0.22, 1, 0.36, 1)',
+  		},
+  		transitionDuration: {
+  			'400': '400ms',
+  			'500': '500ms',
+  		},
   	}
   },
   plugins: [require("tailwindcss-animate")],
