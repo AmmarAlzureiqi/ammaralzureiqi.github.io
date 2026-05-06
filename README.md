@@ -1,28 +1,98 @@
 <div align="center">
 
-[![Typing SVG](https://readme-typing-svg.demolab.com/?font=DM+Sans&weight=500&size=28&duration=3000&pause=1500&color=8B5E3C&center=true&vCenter=true&multiline=false&width=600&height=45&lines=Building+ML+infrastructure+at+scale;Optimizing+LLM+inference+pipelines;Orchestrating+with+Kubernetes+%26+Flyte;Shipping+agentic+AI+to+production)](https://alzureiqi.dev)
+[![Typing SVG](https://readme-typing-svg.demolab.com/?font=DM+Sans&weight=500&size=30&duration=3000&pause=1500&color=4A5568&center=true&vCenter=true&width=620&height=50&lines=hey%2C+i'm+ammar;building+ml+infra+%2B+inference;making+agents+actually+work)](https://alzureiqi.dev)
 
 </div>
 
-### Hi, I'm Ammar
+<br>
 
-Software developer working in MLOps. I studied CS at UIUC and Statistics at Western. Most of what I do now sits between ML infrastructure, LLM inference, and figuring out how to make agents work reliably in production.
+<table>
+<tr>
+<td width="55%" valign="top">
 
-Outside of work I'm usually deep in some rabbit hole involving model serving, building side projects, or wrenching on a car that probably shouldn't have a V8 in it.
+### about me
 
----
+Software developer working in MLOps. I build ML platform infrastructure, work on inference pipelines, and spend a lot of time thinking about how to make AI systems reliable in production.
 
-### What I'm into right now
+MS Computer Science @ **UIUC** · BS Statistics @ **Western**
 
-| | |
-|:--|:--|
-| **Day to day** | ML platform infrastructure, model orchestration, observability |
-| **Learning** | TRT-LLM, Triton, vLLM, Dynamo, KV cache optimization |
-| **Exploring** | Agentic AI patterns, LLM eval systems, inference ops |
+When I'm not writing code, I'm under the hood of a project car.
 
----
+</td>
+<td width="45%" valign="top">
 
-### How it all connects
+### right now
+
+🔧 &nbsp; ML platform infra + model orchestration
+
+🧠 &nbsp; LLM inference and serving at scale
+
+🤖 &nbsp; Agentic AI systems and tooling
+
+📡 &nbsp; Observability for ML workloads
+
+</td>
+</tr>
+</table>
+
+<br>
+
+<table>
+<tr>
+<td width="33%" align="center" valign="top">
+
+**inference**
+
+`TRT-LLM` `Triton`<br>`vLLM` `Dynamo`
+
+</td>
+<td width="33%" align="center" valign="top">
+
+**orchestration**
+
+`Kubernetes` `Flyte`<br>`Docker` `AWS`
+
+</td>
+<td width="33%" align="center" valign="top">
+
+**observability**
+
+`Grafana LGTM`<br>`LangFuse` `OpenLLMetry`
+
+</td>
+</tr>
+<tr>
+<td width="33%" align="center" valign="top">
+
+**ml / ai**
+
+`PyTorch` `LangChain`<br>`LangGraph`
+
+</td>
+<td width="33%" align="center" valign="top">
+
+**languages**
+
+`Python` `Go`<br>`TypeScript`
+
+</td>
+<td width="33%" align="center" valign="top">
+
+**exploring**
+
+`LLM eval at scale`<br>`agent infra` `inference ops`
+
+</td>
+</tr>
+</table>
+
+<br>
+
+<div align="center">
+
+### how it connects
+
+</div>
 
 ```mermaid
 graph LR
@@ -59,38 +129,22 @@ graph LR
     Inference --> LangFuse
     Flyte --> AWS
 
-    classDef lang fill:#8B5E3C22,stroke:#8B5E3C,color:#3D2E1F
-    classDef ml fill:#A0764A22,stroke:#A0764A,color:#3D2E1F
-    classDef infra fill:#6B8E7B22,stroke:#6B8E7B,color:#3D2E1F
-    classDef obs fill:#C4956A22,stroke:#C4956A,color:#3D2E1F
+    classDef lang fill:#E2E8F022,stroke:#718096,color:#2D3748
+    classDef ml fill:#E6FFFA22,stroke:#4FD1C5,color:#234E52
+    classDef infra fill:#EBF4FF22,stroke:#63B3ED,color:#2A4365
+    classDef obs fill:#FEFCBF22,stroke:#D69E2E,color:#744210
 ```
-
-<details>
-<summary><b>Full toolbox</b></summary>
 
 <br>
 
-| Layer | Tools |
-|:------|:------|
-| **Inference** | TRT-LLM, Triton, Dynamo, vLLM |
-| **ML / AI** | PyTorch, LangChain, LangGraph |
-| **Orchestration** | Kubernetes, Flyte, Docker |
-| **Observability** | Grafana LGTM, LangFuse, OpenLLMetry |
-| **Cloud** | AWS |
-| **Data** | PostgreSQL, ChromaDB |
-
-</details>
-
----
-
 <div align="center">
 
-<img src="https://github-readme-stats.vercel.app/api?username=AmmarAlzureiqi&show_icons=true&hide_border=true&bg_color=00000000&title_color=8B5E3C&icon_color=A0764A&text_color=6B5B4F&hide=contribs&rank_icon=percentile" alt="GitHub Stats" height="150" />
-<img src="https://github-readme-stats.vercel.app/api/top-langs?username=AmmarAlzureiqi&layout=compact&hide_border=true&bg_color=00000000&title_color=8B5E3C&text_color=6B5B4F&langs_count=6&hide=jupyter%20notebook,html,css,scss" alt="Top Languages" height="150" />
+<img src="https://github-readme-stats.vercel.app/api?username=AmmarAlzureiqi&show_icons=true&hide_border=true&bg_color=00000000&title_color=4A5568&icon_color=718096&text_color=718096&hide=contribs&rank_icon=percentile" alt="GitHub Stats" height="150" />
+<img src="https://github-readme-stats.vercel.app/api/top-langs?username=AmmarAlzureiqi&layout=compact&hide_border=true&bg_color=00000000&title_color=4A5568&text_color=718096&langs_count=6&hide=jupyter%20notebook,html,css,scss" alt="Top Languages" height="150" />
 
 </div>
 
----
+<br>
 
 <div align="center">
 
@@ -102,12 +156,10 @@ graph LR
 
 </div>
 
----
+<br>
 
 <div align="center">
 
 [alzureiqi.dev](https://alzureiqi.dev) · [LinkedIn](https://linkedin.com/in/AmmarAlzureiqi) · [alzureiqi3@gmail.com](mailto:alzureiqi3@gmail.com)
 
 </div>
-
-<!-- If you're reading the source, try the Konami code on the site. Or press ⌘K. -->
