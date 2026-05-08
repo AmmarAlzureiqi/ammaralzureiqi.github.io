@@ -29,7 +29,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       {/* If you're reading the source, there are a few secrets hidden on this site. Try ⌘K. */}
       <body className={`${dmSans.className} bg-background text-foreground antialiased`}>
-        <ThemeProvider defaultTheme="light">
+        <ThemeProvider defaultTheme="dark">
           <EasterEggProvider>
             <div className="flex flex-col min-h-screen">
               <TopNavigation />
