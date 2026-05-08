@@ -15,6 +15,9 @@ const dmSans = DM_Sans({
 export const metadata = {
   title: "Ammar Alzureiqi",
   description: "Software Developer building ML infrastructure. MLOps/AIOps @ Carfax.",
+  icons: {
+    icon: "/favicon.png",
+  },
 }
 
 export default function RootLayout({
