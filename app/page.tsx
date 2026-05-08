@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import { SpotlightCard } from "@/components/spotlight-card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Mail, Linkedin, Github, FileText, ArrowRight, ExternalLink, Wrench } from "lucide-react"
+import { Mail, Linkedin, Github, FileText, ArrowRight, ExternalLink } from "lucide-react"
 import Link from "next/link"
 import { TypingEffect } from "@/components/typing-effect"
 import { CurrentlyLearning } from "@/components/currently-learning"
@@ -29,10 +29,10 @@ export default function Home() {
           <TypingEffect
             phrases={[
               "Building ML infrastructure at scale",
-              "Training models on Kubernetes",
-              "Orchestrating with Flyte",
               "Optimizing LLM inference",
-              "Observing everything with Grafana",
+              "LS swapping the world",
+              "Aspiring Kubestronaut",
+              "Chasing lower latency",
             ]}
           />
           <div className="flex flex-wrap gap-2 my-5">
@@ -89,55 +89,10 @@ export default function Home() {
           </div>
         </SpotlightCard>
 
-        {/* Currently Learning - full width */}
+        {/* Currently Learning */}
         <SpotlightCard className="md:col-span-2 p-6">
           <h2 className="text-lg font-semibold mb-5">Currently Learning</h2>
           <CurrentlyLearning />
-        </SpotlightCard>
-
-        {/* Project Car card - subtle, visual hint */}
-        <SpotlightCard className="p-6 group overflow-hidden relative">
-          <div className="flex items-center gap-2 mb-3">
-            <Wrench className="h-3.5 w-3.5 text-muted-foreground" />
-            <p className="text-xs text-muted-foreground uppercase tracking-wider font-medium">Project Car</p>
-          </div>
-          <p className="text-sm font-medium mb-1">LS-Swapped FR-S</p>
-          <p className="text-xs text-muted-foreground leading-relaxed">
-            V8 engine swap into a lightweight chassis. Built, tuned, and daily driven.
-          </p>
-          {/* Subtle animated engine pulse visual */}
-          <div className="absolute -bottom-4 -right-4 w-24 h-24 opacity-[0.04] group-hover:opacity-[0.08] transition-opacity duration-700">
-            <svg viewBox="0 0 100 100" className="w-full h-full">
-              <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" strokeWidth="2" className="animate-[spin_8s_linear_infinite]" />
-              <circle cx="50" cy="50" r="35" fill="none" stroke="currentColor" strokeWidth="1" className="animate-[spin_12s_linear_infinite_reverse]" />
-              <circle cx="50" cy="50" r="8" fill="currentColor" opacity="0.3" />
-            </svg>
-          </div>
-        </SpotlightCard>
-
-        {/* Featured Project - Noteflow */}
-        <SpotlightCard className="md:col-span-2 p-6">
-          <div className="flex items-center justify-between mb-3">
-            <div className="flex items-center gap-2">
-              <span className="pulse-dot w-2 h-2 rounded-full bg-primary inline-block" />
-              <p className="text-xs text-muted-foreground uppercase tracking-wider font-medium">Featured Project</p>
-            </div>
-            <div className="flex gap-2">
-              <a href="https://github.com/AmmarAlzureiqi/Noteflow" target="_blank" rel="noopener noreferrer">
-                <Github className="h-4 w-4 text-muted-foreground hover:text-foreground transition-colors" />
-              </a>
-            </div>
-          </div>
-          <h3 className="font-semibold text-lg mb-2">Noteflow</h3>
-          <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-            AI-powered desktop note-taking with local knowledge graphs and Notion sync.
-            Captures lectures, videos, PDFs, and handwritten notes. User-led: AI assists, you write.
-          </p>
-          <div className="flex flex-wrap gap-1.5">
-            {["Electron", "LangGraph", "Whisper", "ChromaDB", "Claude"].map((t) => (
-              <Badge key={t} variant="secondary" className="text-xs">{t}</Badge>
-            ))}
-          </div>
         </SpotlightCard>
 
         {/* Explore + Cmd+K */}
@@ -169,6 +124,31 @@ export default function Home() {
               <kbd className="px-1.5 py-0.5 font-mono bg-muted rounded border border-border text-[10px]">{modKey}+K</kbd>
               <span>Quick navigation</span>
             </button>
+          </div>
+        </SpotlightCard>
+
+        {/* Featured Project - Noteflow */}
+        <SpotlightCard className="md:col-span-3 p-6">
+          <div className="flex items-center justify-between mb-3">
+            <div className="flex items-center gap-2">
+              <span className="pulse-dot w-2 h-2 rounded-full bg-primary inline-block" />
+              <p className="text-xs text-muted-foreground uppercase tracking-wider font-medium">Featured Project</p>
+            </div>
+            <div className="flex gap-2">
+              <a href="https://github.com/AmmarAlzureiqi/Noteflow" target="_blank" rel="noopener noreferrer">
+                <Github className="h-4 w-4 text-muted-foreground hover:text-foreground transition-colors" />
+              </a>
+            </div>
+          </div>
+          <h3 className="font-semibold text-lg mb-2">Noteflow</h3>
+          <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+            AI-powered desktop note-taking with local knowledge graphs and Notion sync.
+            Captures lectures, videos, PDFs, and handwritten notes. User-led: AI assists, you write.
+          </p>
+          <div className="flex flex-wrap gap-1.5">
+            {["Electron", "LangGraph", "Whisper", "ChromaDB", "Claude"].map((t) => (
+              <Badge key={t} variant="secondary" className="text-xs">{t}</Badge>
+            ))}
           </div>
         </SpotlightCard>
       </div>

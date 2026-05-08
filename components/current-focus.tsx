@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { Zap, Cpu, Wrench } from "lucide-react"
+import { Zap, Cpu } from "lucide-react"
 
 const focusItems = [
   {
@@ -11,13 +11,8 @@ const focusItems = [
   },
   {
     icon: Zap,
-    label: "LLM inference infrastructure at Carfax",
+    label: "LLM inference infrastructure",
     detail: "Model serving and ML platform engineering at scale",
-  },
-  {
-    icon: Wrench,
-    label: "LS-swapped FR-S",
-    detail: "Tuning and wiring. Always something to fix.",
   },
 ]
 

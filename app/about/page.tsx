@@ -1,6 +1,6 @@
 "use client"
 
-import { GraduationCap, Wrench } from "lucide-react"
+import { GraduationCap } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { TechStackGraph } from "@/components/tech-stack-graph"
 import { SpotlightCard } from "@/components/spotlight-card"
@@ -111,37 +111,6 @@ export default function About() {
         </section>
       </ScrollReveal>
 
-      {/* Project Car */}
-      <ScrollReveal delay={100}>
-        <section>
-          <SpotlightCard className="p-6 relative overflow-hidden">
-            <div className="flex items-center gap-2 mb-3">
-              <Wrench className="h-4 w-4 text-muted-foreground" />
-              <h2 className="text-lg font-semibold">Project Car</h2>
-            </div>
-            <p className="text-sm text-muted-foreground leading-relaxed max-w-lg">
-              V8 swap. Wrong car. Daily driven.
-            </p>
-            {/* Subtle rotating gear SVG */}
-            <div className="absolute -bottom-6 -right-6 w-32 h-32 opacity-[0.035] dark:opacity-[0.05]">
-              <svg viewBox="0 0 100 100" className="w-full h-full">
-                <g className="animate-[spin_20s_linear_infinite]">
-                  {Array.from({ length: 8 }).map((_, i) => (
-                    <rect
-                      key={i}
-                      x="44" y="5" width="12" height="20" rx="3"
-                      fill="currentColor"
-                      transform={`rotate(${i * 45} 50 50)`}
-                    />
-                  ))}
-                  <circle cx="50" cy="50" r="25" fill="none" stroke="currentColor" strokeWidth="8" />
-                  <circle cx="50" cy="50" r="10" fill="currentColor" />
-                </g>
-              </svg>
-            </div>
-          </SpotlightCard>
-        </section>
-      </ScrollReveal>
     </div>
   )
 }
