@@ -49,8 +49,7 @@ export default function Home() {
           </p>
           <h1 className="mt-3 text-4xl sm:text-5xl font-semibold tracking-tight">{site.name}</h1>
           <p className="mt-4 max-w-2xl text-base sm:text-lg leading-relaxed text-foreground/85">
-            Software engineer working on ML infrastructure: Kubernetes, model serving, and LLM
-            inference. Outside of work I build agentic AI systems with LangGraph and MCP.
+            I work on ML infrastructure: Kubernetes, model serving, and LLM inference.
           </p>
           <div className="mt-5 flex items-center gap-2 font-mono text-sm text-muted-foreground">
             <span className="text-primary" aria-hidden="true">$</span>
