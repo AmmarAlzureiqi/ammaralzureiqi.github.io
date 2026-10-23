@@ -49,7 +49,8 @@ export default function Home() {
           </p>
           <h1 className="mt-3 text-4xl sm:text-5xl font-semibold tracking-tight">{site.name}</h1>
           <p className="mt-4 max-w-2xl text-base sm:text-lg leading-relaxed text-foreground/85">
-            I work on ML infrastructure: Kubernetes, model serving, and LLM inference.
+            I&apos;m a software engineer working on MLOps and AIOps, mostly Kubernetes, model
+            serving, and LLM inference.
           </p>
           <div className="mt-5 flex items-center gap-2 font-mono text-sm text-muted-foreground">
             <span className="text-primary" aria-hidden="true">$</span>
@@ -220,7 +221,7 @@ export default function Home() {
       <Panel label="Get in touch" meta={site.email}>
         <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
           <p className="max-w-xl text-lg sm:text-xl font-medium leading-snug">
-            Happy to talk about ML platforms, model serving, or agentic systems.
+            Happy to chat.
           </p>
           <ExternalLinks className="flex flex-wrap gap-2" />
         </div>
