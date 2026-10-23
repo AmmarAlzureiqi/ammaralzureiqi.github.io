@@ -5,11 +5,6 @@ import { Moon, Sun } from "lucide-react"
 
 type Theme = "light" | "dark"
 
-type ThemeProviderProps = {
-  children: React.ReactNode
-  defaultTheme?: Theme
-}
-
 type ThemeProviderState = {
   theme: Theme
   setTheme: (theme: Theme) => void
@@ -17,19 +12,29 @@ type ThemeProviderState = {
 
 const ThemeProviderContext = React.createContext<ThemeProviderState | undefined>(undefined)
 
-export function ThemeProvider({ children, defaultTheme = "light" }: ThemeProviderProps) {
-  const [theme, setTheme] = React.useState<Theme>(defaultTheme)
+// The initial class is set by the inline script in app/layout.tsx
+// (saved choice, else light). This keeps React in sync with it.
+export function ThemeProvider({ children }: { children: React.ReactNode }) {
+  const [theme, setThemeState] = React.useState<Theme>("light")
 
   React.useEffect(() => {
-    const root = window.document.documentElement
-    root.classList.remove("light", "dark")
-    root.classList.add(theme)
-  }, [theme])
+    setThemeState(document.documentElement.classList.contains("dark") ? "dark" : "light")
+  }, [])
 
   const value = React.useMemo(
     () => ({
       theme,
-      setTheme: (theme: Theme) => setTheme(theme),
+      setTheme: (next: Theme) => {
+        const root = window.document.documentElement
+        root.classList.remove("light", "dark")
+        root.classList.add(next)
+        try {
+          localStorage.setItem("theme", next)
+        } catch {
+          // Storage can be unavailable (private mode); the toggle still works for this visit.
+        }
+        setThemeState(next)
+      },
     }),
     [theme],
   )
@@ -52,7 +57,7 @@ export function ThemeToggle() {
     <button
       onClick={() => setTheme(theme === "light" ? "dark" : "light")}
       className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-accent/50 transition-all duration-300"
-      aria-label="Toggle theme"
+      aria-label={theme === "light" ? "Switch to dark theme" : "Switch to light theme"}
     >
       {theme === "light" ? <Moon size={18} /> : <Sun size={18} />}
     </button>

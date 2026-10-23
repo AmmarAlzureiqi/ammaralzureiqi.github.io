@@ -1,24 +1,83 @@
-import { DM_Sans } from 'next/font/google'
-import './globals.css'
-import { TopNavigation } from "../components/top-navigation"
+import type { Metadata } from "next"
+import { DM_Sans } from "next/font/google"
+import localFont from "next/font/local"
+import "./globals.css"
+import { SiteHeader } from "../components/site-header"
 import { ThemeProvider } from "../components/theme-provider"
-import { Footer } from "../components/footer"
-import { EasterEggProvider } from "../components/easter-egg-provider"
-import { CommandPalette } from "../components/command-palette"
-import { KeyboardShortcuts } from "../components/keyboard-shortcuts"
+import { SiteFooter } from "../components/site-footer"
+import { site } from "@/lib/site"
 
-const dmSans = DM_Sans({
+const sans = DM_Sans({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["400", "500", "600"],
+  variable: "--font-sans",
 })
 
-export const metadata = {
-  title: "Ammar Alzureiqi",
-  description: "Software Developer building ML infrastructure. MLOps/AIOps @ Carfax.",
+const mono = localFont({
+  src: "./fonts/GeistMonoVF.woff",
+  weight: "100 900",
+  variable: "--font-mono",
+})
+
+export const metadata: Metadata = {
+  metadataBase: new URL(site.url),
+  title: {
+    default: `${site.name} | Software Engineer, ML Platform & MLOps`,
+    template: `%s | ${site.name}`,
+  },
+  description: site.description,
+  keywords: [
+    "ML platform engineer",
+    "MLOps",
+    "AI infrastructure",
+    "model serving",
+    "LLM inference",
+    "Kubernetes",
+    "agentic AI",
+    "MCP",
+    "LangGraph",
+    "Toronto",
+  ],
+  authors: [{ name: site.name, url: site.url }],
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    url: site.url,
+    siteName: site.name,
+    title: `${site.name} | Software Engineer, ML Platform & MLOps`,
+    description: site.description,
+    locale: "en_CA",
+    images: [site.ogImage],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${site.name} | Software Engineer, ML Platform & MLOps`,
+    description: site.description,
+    images: [site.ogImage.url],
+  },
   icons: {
     icon: "/favicon.png",
   },
 }
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: site.name,
+  url: site.url,
+  jobTitle: "Software Engineer",
+  address: { "@type": "PostalAddress", addressLocality: "Toronto", addressRegion: "ON", addressCountry: "CA" },
+  alumniOf: [
+    { "@type": "CollegeOrUniversity", name: "University of Illinois Urbana-Champaign" },
+    { "@type": "CollegeOrUniversity", name: "Western University" },
+  ],
+  knowsAbout: ["MLOps", "Model serving", "LLM inference", "Kubernetes", "Agentic AI", "MCP"],
+  sameAs: [site.links.linkedin, site.links.github],
+}
+
+// Sets the theme class before first paint so there's no flash. Light by default;
+// a saved choice from the toggle wins.
+const themeScript = `(function(){try{var t=localStorage.getItem("theme");document.documentElement.classList.add(t==="dark"?"dark":"light")}catch(e){document.documentElement.classList.add("light")}})()`
 
 export default function RootLayout({
   children,
@@ -27,18 +86,26 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      {/* If you're reading the source, there are a few secrets hidden on this site. Try ⌘K. */}
-      <body className={`${dmSans.className} bg-background text-foreground antialiased`}>
-        <ThemeProvider defaultTheme="dark">
-          <EasterEggProvider>
-            <div className="flex flex-col min-h-screen">
-              <TopNavigation />
-              <main className="flex-1 px-6 md:px-8">{children}</main>
-              <Footer />
-            </div>
-            <CommandPalette />
-            <KeyboardShortcuts />
-          </EasterEggProvider>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+        />
+      </head>
+      <body className={`${sans.variable} ${mono.variable} font-sans bg-background text-foreground antialiased`}>
+        <ThemeProvider>
+          <a
+            href="#main"
+            className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:rounded-lg focus:bg-card focus:px-3 focus:py-2 focus:text-sm focus:border focus:border-border"
+          >
+            Skip to content
+          </a>
+          <div className="flex flex-col min-h-screen">
+            <SiteHeader />
+            <main id="main" className="flex-1 px-4 sm:px-6">{children}</main>
+            <SiteFooter />
+          </div>
         </ThemeProvider>
       </body>
     </html>

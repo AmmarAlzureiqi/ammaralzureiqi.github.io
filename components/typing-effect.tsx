@@ -4,14 +4,21 @@ import { useState, useEffect } from "react"
 
 interface TypingEffectProps {
   phrases: string[]
+  className?: string
 }
 
-export function TypingEffect({ phrases }: TypingEffectProps) {
+export function TypingEffect({ phrases, className }: TypingEffectProps) {
   const [currentPhrase, setCurrentPhrase] = useState("")
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isDeleting, setIsDeleting] = useState(false)
+  const [reducedMotion, setReducedMotion] = useState(false)
 
   useEffect(() => {
+    setReducedMotion(window.matchMedia("(prefers-reduced-motion: reduce)").matches)
+  }, [])
+
+  useEffect(() => {
+    if (reducedMotion) return
     const typingSpeed = isDeleting ? 40 : 70
     const pauseAtEnd = 2000
     const pauseAtStart = 300
@@ -41,12 +48,15 @@ export function TypingEffect({ phrases }: TypingEffectProps) {
     }, typingSpeed)
 
     return () => clearTimeout(timeout)
-  }, [currentPhrase, currentIndex, isDeleting, phrases])
+  }, [currentPhrase, currentIndex, isDeleting, phrases, reducedMotion])
 
   return (
-    <div className="h-8 text-base font-medium text-primary/80">
-      {currentPhrase}
-      <span className="animate-blink ml-0.5 text-primary/40">|</span>
+    <div className={className}>
+      <span className="sr-only">{phrases.join(". ")}</span>
+      <span aria-hidden="true">
+        {reducedMotion ? phrases[0] : currentPhrase}
+        {!reducedMotion && <span className="animate-blink ml-0.5">▍</span>}
+      </span>
     </div>
   )
 }

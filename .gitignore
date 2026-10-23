@@ -36,3 +36,6 @@ yarn-error.log*
 next-env.d.ts
 
 old
+# agent runs
+/.claude-runs/
+/.playwright-mcp/
