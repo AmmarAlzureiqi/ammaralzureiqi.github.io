@@ -6,7 +6,7 @@ Status: built on `feat/portfolio-2026-refresh`, awaiting Ammar's review. Not dep
 Align alzureiqi.dev with the 2026 job search (ML platform / MLOps / AI infrastructure / model serving) and remove anything inaccurate, gimmicky, or too revealing about the employer.
 
 ## Decisions (2026-10-21)
-- **The day job is not described.** No employer name, team, dates, duties, metrics, or architecture anywhere public (site, metadata, README, commit messages). The current role appears only as "Software Engineer · ML platform & MLOps". (2026-10-22)
+- **The day job is not described.** No team, dates, duties, metrics, or architecture anywhere public (site, metadata, README, commit messages). Updated: the current role appears only as "Software Engineer · MLOps / AIOps @ Mobility Global" (employer name allowed, nothing more). (2026-10-22)
 - **No resume on the site.** Resume PDF and all resume links removed (the old PDF included a phone number).
 - Removed projects: Hirestack (team fork, dead demo), RetailPulse and CryoCast (not backed by the worklog). CensusX and NoteFlow are the projects; both repos are private and not linked.
 - CensusX is a project, not employment, with no co-founder title.

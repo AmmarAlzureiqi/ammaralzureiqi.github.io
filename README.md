@@ -18,7 +18,7 @@ npm run lint
 npm run build   # writes out/ (plus .nojekyll and CNAME)
 ```
 
-One-page layout (`app/page.tsx`); /experience/, /projects/ and /about/ redirect to its sections. Content lives in `lib/content.ts` and `lib/site.ts`. Design notes: `docs/design/design-direction.md`. Don't describe the day job (employer, team, dates, duties).
+One-page layout (`app/page.tsx`); /experience/, /projects/ and /about/ redirect to its sections. Content lives in `lib/content.ts` and `lib/site.ts`. Design notes: `docs/design/design-direction.md`. The day job appears only as "MLOps / AIOps @ Mobility Global"; no team details, dates, or duties.
 
 ## Deploy
 

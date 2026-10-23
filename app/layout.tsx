@@ -22,13 +22,14 @@ const mono = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} | Software Engineer, ML Platform & MLOps`,
+    default: `${site.name} | Software Engineer, MLOps / AIOps`,
     template: `%s | ${site.name}`,
   },
   description: site.description,
   keywords: [
     "ML platform engineer",
     "MLOps",
+    "AIOps",
     "AI infrastructure",
     "model serving",
     "LLM inference",
@@ -44,14 +45,14 @@ export const metadata: Metadata = {
     type: "website",
     url: site.url,
     siteName: site.name,
-    title: `${site.name} | Software Engineer, ML Platform & MLOps`,
+    title: `${site.name} | Software Engineer, MLOps / AIOps`,
     description: site.description,
     locale: "en_CA",
     images: [site.ogImage],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${site.name} | Software Engineer, ML Platform & MLOps`,
+    title: `${site.name} | Software Engineer, MLOps / AIOps`,
     description: site.description,
     images: [site.ogImage.url],
   },
@@ -66,12 +67,13 @@ const personSchema = {
   name: site.name,
   url: site.url,
   jobTitle: "Software Engineer",
+  worksFor: { "@type": "Organization", name: "Mobility Global" },
   address: { "@type": "PostalAddress", addressLocality: "Toronto", addressRegion: "ON", addressCountry: "CA" },
   alumniOf: [
     { "@type": "CollegeOrUniversity", name: "University of Illinois Urbana-Champaign" },
     { "@type": "CollegeOrUniversity", name: "Western University" },
   ],
-  knowsAbout: ["MLOps", "Model serving", "LLM inference", "Kubernetes", "Agentic AI", "MCP"],
+  knowsAbout: ["MLOps", "AIOps", "Model serving", "LLM inference", "Kubernetes", "Agentic AI", "MCP"],
   sameAs: [site.links.linkedin, site.links.github],
 }
 

@@ -45,13 +45,12 @@ export default function Home() {
       <div className="grid gap-4 lg:grid-cols-12">
         <Panel label="Overview" className="lg:col-span-8" bodyClassName="p-5 sm:p-8">
           <p className="font-mono text-xs uppercase tracking-[0.14em] text-primary">
-            Software Engineer · ML Platform &amp; MLOps
+            Software Engineer · MLOps / AIOps
           </p>
           <h1 className="mt-3 text-4xl sm:text-5xl font-semibold tracking-tight">{site.name}</h1>
           <p className="mt-4 max-w-2xl text-base sm:text-lg leading-relaxed text-foreground/85">
-            I build and run the infrastructure that serves ML and LLM models in production:
-            Kubernetes, model serving, networking, observability, and GitOps. Strongest at
-            production inference, and going deeper on fine-tuning and inference optimization.
+            Software engineer working on ML infrastructure: Kubernetes, model serving, and LLM
+            inference. Outside of work I build agentic AI systems with LangGraph and MCP.
           </p>
           <div className="mt-5 flex items-center gap-2 font-mono text-sm text-muted-foreground">
             <span className="text-primary" aria-hidden="true">$</span>
@@ -61,7 +60,6 @@ export default function Home() {
                 "serving ML and LLM models in production",
                 "running Kubernetes for ML inference",
                 "building agentic AI with LangGraph and MCP",
-                "going deeper on fine-tuning and inference optimization",
                 "aspiring Kubestronaut",
               ]}
             />
@@ -74,7 +72,8 @@ export default function Home() {
             In role
           </StatusPill>
           <p className="mt-3 text-lg font-semibold leading-snug">Software Engineer</p>
-          <p className="text-sm text-muted-foreground">ML platform &amp; MLOps</p>
+          <p className="text-sm text-muted-foreground">MLOps / AIOps</p>
+          <p className="mt-1 text-sm text-primary">@ Mobility Global</p>
           <dl className="mt-5 space-y-3 border-t border-border pt-4 text-sm lg:mt-auto">
             <div>
               <dt className="font-mono text-[11px] uppercase tracking-[0.14em] text-muted-foreground">Also</dt>

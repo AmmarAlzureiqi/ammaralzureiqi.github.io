@@ -1,7 +1,8 @@
 import type { FlowLayer } from "@/components/flow-diagram"
 
-// Site content. Only confirmed facts. The day job is not described here:
-// no employer name, team, dates, duties, metrics, or architecture.
+// Site content. Only confirmed facts. The day job appears only as
+// "Software Engineer, MLOps / AIOps @ Mobility Global": no team details,
+// dates, duties, metrics, or architecture.
 
 export interface ExperienceEntry {
   title: string
